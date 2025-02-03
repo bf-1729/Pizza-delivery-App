@@ -1,8 +1,8 @@
 const express = require("express")
 const db = require("./db")
-const pizzasRoute = require("./routes/pizzaRoute")
-const userRoute = require("./routes/userRoute")
-const orderRoute = require("./routes/ordersRoute")
+const pizzasRoute = require("./backend/routes/pizzaRoute")
+const userRoute = require("./backend/routes/userRoute")
+const orderRoute = require("./backend/routes/ordersRoute")
 const cors = require("cors")
 
 const app = express()
