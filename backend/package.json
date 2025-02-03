@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-  "start": "react-scripts start",
-  "build": "react-scripts build"
-
+    "start": "node server.js",
+    "server": "nodemon server",
+    "Food_App": "npm start --prefix Food_App",
+    "dev": "concurrently \"npm run server\" \"npm run Food_App\" "
   },
   "author": "Backend",
   "license": "ISC",
@@ -20,8 +21,11 @@
     "framer-motion": "^12.0.6",
     "mongoose": "^8.8.1",
     "razorpay": "^2.9.5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-icons": "^5.3.0",
     "react-loading-skeleton": "^3.5.0",
+    "react-scripts": "^5.0.1",
     "react-stripe-checkout": "^2.6.3",
     "react-toastify": "^11.0.3"
   },
