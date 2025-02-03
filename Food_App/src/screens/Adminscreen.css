@@ -1,0 +1,35 @@
+.adminfunctions .link{
+    color: white;
+    text-decoration: none;
+    padding: 1px;
+}
+.link:hover{
+    text-decoration-line: underline;
+}
+.adminfunctions{
+    display: flex;
+    justify-content: space-around;
+    gap: 100px;
+    padding: 8px 0px;
+    background-color: rgb(12, 12, 99);
+}
+.adminscreen_main{
+    margin-top: 4.9%;
+}
+@media (max-width:768px){
+    .adminscreen_main{
+        margin-top: 12.4%;
+    }
+    .adminfunctions{
+        display:flex;
+        gap: 40px;
+        width: 100%;
+    }
+    .link:hover{
+        text-decoration-line: underline;
+    }
+    .link{
+        font-size: 15px;
+        font-weight: 400;
+    }
+}

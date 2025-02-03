@@ -1,0 +1,90 @@
+/* General Styles */
+.pizza-card {
+    width: 90%;
+    margin: 0 auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .pizza-card:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Pizza Name */
+  .pizza-title {
+    font-weight: 700;
+    font-size: 1.4rem;
+    margin-top: 7%;
+    margin-bottom: 7%;
+    text-align: center;
+  }
+  
+  /* Pizza Image */
+  .pizza-image {
+    height: 240px;
+    width: 240px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    margin: 0 auto;
+    border-radius: 10px;
+  }
+  
+  /* Pizza Details Section */
+  .pizza-details {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Price */
+  .pizza-price {
+    font-size: 1rem;
+    color: #888;
+    margin-bottom: 15px;
+  }
+  
+  /* Dropdowns */
+  .quantity-dropdown {
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .quantity-dropdown:focus {
+    outline: none;
+    border-color: #ff5722;
+  }
+  
+  /* Add to Cart Button */
+  .add-to-cart-btn {
+    background-color: #ff5722;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: 600;
+    transition: background 0.3s ease;
+    margin-left: 34px;
+    cursor: pointer;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #e64a19;
+  }
+  
+  /* Modal Styles */
+  .modal-img {
+    height: 300px;
+    width: 300px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .modal-close-btn {
+    border-radius: 20px;
+    padding: 5px 15px;
+  }
+  

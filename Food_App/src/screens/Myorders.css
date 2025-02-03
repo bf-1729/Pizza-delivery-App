@@ -1,0 +1,149 @@
+/* General Page Styling */
+.order_main {
+  background-color: #fef4e5;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Orders Section Container */
+.order_section {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 10px;
+}
+
+/* Each Order Container */
+.order_container {
+  display: flex;
+  background-color: beige;
+  transition: transform 0.3s ease;
+  border-radius: 10px;
+  padding: 18px;
+  color: #c9d3dd;
+  text-align: left;
+}
+.myorders{
+  color: rgb(92, 85, 85) !important;
+  word-break: break-all;
+  width: 100%;
+  margin-left: 100px;
+}
+.filter-button{
+  margin-left: 70%;
+  background-color: rgb(14, 184, 150);
+  border-style: none;
+  border-radius: 4px;
+  padding: 8px 8px;
+  color: rgb(253, 239, 250);
+}
+.filter-button:hover{
+  background-color: #140f0f;
+}
+
+.order_container:hover {
+  transform: translateY(-5px);
+}
+
+/* Columns Inside Each Order */
+.order_container .column_address {
+  min-width: 300px;
+  margin-left: 48px;
+}
+
+.order_container h1 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+.order_container span,
+.order_container div {
+  color: #140f0f;
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.order_container h1 {
+  font-weight: bold;
+  color: #007bff;
+}
+
+/* Order Status */
+.order_container .d-flex {
+  display: flex;
+  gap: 10px;
+}
+b{
+  color: rgb(135, 127, 127);
+}
+
+.order_container .d-flex div {
+  font-weight: bold;
+}
+
+.order_container .d-flex .delivered {
+  color: green;
+}
+
+.order_container .d-flex .incomplete {
+  color: red;
+}
+
+/* Loading and Error */
+div[role="alert"],
+.order_section > div {
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+}
+
+/* ===== Responsive Design (Keep Desktop Style) ===== */
+@media (max-width: 768px) {
+  .order_container {
+    flex-wrap: wrap; /* Allow slight wrapping but maintain desktop style */
+    padding: 10px;
+    margin-top: 18px;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+  }
+  .order_section{
+    min-width: 520px;
+    margin-left: -20px;
+  }
+  .myorder_pizza{
+    word-break: break-all;
+  }
+
+  .order_container .col-md-3{
+    min-width: 210px; /* Slightly shrink column width */
+    margin: 5px;
+  }
+  .filter-button{
+    margin-left: 67%;
+    font-size: 0.9rem;
+    margin-top: 100px;
+    border-style: none;
+  }
+
+  .order_container h1 {
+    font-size: 16px; /* Reduce heading size for small screens */
+  }
+  .order_date{
+    margin-top: -5%;
+  }
+
+  .order_container span,
+  .order_container div {
+    font-size: 0.94rem; /* Adjust font size for readability */
+  }
+
+  .order_main {
+    margin-top: 4%;
+    padding: 0px;
+  }
+}

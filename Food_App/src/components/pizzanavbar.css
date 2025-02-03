@@ -1,0 +1,43 @@
+.navbarpizza {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #141313; /* Tomato Red for pizza theme */
+    padding: 10px 0;
+    gap: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    z-index: 100;
+    margin-top: 4.8%;
+  }
+  .navs {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem !important;
+    padding: 4px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .navs:hover {
+    background-color: #f97f1b; /* Gold for hover */
+    color: #160a0a;
+  }
+  .navs:hover::after{
+    background-color: #e32528;
+  }
+  
+  /* Add responsiveness for smaller screens */
+  @media (max-width: 768px) {
+    .navbarpizza {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 12%;
+      padding: 4px 0;
+    }
+  
+    .navs {
+      padding: 4px 7px;
+      font-size: 0.8rem !important;
+    }
+  }

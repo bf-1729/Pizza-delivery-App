@@ -1,0 +1,47 @@
+.order_delivered{
+  font-size: 1.1rem;
+  color: green;
+}
+th{
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+@media (max-width:768px){
+  .ordertable_header{
+    font-size: 1rem;
+  }
+  .details{
+    width: 20px;
+  }
+  .details_img{
+    width: 25px;
+  }
+  .order_data{
+    width: 20%;
+  }
+  .order_datas{
+    width: 80%;
+  }
+  .order_header{
+    font-size: 1.2rem;
+  }
+    .order_button{
+      font-weight: 500;
+      width: 120%;
+      font-size: 0.9rem;
+      margin-left: -10%;
+    }.order_delivered{
+        font-size: 0.94rem;
+        text-wrap: nowrap;
+    }
+    .order_table {
+        table-layout:auto;
+        width: 100%; /* Ensures the table spans the full container */
+      }
+      td {
+        font-size: 0.875rem;
+        word-wrap: break-word; /* Allows breaking of long words */
+        word-break: break-word; /* Breaks words that are too long */
+        white-space: normal; /* Enables text wrapping */
+      }
+    }

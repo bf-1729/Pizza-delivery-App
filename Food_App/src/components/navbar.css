@@ -1,0 +1,102 @@
+.navbar{
+  background-color: black;
+  height: 66px;
+}
+.logo{
+  width: 50px;
+}
+.login{
+  color: white !important;
+}
+.dropdown-item:hover{
+  color: white;
+  background-color: black;
+}
+
+.dropdown-menu{
+  background-color: rgb(238, 80, 22);
+}
+.user{
+  color: white;
+  font-size: 1rem;
+}
+.cart_container{
+  color: white;
+  margin-bottom: 19px;
+}
+.cart:hover{
+  color: white;
+}
+.navbar-nav{
+  font-size: 1.1rem;
+  margin-right: 10px;
+}
+.navs_header{
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.cart_icon{
+  font-size: 1.4rem;
+  position: absolute;
+  color: white;
+}
+.count{
+  width: 17px;
+  height: 18px;
+  background-color: rgb(250, 217, 4);
+  border-radius: 10px;
+  position: absolute;
+  right:auto;
+  margin-top: -8px;
+  margin-left: 12px;
+  font-size: 14px;
+  color: rgb(10, 9, 9);
+  padding: 0px 5px;
+}
+
+@media (max-width:768px) {
+  .navs_header{
+    font-size: 1.3rem;
+  }
+  .navbar{
+    font-size: 0.8rem;
+    height: 60px;
+  }
+  .logo{
+    width: 40px;
+  }
+  .cart{
+    width: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    margin-left: 4px;
+    margin-right: -20px;
+  }
+  .user{
+    font-size: 0.9rem;
+  }
+  .navbar-nav{
+    height: 40px;
+    margin-bottom: 7px;
+  }
+  .navbar-brand{
+    margin-left: -21px;
+  }
+  .cart_container{
+    margin-bottom: 0;
+    margin-right: -14px;
+  }
+  .count{
+    margin-bottom: 10px;
+    width: 18px;
+    height: 18px;
+    padding: 0 4px;
+  }
+  .cart_icon{
+    font-size: 1.1rem;
+  }
+  .profile_container{
+    width: 140px;
+  }
+}

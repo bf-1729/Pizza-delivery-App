@@ -1,0 +1,65 @@
+.pizza_section:hover{
+    transform: scale(1.05);
+    transform: scale(1);
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+}
+.main_pizza{
+    background-color: #f4d7d7;
+}
+.pizza_section {
+    height:90vh;
+    color: rgb(242, 220, 245);
+    background-color:rgb(166, 27, 17);
+    background-size: cover;  /* Ensures the background image covers the container */
+    background-position: center;  /* Centers the image */
+    border-bottom: 4px solid rgb(245, 44, 8);
+    border-top: 4px solid rgb(245, 44, 8);
+    border-right: 3px solid rgb(245, 44, 8);
+    border-left: 3px solid rgb(245, 44, 8);
+
+}
+
+.imagess {
+    margin-left: 17%;
+}
+.sections {
+    margin-top: -4%;
+    margin-left: -8%;
+    height: 170px;
+}
+.cart_button{
+    background-color: #ff5722;
+    border: none;
+    padding: 9px 10px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: 600;
+    transition: 0.3s ease;
+    margin-left: 34px;
+    width: 160px;
+    height: 44px;
+}
+
+@media (max-width: 768px) {
+    .pizza_section {
+        height: 85vh;  /* Using viewport height for better responsiveness */
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .imagess {
+        margin-left: 15%;
+        border: 1px solid rgb(123, 111, 111);
+    }
+
+    .sections {
+        margin-top: -4%;
+        margin-left: -8%;
+        height: 170px;
+    }
+    .quantity{
+        width: 88px;
+        height: 34px;
+
+    }
+}

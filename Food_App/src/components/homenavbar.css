@@ -1,0 +1,139 @@
+/* 🔹 Desktop Navbar */
+.desktop-navbar {
+    height: 60px;
+    width:1320px;
+    display: flex;
+    justify-content:center;
+    align-items: flex-start;
+    margin:66px 10px 0 10px;
+    padding: 13px;
+    font-weight: 500;
+    background-color: rgb(252, 226, 226);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: rgb(11, 11, 11);
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* 🔹 Mobile Navbar (Toggler Button) */
+.mobile-navbar {
+    padding: 8px;
+    text-align: left;
+    display: none; /* Hide by default */
+}
+
+.navbar-toggler {
+    font-size: 24px;
+    color: rgb(21, 7, 38);
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 7px;
+}
+
+/*Sidebar (Hidden by Default) */
+.sidebar {
+    position: fixed;
+    top: 60px;
+    left: -250px; /* Hidden initially */
+    width: 250px;
+    height: 100%;
+    background-color: black;
+    transition: left 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    z-index: 1001;
+}
+.navbar_item{
+    width: 180px;
+    height: 100px;
+}
+.sidebar.open {
+    left: 0; /* Sidebar appears */
+}
+.navbar_item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px;
+    border-radius: 30px;
+    height: 40px;
+}
+.navbar_item:hover{
+    color: white;
+    background-color: #ef1d0e;
+}
+
+.sidebar-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 20px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* 🔹 Sidebar Menu */
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    padding: 10px 20px;
+    margin-top: 8px;
+}
+
+.sidebar-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    display: block;
+    height: 30px;
+}
+
+.sidebar-link:hover {
+    background-color: rgba(242, 13, 13, 0.954);
+    border-radius: 5px;
+    color: white;
+}
+
+/* 🔹 Sidebar Overlay */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* 🔹 Mobile-Only Styles */
+@media (max-width: 768px) {
+    .mobile-navbar {
+        display: block; /* Show mobile navbar */
+        margin-top: 58px;
+        margin-bottom: -8px;
+        width: 54px;
+        height: 44px;
+        border-radius: 8px;
+    }
+
+    .desktop-navbar {
+        display: none; /* Hide desktop navbar */
+    }
+}

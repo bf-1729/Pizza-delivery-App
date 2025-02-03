@@ -1,0 +1,50 @@
+.view{
+    color: red;
+}
+.body,.header{
+    background-color: rgb(252, 234, 234);
+    width: 120%;
+    margin-left: -10%;
+}
+strong{
+    margin-left: -7%;
+}
+.address_container {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem; /* Adds space between the two address columns */
+    flex-wrap: wrap; /* Allows the text to wrap within the container */
+  }
+  
+  .address_container div {
+    flex: 1; /* Ensures both columns grow equally */
+    min-width: 200px; /* Prevents columns from shrinking too much */
+    word-wrap: break-word; /* Allows breaking within words if needed */
+    word-break: break-word; /* Ensures long words break and wrap properly */
+    overflow-wrap: anywhere; /* Breaks the text at the nearest opportunity */
+  }
+  
+.modal_data{
+    word-break: break-all;
+    margin: 1rem 3rem; /* Adds spacing between lines for better readability */
+  }
+  
+@media (max-width:768px){
+    .body,.header{
+        background-color: rgb(252, 234, 234);
+        width: 100%;
+        margin-left: 0%;
+    }
+    .address_conatiner{
+        display: flex;
+        flex-direction: column;
+    }
+    .modal_data{
+        margin-left: 10%;
+        margin-top: -4px;
+        word-break: break-all;
+    } 
+    td{
+        width: 30%;
+    }
+}

@@ -1,0 +1,62 @@
+.editpizza_main{
+    width: 90%;
+    margin-left: 4%;
+    height: 100vh;
+}
+.edit_button:hover{
+    background-color: rgb(8, 72, 128);
+    color: aliceblue;
+}
+.edit_button{
+    background-color: rgb(9, 6, 86);
+    color: aliceblue;
+    font-weight: 700;
+    font-size: 18px;
+}
+.editpizza_header{
+    display: flex;
+    justify-content: end;
+    gap: 390px;
+    font-size: 1rem;
+}
+.editpizza_ID{
+    font-size: 1.1rem;
+}
+.edit_header{
+    font-size: 1.6rem;
+}
+.cancel_link{
+    text-decoration: none;
+}
+@media (max-width:768px){
+    .edit_header{
+        font-size: 1.2rem;
+    }
+    .editpizza_header{
+        font-size: 1rem;
+        gap: 120px;
+    }
+    .editpizza_ID{
+        font-size: 1.1rem;
+    }
+    .editpizza_main{
+        margin-top: 2%;
+        width: 97%;
+        margin-left: 1%;
+    }
+    .edit_button:hover{
+        background-color: rgb(13, 27, 100);
+        color: aliceblue;
+    }
+    .edit_button{
+        background-color: rgb(32, 28, 160);
+        color: white;
+        font-weight: 500;
+        font-size: 1rem;
+    }
+    .form-control{
+        font-size: 0.9rem;
+        height: fit-content;
+        margin-top: 10%;
+    }
+}

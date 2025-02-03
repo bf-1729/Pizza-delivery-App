@@ -1,0 +1,28 @@
+.userlist{
+    height: 100vh;
+}
+
+@media (max-width:768px){
+    
+    .user_table {
+        margin-left: -4px;
+        overflow-x: scroll;
+        table-layout: fixed;
+        width: 100%; /* Ensures the table spans the full container */
+    }
+    .user_header{
+        font-size: 1.2rem;
+    }
+    td {
+        white-space: ""; /* Prevent wrapping */
+        overflow: ""; /* Hide overflowing content */
+        text-overflow: ""; /* Add ellipsis for overflowed text */
+    }
+    .user_data{
+        width: 29%;
+        font-size: 0.875rem;
+    }
+    .usertable_header{
+        font-size: 1rem;
+    }
+}

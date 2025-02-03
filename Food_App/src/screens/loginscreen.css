@@ -1,0 +1,14 @@
+.login_container,.register_container{
+    margin-top: 10%;
+}
+.headers{
+    color: blue;
+    font-size: 1.5rem;
+}
+@media (max-width:768px){
+    .login_container,.register_container{
+        margin-top: 19%;
+        width: 90%;
+        margin-left: 4%;
+    }
+}
