@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "server": "nodemon server",
-    "Food_App": "npm start --prefix Food_App",
-    "dev": "concurrently \"npm run server\" \"npm run Food_App\" "
+  "start": "react-scripts start",
+  "build": "react-scripts build"
+
   },
   "author": "Backend",
   "license": "ISC",
