@@ -12,6 +12,12 @@
     color: aliceblue;
     font-weight: 700;
     font-size: 18px;
+    border-style: none;
+    border-radius: 4px;
+    padding: 6px 0;
+}
+.edit_button:hover{
+    background-color: black;
 }
 .editpizza_header{
     display: flex;

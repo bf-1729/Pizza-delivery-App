@@ -1,12 +1,11 @@
 import axios from "axios"
+import {toast} from "react-toastify"
 export const registerUser = (user)=> async dispatch =>{
     dispatch({type:"USER_REGISTER_REQUEST"})
-
     try{
         const response = await axios.post("http://localhost:4000/api/users/register",user)
         console.log(response)
         dispatch({type:"USER_REGISTER_SUCCESS",payload : response.data})
-        
     }catch(error){
         dispatch({type:"USER_REGISTER_FAILED",payload : error})
     }
@@ -14,10 +13,8 @@ export const registerUser = (user)=> async dispatch =>{
 
 export const loginUser = (user) => async dispatch=>{
     dispatch({type : "USER_LOGIN_REQUEST"})
-
     try{
         const response = await axios.post("http://localhost:4000/api/users/login",user)
-        console.log(response)
         dispatch({type : "USER_LOGIN_SUCCESS",payload : response.data})
         localStorage.setItem("currentUser",JSON.stringify(response.data))
         window.location.href = "/"
@@ -35,8 +32,6 @@ export const getAllUsers = ()=>async dispatch=>{
     dispatch({type:"GET_USERS_REQUEST"})
     try{
         const response = await axios.get("http://localhost:4000/api/users/getallusers");
-        
-        console.log("API response:", response.data);
         dispatch({type:"GET_USERS_SUCCESS",payload : response.data})
     }catch(error){
         dispatch({type:"GET_USERS_FAILED",payload:error})
@@ -46,12 +41,11 @@ export const getAllUsers = ()=>async dispatch=>{
 export const deleteUser = (userid) => async dispatch=>{
     try{
         await axios.post("http://localhost:4000/api/users/deleteuser",{userid})
-        alert("User Deleted Successfully")
-        window.location.reload()
+        toast.success("User deleted successfully")
     }
     catch(error){
-        alert("Something went wrong")
         console.log(error)
+        toast.error("User not deleted.Try Again!")
     }
 }
 

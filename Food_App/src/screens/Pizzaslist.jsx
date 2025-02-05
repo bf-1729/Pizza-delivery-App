@@ -58,7 +58,9 @@ function Pizzaslist() {
         if (choice === 'Paneer Pizzas') return paneerpizzas || [];
         if (choice === 'Mushroom Pizzas') return mushroompizzas || [];
         if (choice === 'Nonveg Pizzas') return pizzas?.filter((pizza) => pizza.category === 'Nonveg') || [];
+        
         return pizzas || [];
+        
     };
 
     const filteredPizzas = getFilteredPizzas();
@@ -72,13 +74,15 @@ function Pizzaslist() {
                         <option value={type} key={type}>{type}</option>
                     ))}
                 </select>
+                <div className='pizzalist_headers'>
                 <h2 className='pizzalists_name'>{choice}</h2>
-                <h4 className='pizza_counts'>Total Pizzas : <span style={{color:"red"}}>{filteredPizzas.length}</span></h4>
+                <h4 className='pizza_counts'>Total Pizzas : <span>{filteredPizzas.length}</span></h4>
+                </div>
             </div>
             {loading && <Loading />}
             {error && <Error message={error} />}
             {!loading && !error && (
-                <table className="table justify-content-center">
+                <table className="table">
                     <thead className="table-dark">
                         <tr className='table_headers'>
                             <th>Name</th>

@@ -1,26 +1,37 @@
 import React, { useEffect, useState } from 'react';
-import { UserAddress } from '../actions/orderActions';
+import { UserAddress, deliverOrder } from '../actions/orderActions';
 import { useDispatch, useSelector } from 'react-redux';
-import { deliverOrder } from '../actions/orderActions';
 import './orderssscreen.css';
-import Modalbootstrap from './modalbootstrap';
+import Modalbootstrap from '../screens/Modalbootstrap';
 
 function Orderscreen() {
   const dispatch = useDispatch();
   const [activeOrder, setActiveOrder] = useState(null);
 
+  // Fetch User Orders on Component Mount
   useEffect(() => {
     dispatch(UserAddress());
   }, [dispatch]);
 
+  // Fetch Updated Orders When an Order is Delivered
+  useEffect(() => {
+    dispatch(UserAddress());
+  }, [activeOrder]);
+
   const addressstate = useSelector((state) => state.UserAddressReducer);
   const { Useraddress = [], loading, error } = addressstate;
 
+  // Debugging Logs
+  console.log("User Orders Data:", Useraddress);
+
   const handleDeliver = (orderId) => {
-    dispatch(deliverOrder(orderId));
+    dispatch(deliverOrder(orderId)).then(() => {
+      dispatch(UserAddress()); // Refetch orders after marking as delivered
+    });
   };
 
   const openModal = (order) => {
+    console.log("Opening Modal for Order:", order);
     setActiveOrder(order);
   };
 
@@ -32,7 +43,7 @@ function Orderscreen() {
   if (error) return <div>{error}</div>;
 
   return (
-    <div>
+    <div className='orderlist'>
       <h2 className="order_header">Orders</h2>
       <table className="order_table table col-md-10">
         <thead className="table-dark">
@@ -46,41 +57,49 @@ function Orderscreen() {
           </tr>
         </thead>
         <tbody className="body">
-          {Useraddress.map((item) => (
-            <tr className="row_data" key={item._id}>
-              <td className="order_data">{item._id}</td>
-              <td className="order_data">{item.currentUser.email}</td>
-              <td className="order_data">{item.currentUser._id}</td>
-              <td className="order_datas">
-                {new Date(item.createdAt).toLocaleString()}
-              </td>
-              <td>
-                <button
-                  style={{ backgroundColor: 'white', border: 'none' }}
-                  onClick={() => openModal(item)}
-                >
-                  <img
-                    className="details_img"
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdiCPwnP4te78eCU5N84jP4N16qdqoMdtbCw&s"
-                    alt="Order Details"
-                    width="30px"
-                  />
-                </button>
-              </td>
-              <td className="order_data">
-                {item.isDelivered ? (
-                  <h1 className="order_delivered">Delivered</h1>
-                ) : (
+          {Useraddress.length > 0 ? (
+            Useraddress.map((item) => (
+              <tr className="row_data" key={item._id}>
+                <td className="order_data">{item._id}</td>
+                <td className="order_data">{item.currentUser.email}</td>
+                <td className="order_data">{item.currentUser._id}</td>
+                <td className="order_datas">
+                  {new Date(item.createdAt).toLocaleString()}
+                </td>
+                <td>
                   <button
-                    className="btn order_button btn-danger text-white"
-                    onClick={() => handleDeliver(item._id)}
+                    style={{ backgroundColor: 'white', border: 'none' }}
+                    onClick={() => openModal(item)}
                   >
-                    Deliver
+                    <img
+                      className="details_img"
+                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdiCPwnP4te78eCU5N84jP4N16qdqoMdtbCw&s"
+                      alt="Order Details"
+                      width="30px"
+                    />
                   </button>
-                )}
+                </td>
+                <td className="order_data">
+                  {item.isDelivered ? (
+                    <h1 className="order_delivered">Delivered</h1>
+                  ) : (
+                    <button
+                      className="btn order_button btn-danger text-white"
+                      onClick={() => handleDeliver(item._id)}
+                    >
+                      Deliver
+                    </button>
+                  )}
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="6" className="text-center">
+                No Orders Found
               </td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
 

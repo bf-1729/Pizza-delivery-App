@@ -8,13 +8,13 @@
 }
 .adminfunctions{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     gap: 100px;
-    padding: 8px 0px;
+    padding: 10px;
     background-color: rgb(12, 12, 99);
 }
 .adminscreen_main{
-    margin-top: 4.9%;
+    margin-top: 60px;
 }
 @media (max-width:768px){
     .adminscreen_main{

@@ -1,47 +1,95 @@
-.order_delivered{
-  font-size: 1.1rem;
+/* General Styling */
+.orderlist {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.order_header {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+/* Table Styling */
+.order_table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order_table th,
+.order_table td {
+  border: 2px solid #e3d5d5;
+  padding: 10px;
+  text-align: center;
+}
+
+.order_table th {
+  background-color: #333;
+  color: white;
+}
+
+.order_table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Order Status */
+.order_delivered {
   color: green;
+  font-size: 1rem;
+  font-weight: bold;
 }
-th{
-  font-weight: 400;
-  font-size: 0.9rem;
+
+.order_button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  transition: 0.3s;
 }
-@media (max-width:768px){
-  .ordertable_header{
-    font-size: 1rem;
+
+.order_button:hover {
+  background-color: #ff4d4d;
+}
+
+/* Order Details Button */
+.details_img {
+  width: 30px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.details_img:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .orderlist {
+    padding: 2px;
   }
-  .details{
-    width: 20px;
+
+  .order_header {
+    font-size: 1.3rem;
   }
-  .details_img{
-    width: 25px;
+
+  .order_table {
+    font-size: 0.875rem;
+    overflow-x: auto;
+    display: block;
+    white-space: nowrap;
   }
-  .order_data{
-    width: 20%;
+  .order_delivered{
+    font-size: 0.875rem;
   }
-  .order_datas{
-    width: 80%;
+
+  .order_table th,
+  .order_table td {
+    padding: 8px;
   }
-  .order_header{
-    font-size: 1.2rem;
+
+  .order_button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
   }
-    .order_button{
-      font-weight: 500;
-      width: 120%;
-      font-size: 0.9rem;
-      margin-left: -10%;
-    }.order_delivered{
-        font-size: 0.94rem;
-        text-wrap: nowrap;
-    }
-    .order_table {
-        table-layout:auto;
-        width: 100%; /* Ensures the table spans the full container */
-      }
-      td {
-        font-size: 0.875rem;
-        word-wrap: break-word; /* Allows breaking of long words */
-        word-break: break-word; /* Breaks words that are too long */
-        white-space: normal; /* Enables text wrapping */
-      }
-    }
+}

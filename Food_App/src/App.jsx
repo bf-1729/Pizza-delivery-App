@@ -20,9 +20,10 @@ import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   return (
-    <div style={{backgroundColor:"rgb(253, 224, 224)"}}>
+    <div style={{backgroundColor:"rgb(253, 224, 224)",height:"fit-content"}}>
+      <ToastContainer/>
       <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
-        <ToastContainer/>
+
       <Routes>
         <Route path='/cart/address' element={<Addressscreen/>}></Route>
         <Route path='/nonvegpizza' element={<Nonvegs/>}></Route>

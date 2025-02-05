@@ -1,4 +1,5 @@
 import axios from "axios"
+import { toast } from "react-toastify";
 export const getAllPizzas = ()=>async dispatch=>{
     dispatch({type:"GET_PIZZAS_REQUEST"})
     try{const response = await axios.get("http://localhost:4000/api/pizzas/getallpizzas");
@@ -91,12 +92,12 @@ export const addPizza = (pizza)=>  async dispatch =>{
     dispatch({type:"ADD_PIZZA_REQUEST"})
     try{
         const response = await axios.post('http://localhost:4000/api/pizzas/addpizza',{pizza})
-        console.log(response)
         dispatch({type:"ADD_PIZZA_SUCCESS",payload : response.data})
-        window.location.href="/admin/pizzaslist"
+        toast.success("Pizza Added Successfully")
     }
     catch(error){
         dispatch({type:"ADD_PIZZA_FAILED",payload:error})
+        toast.error("Pizza Adding Failed. Try Again")
     }
 }
 
@@ -106,7 +107,6 @@ export const editPizza = (editedpizza)=>  async dispatch =>{
         const response = await axios.post('http://localhost:4000/api/pizzas/editpizza',{editedpizza})
         console.log(response)
         dispatch({type:"EDIT_PIZZA_SUCCESS",payload : response.data})
-        window.location.href = "/admin/pizzaslist"
     }
     catch(error){
         dispatch({type:"EDIT_PIZZA_FAILED",payload:error})
@@ -115,12 +115,9 @@ export const editPizza = (editedpizza)=>  async dispatch =>{
 
 export const deletePizza = (pizzaid)=> async dispatch =>{
     try{
-        const response = await axios.post("http://localhost:4000/api/pizzas/deletepizza",{pizzaid})
-        alert("Pizza Deleted Successfully");
-        console.log(response)
-        window.location.reload()
+        axios.post("http://localhost:4000/api/pizzas/deletepizza",{pizzaid})
+        toast.success("Pizza deleted successfully")
     }catch(error){
-        alert("Something went wron")
-        console.log(error)
+        toast.error("Something went wrong! Try Again")
     }
 }

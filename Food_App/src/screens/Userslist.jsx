@@ -8,30 +8,31 @@ import "./userslist.css";
 function Userslist() {
   const dispatch = useDispatch();
   const [visibleUsers, setVisibleUsers] = useState([]); // Track visible users
-  const [userIndex, setUserIndex] = useState(0); // Keep track of the current user index
 
   const userstate = useSelector(state => state.getAllUsersReducer);
-  const { error, loading, users } = userstate;
+  const { error, loading, users = [] } = userstate; // Ensure users is always an array
 
   useEffect(() => {
     dispatch(getAllUsers());
   }, [dispatch]);
 
-  // Logic to display users one by one
+  // Show users one by one
   useEffect(() => {
-    if (users.length > 0) {
-      const interval = setInterval(() => {
-        if (userIndex < users.length) {
-          setVisibleUsers(prevUsers => [...prevUsers, users[userIndex]]);
-          setUserIndex(prevIndex => prevIndex + 1);
-        } else {
-          clearInterval(interval); // Stop the interval once all users are displayed
-        }
-      }, 10); // 1000ms (1 second) delay between showing each user
+    setVisibleUsers([]); // Reset users when new data arrives
+    let index = 0;
 
-      return () => clearInterval(interval); // Cleanup the interval when component unmounts
+    function showNextUser() {
+      if (index < users.length) {
+        setVisibleUsers(prevUsers => [...prevUsers, users[index]]);
+        index++;
+        setTimeout(showNextUser, 10); // 10ms delay between showing each user
+      }
     }
-  }, [users, userIndex]);
+
+    if (users.length > 0) {
+      showNextUser();
+    }
+  }, [users]);
 
   const handleDelete = (userId) => {
     const isConfirmed = window.confirm("Are you sure you want to delete this user?");
@@ -56,21 +57,30 @@ function Userslist() {
           </tr>
         </thead>
         <tbody className='usertable_data'>
-          {visibleUsers && visibleUsers.map(user => (
-            <tr key={user._id}>
-              <td className='user_data'>{user._id}</td>
-              <td className='user_data'>{user.name}</td>
-              <td className='user_data'>{user.email}</td>
-              <td style={{ textAlign: "right" }}>
-                <i
-                  style={{ color: "red", cursor: "pointer" }}
-                  className='fa fa-trash'
-                  onClick={() => handleDelete(user._id)}
-                />
-              </td>
-            </tr>
-          ))}
-        </tbody>
+  {visibleUsers && visibleUsers.length > 0 ? (
+    visibleUsers.map(user => 
+      user ? (
+        <tr key={user._id}>
+          <td className='user_data'>{user._id}</td>
+          <td className='user_data'>{user.name}</td>
+          <td className='user_data'>{user.email}</td>
+          <td>
+            <i
+              style={{ color: "red", cursor: "pointer" }}
+              className='fa fa-trash'
+              onClick={() => handleDelete(user._id)}
+            />
+          </td>
+        </tr>
+      ) : null
+    )
+  ) : (
+    <tr>
+      <td colSpan="4" style={{ textAlign: "center" }}>No users found</td>
+    </tr>
+  )}
+</tbody>
+
       </table>
     </div>
   );

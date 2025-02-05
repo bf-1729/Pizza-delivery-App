@@ -1,7 +1,7 @@
 :root {
     --primary-color:rgb(22, 10, 247);
     --text-color: rgb(14, 15, 16);
-    --border-color: rgb(26, 6, 6);
+    --border-color: rgb(177, 154, 154);
     --highlight-color: rgb(215, 44, 32);
     --border-radius: 18px;
     --padding-small: 4px 30px;
@@ -13,13 +13,12 @@
 .country_selectors,
 .state_selectors,
 .pincode {
-    border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
     padding: var(--padding-small);
     height: var(--input-height);
     font-size: 0.8rem !important;
-    width: 150%;
     box-sizing: border-box;
+    border-radius: 4px;
 }
 
 .address_button {
@@ -45,19 +44,26 @@
     background-color: white;
 }
 
-.country_selectors,
-.state_selectors {
-    background-color:gainsboro;
+.country_selectors {
     color: var(--text-color);
     cursor: pointer;
     width: 100%;
     padding: 1px 10px;
     font-size: 1rem !important;
+    border-radius: 4px;
+}
+.state_selectors{
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 1px 10px;
+    font-size: 1rem !important;
+    border-radius: 4px;
+    width: 100%;
 }
 .input_vals{
     padding: 4px 9px;
     border-radius: 4px;
-    border: 1px solid black;
+    border: 1px solid rgb(121, 110, 110);
     height: 32px;
     font-size: 1rem;
 }
@@ -88,9 +94,9 @@ label {
 }
 
 .footer_container {
+    width: 100%;
     display: flex;
-    justify-content: center;
-    gap: 100px;
+    gap: 40px;
 }
 
 .header_text {
@@ -123,7 +129,6 @@ label {
 
     .footer_container {
         gap: 10px;
-        margin-left: -20px;
     }
 
     .address_button {
@@ -136,10 +141,9 @@ label {
         font-size: 1.3rem;
     }
     .state_selectors{
-        width: 110%;
+        width: 100%;
     }
     .pincode{
-        width: 100%;
         display: flex;
         flex-direction: row;
     }

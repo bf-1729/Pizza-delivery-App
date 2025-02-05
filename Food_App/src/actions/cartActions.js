@@ -25,7 +25,6 @@ export const addToCart = (pizza,quantity,varient)=> (dispatch,getState)=>{
 }
 
 export const deleteFromCart = (pizza) => (dispatch,getState)=>{
-
     dispatch({type:"DELETE_FROM_CART",payload:pizza})
     const cartItems = getState().cartReducer.cartItems
     localStorage.setItem("cartItems",JSON.stringify(cartItems))

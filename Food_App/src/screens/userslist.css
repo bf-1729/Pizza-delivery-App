@@ -1,22 +1,28 @@
 .userlist{
     height: 100vh;
+    max-width: 1200;
+}
+.usertable td,
+.usertable th{
+    border: 2px solid #e3d5d5;
+  padding: 10px;
+  text-align: center;
+}
+.user_header{
+    text-align: center;
+  font-size: 1.5rem;
+  margin-top: 20px;
 }
 
 @media (max-width:768px){
-    
-    .user_table {
-        margin-left: -4px;
-        overflow-x: scroll;
-        table-layout: fixed;
-        width: 100%; /* Ensures the table spans the full container */
-    }
     .user_header{
         font-size: 1.2rem;
     }
-    td {
-        white-space: ""; /* Prevent wrapping */
-        overflow: ""; /* Hide overflowing content */
-        text-overflow: ""; /* Add ellipsis for overflowed text */
+    .user_data {
+        font-size: 0.875rem;
+        word-wrap: break-word; /* Allows breaking of long words */
+        word-break: break-word; /* Breaks words that are too long */
+        white-space: normal;
     }
     .user_data{
         width: 29%;
@@ -24,5 +30,6 @@
     }
     .usertable_header{
         font-size: 1rem;
+        text-align: center;
     }
 }

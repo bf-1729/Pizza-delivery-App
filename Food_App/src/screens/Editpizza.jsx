@@ -86,7 +86,7 @@ const Editpizza = () => {
                     <input className='form-control m-1' type='text' placeholder='Image URL' value={image} onChange={(e) => setImage(e.target.value)}></input>
                     <input className='form-control m-1' type='text' placeholder='description' value={description} onChange={(e) => setDescription(e.target.value)}></input>
                     <input className='form-control m-1' type='text' placeholder='category' value={category} onChange={(e) => setCategory(e.target.value)}></input>
-                    <button className='btn edit_button m-1 w-100'>Edit Pizza</button>
+                    <button className='edit_button m-1 w-100'>Edit Pizza</button>
                 </form>
             </div>
         </div>

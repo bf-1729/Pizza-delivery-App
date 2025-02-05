@@ -7,7 +7,6 @@ import { addToCart } from '../actions/cartActions';
 import { loginUser } from '../actions/userActions';
 import { toast } from 'react-toastify';
 
-
 function Addressscreen() {
   useEffect(()=>{
     dispatch(addToCart)
@@ -40,8 +39,16 @@ function Addressscreen() {
 
   const [errors, setErrors] = useState({});
 
-  const states = ['Andaman', 'West Bengal', 'Tamil Nadu', 'Bihar'];
-  const countries = ['India', 'USA', 'Singapore', 'New Zealand'];
+  const states = [
+    'Andaman and Nicobar Islands', 'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 
+    'Bihar', 'Chandigarh', 'Chhattisgarh', 'Dadra and Nagar Haveli and Daman and Diu', 
+    'Delhi', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 
+    'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya', 'Mizoram', 
+    'Nagaland', 'Odisha', 'Puducherry', 'Punjab', 'Rajasthan', 'Sikkim', 'Tamil Nadu', 
+    'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal'
+  ];
+  
+  const countries = ['India'];
 
   // Validation logic
   const validate = () => {
@@ -79,8 +86,7 @@ function Addressscreen() {
     };
     dispatch(AddressUser(address));
     localStorage.removeItem('cartItems')
-    window.location.href = '/'; // Redirect after successful submission
-    toast.success("Order Placed Successfully")
+    window.location.href = '/myorders'; // Redirect after successful submission
   };
 
   return (

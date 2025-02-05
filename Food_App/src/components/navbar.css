@@ -2,6 +2,9 @@
   background-color: black;
   height: 66px;
 }
+.navbar-brand{
+  width: auto;
+}
 .logo{
   width: 50px;
 }
@@ -89,14 +92,11 @@
   }
   .count{
     margin-bottom: 10px;
-    width: 18px;
-    height: 18px;
+    width: 17px;
+    height: 17px;
     padding: 0 4px;
   }
   .cart_icon{
-    font-size: 1.1rem;
-  }
-  .profile_container{
-    width: 140px;
+    font-size: 1.2rem;
   }
 }

@@ -36,7 +36,7 @@ function Navbar() {
 
                   <li>
                     {currentUser.isAdmin ? (
-                      <Link to={"/admin"} className="dropdown-item">Admin Panel</Link>) : (<span></span>)}
+                      <Link to={"/admin/userslist"} className="dropdown-item">Admin Panel</Link>) : (<span></span>)}
                   </li>
 
                   <li>
