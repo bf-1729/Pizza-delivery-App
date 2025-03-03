@@ -11,4 +11,4 @@ const fruitpizzaSchema = new mongoose.Schema({
     timestamps:true
 })
 
-module.exports = mongoose.model("fruitpizza",fruitpizzaSchema)
+module.exports = mongoose.model("fruit-pizza",fruitpizzaSchema)

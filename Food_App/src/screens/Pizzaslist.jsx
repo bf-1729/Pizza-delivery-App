@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllPizzas, deletePizza, getAllVegPizzas,getAllNonVegPizzas,getAllFruitPizzas,getAllParathaPizzas,getAllPaneerPizzas,getAllMushroomPizzas } from '../actions/PizzaActions';
+import { 
+    getAllPizzas, deletePizza, getAllVegPizzas, 
+    getAllNonVegPizzas, getAllFruitPizzas, 
+    getAllParathaPizzas, getAllPaneerPizzas, 
+    getAllMushroomPizzas 
+} from '../actions/PizzaActions';
 import { Link } from 'react-router-dom';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
-import "./pizzlists.css"
+import "./pizzlists.css";
 
 function Pizzaslist() {
     const [choice, setChoice] = useState('Homescreen');
-    const pizzaTypes = ["Homescreen", "Veg Pizzas", "Nonveg Pizzas","Fruit Pizzas","Paratha Pizzas","Paneer Pizzas","Mushroom Pizzas"];
+    
+    const pizzaTypes = [
+        "Homescreen", "Veg Pizzas", "Nonveg Pizzas",
+        "Fruit Pizzas", "Paratha Pizzas", "Paneer Pizzas", "Mushroom Pizzas"
+    ];
+
     const dispatch = useDispatch();
 
     const pizasstate = useSelector((state) => state.getAllPizzasReducer);
@@ -18,6 +28,7 @@ function Pizzaslist() {
     const parathapizzastate = useSelector((state) => state.getAllParathaPizzasReducer);
     const paneerpizzastate = useSelector((state) => state.getAllPaneerPizzasReducer);
     const mushroompizzastate = useSelector((state) => state.getAllMushroomPizzasReducer);
+
     const { pizzas, error, loading } = pizasstate;
     const { nonvegpizzas } = nonvegpizzastate;
     const { vegpizzas } = vegpizzastate;
@@ -27,40 +38,27 @@ function Pizzaslist() {
     const { mushroompizzas } = mushroompizzastate;
 
     useEffect(() => {
-        if (choice === 'Nonveg Pizzas') {
-            dispatch(getAllNonVegPizzas());
-        } 
-        else if(choice === 'Veg Pizzas'){
-            dispatch(getAllVegPizzas());
-        }
-        else if(choice === 'Fruit Pizzas'){
-            dispatch(getAllFruitPizzas());
-        }
-        else if(choice === 'Paratha Pizzas'){
-            dispatch(getAllParathaPizzas());
-        }
-        else if(choice === 'Paneer Pizzas'){
-            dispatch(getAllPaneerPizzas());
-        }
-        else if(choice === 'Mushroom Pizzas'){
-            dispatch(getAllMushroomPizzas());
-        }
-        else {
-            dispatch(getAllPizzas());
+        switch (choice) {
+            case 'Nonveg Pizzas': dispatch(getAllNonVegPizzas()); break;
+            case 'Veg Pizzas': dispatch(getAllVegPizzas()); break;
+            case 'Fruit Pizzas': dispatch(getAllFruitPizzas()); break;
+            case 'Paratha Pizzas': dispatch(getAllParathaPizzas()); break;
+            case 'Paneer Pizzas': dispatch(getAllPaneerPizzas()); break;
+            case 'Mushroom Pizzas': dispatch(getAllMushroomPizzas()); break;
+            default: dispatch(getAllPizzas());
         }
     }, [dispatch, choice]);
 
     const getFilteredPizzas = () => {
-        if (choice === 'Nonveg Pizzas') return nonvegpizzas || [];
-        if (choice === 'Veg Pizzas') return vegpizzas || [];
-        if (choice === 'Fruit Pizzas') return fruitpizzas || [];
-        if (choice === 'Paratha Pizzas') return parathapizzas || [];
-        if (choice === 'Paneer Pizzas') return paneerpizzas || [];
-        if (choice === 'Mushroom Pizzas') return mushroompizzas || [];
-        if (choice === 'Nonveg Pizzas') return pizzas?.filter((pizza) => pizza.category === 'Nonveg') || [];
-        
-        return pizzas || [];
-        
+        switch (choice) {
+            case 'Nonveg Pizzas': return nonvegpizzas || [];
+            case 'Veg Pizzas': return vegpizzas || [];
+            case 'Fruit Pizzas': return fruitpizzas || [];
+            case 'Paratha Pizzas': return parathapizzas || [];
+            case 'Paneer Pizzas': return paneerpizzas || [];
+            case 'Mushroom Pizzas': return mushroompizzas || [];
+            default: return pizzas || [];
+        }
     };
 
     const filteredPizzas = getFilteredPizzas();
@@ -68,19 +66,22 @@ function Pizzaslist() {
     return (
         <div className='main'>
             <div className='pizzaslists'>
-                
                 <select className='pizza_choices' value={choice} onChange={(e) => setChoice(e.target.value)}>
                     {pizzaTypes.map((type) => (
                         <option value={type} key={type}>{type}</option>
                     ))}
                 </select>
                 <div className='pizzalist_headers'>
-                <h2 className='pizzalists_name'>{choice}</h2>
-                <h4 className='pizza_counts'>Total Pizzas : <span>{filteredPizzas.length}</span></h4>
+                    <h2 className='pizzalists_name'>{choice}</h2>
+                    <h4 className='pizza_counts'>
+                        Total Pizzas : <span>{filteredPizzas.length}</span>
+                    </h4>
                 </div>
             </div>
+
             {loading && <Loading />}
             {error && <Error message={error} />}
+            
             {!loading && !error && (
                 <table className="table">
                     <thead className="table-dark">

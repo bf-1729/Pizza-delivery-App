@@ -4,7 +4,6 @@ body {
     padding: 0;
   }
   
-  /* Navbar Styling */
   .navbar {
     background-color: #333;
     color: white;
@@ -12,12 +11,14 @@ body {
     text-align: center;
   }
   
-  /* Search Bar */
   .container {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 20px 0;
+  }
+  .home_heading{
+    font-size: 0.8rem !important;
   }
   
   .container .form-control {

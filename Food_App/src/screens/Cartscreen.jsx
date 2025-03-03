@@ -18,8 +18,12 @@ const Cartscreen = () => {
   console.log(subtotal)
   const handleProceedToCheckout = () => {
     if (cartItems && cartItems.length > 0) {
-        // Navigate to the address page
+      const exist = localStorage.getItem("currentUser")
+      if(exist){
         navigate("/cart/address");
+      }else{
+        toast.error("Please login")
+      }
     } else {
       toast.error("add items to proceed")
     }
@@ -105,7 +109,7 @@ const Cartscreen = () => {
           </div>
         </div>
         <div className="text-center cart_header fixed-bottom">
-          <h2>Sub Total : ₹{subtotal}/-</h2>
+          <h2 className='subtotal'>Sub Total : ₹{subtotal}/-</h2>
           <button
           className='cart_button btn btn-primary'
           onClick={handleProceedToCheckout}>Place order</button>

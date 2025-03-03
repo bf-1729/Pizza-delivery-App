@@ -1,10 +1,16 @@
 const mongoose = require("mongoose")
+const dotenv = require("dotenv")
 
+dotenv.config()
 
-mongoose.connect("mongodb://localhost:27017/FoodAppDB")
-.then(()=>{
-    console.log("Mongodb connection successful")
-})
-.catch(()=>{
-    console.log("Mongodb connection failed")
-})
+const connectDB = async()=>{
+    try{
+        mongoose.connect(process.env.MONGO_URI)
+        console.log("MongoDB Connected Successfully");
+    }
+    catch(error){
+        console.log(error.message)
+    }
+}
+
+module.exports = connectDB;

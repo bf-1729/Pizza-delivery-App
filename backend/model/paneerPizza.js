@@ -11,4 +11,4 @@ const paneerpizzaSchema = new mongoose.Schema({
     timestamps:true
 })
 
-module.exports = mongoose.model("paneerpizza",paneerpizzaSchema)
+module.exports = mongoose.model("paneer-pizza",paneerpizzaSchema)

@@ -1,4 +1,4 @@
-/* 🔹 Desktop Navbar */
+
 .desktop-navbar {
     height: 60px;
     width:1320px;
@@ -25,11 +25,10 @@
     font-size: 18px;
 }
 
-/* 🔹 Mobile Navbar (Toggler Button) */
 .mobile-navbar {
     padding: 8px;
     text-align: left;
-    display: none; /* Hide by default */
+    display: none;
 }
 
 .navbar-toggler {
@@ -41,11 +40,10 @@
     margin-left: 7px;
 }
 
-/*Sidebar (Hidden by Default) */
 .sidebar {
     position: fixed;
     top: 60px;
-    left: -250px; /* Hidden initially */
+    left: -250px;
     width: 250px;
     height: 100%;
     background-color: black;
@@ -60,7 +58,7 @@
     height: 100px;
 }
 .sidebar.open {
-    left: 0; /* Sidebar appears */
+    left: 0;
 }
 .navbar_item{
     display: flex;
@@ -86,15 +84,13 @@
     cursor: pointer;
 }
 
-/* 🔹 Sidebar Menu */
 .sidebar-menu {
     list-style-type: none;
     padding: 0;
 }
 
 .sidebar-menu li {
-    padding: 10px 20px;
-    margin-top: 8px;
+    padding: 0px 20px;
 }
 
 .sidebar-link {
@@ -103,6 +99,8 @@
     font-size: 1rem;
     display: block;
     height: 30px;
+    padding: 4px;
+    margin-top: 24px;
 }
 
 .sidebar-link:hover {
@@ -111,7 +109,6 @@
     color: white;
 }
 
-/* 🔹 Sidebar Overlay */
 .sidebar-overlay {
     position: fixed;
     top: 0;
@@ -122,18 +119,26 @@
     z-index: 1000;
 }
 
-/* 🔹 Mobile-Only Styles */
 @media (max-width: 768px) {
     .mobile-navbar {
-        display: block; /* Show mobile navbar */
-        margin-top: 58px;
-        margin-bottom: -8px;
+        display: block;
+        margin-top: 62px;
+        margin-bottom: -4px;
         width: 54px;
         height: 44px;
         border-radius: 8px;
     }
+    .navbar-toggler{
+        border: 2px solid black;
+        padding-left: 6px;
+        top: auto;
+        text-align: left;
+        width: 44px;
+        border-radius: 4px;
+        margin-left: 10px;
+    }
 
     .desktop-navbar {
-        display: none; /* Hide desktop navbar */
+        display: none;
     }
 }

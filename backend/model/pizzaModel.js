@@ -11,4 +11,4 @@ const pizzaSchema = new mongoose.Schema({
     timestamps:true
 })
 
-module.exports = mongoose.model("pizza",pizzaSchema)
+module.exports = mongoose.model("homescreen-pizza",pizzaSchema)

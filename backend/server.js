@@ -1,10 +1,10 @@
 const express = require("express")
-const db = require("./db")
+const connectDB = require("./db")
 const pizzasRoute = require("./routes/pizzaRoute")
 const userRoute = require("./routes/userRoute")
 const orderRoute = require("./routes/ordersRoute")
 const cors = require("cors")
-
+connectDB()
 const app = express()
 app.use(express.json({ limit: '10mb' })); // Increase JSON size limit
 app.use(express.urlencoded({ limit: '10mb', extended: true })); // Increase URL-encoded data limit

@@ -11,4 +11,4 @@ const mushroompizzaSchema = new mongoose.Schema({
     timestamps:true
 })
 
-module.exports = mongoose.model("mushroompizza",mushroompizzaSchema)
+module.exports = mongoose.model("mushroom-pizza",mushroompizzaSchema)

@@ -1,9 +1,13 @@
 .navbar{
-  background-color: black;
+  background-color: black !important;
   height: 66px;
 }
-.navbar-brand{
-  width: auto;
+.navbar_container{
+  display: flex;
+  justify-content:space-between;
+  width: 98%;
+  padding: 0 2%;
+  height: auto;
 }
 .logo{
   width: 50px;
@@ -25,14 +29,13 @@
 }
 .cart_container{
   color: white;
-  margin-bottom: 19px;
+  margin-top: 17px;
 }
 .cart:hover{
   color: white;
 }
 .navbar-nav{
   font-size: 1.1rem;
-  margin-right: 10px;
 }
 .navs_header{
   font-size: 1.5rem;
@@ -49,13 +52,78 @@
   background-color: rgb(250, 217, 4);
   border-radius: 10px;
   position: absolute;
-  right:auto;
-  margin-top: -8px;
+  margin-top: -0.8%;
   margin-left: 12px;
   font-size: 14px;
   color: rgb(10, 9, 9);
-  padding: 0px 5px;
+  padding: 0 5px;
+  text-align: center;
 }
+/* Navbar styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  padding: 10px 20px;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: -110px;
+}
+
+.navbar ul li {
+  position: relative;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 15px;
+  display: block;
+}
+
+/* Dropdown */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #e33434;
+  display: none;
+  flex-direction: column;
+  min-width: 150px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+  transform: translateY(10px);
+  opacity: 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.dropdown-menu a {
+  padding: 7px 14px;
+  transition: background 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background: black;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 @media (max-width:768px) {
   .navs_header{
@@ -63,18 +131,11 @@
   }
   .navbar{
     font-size: 0.8rem;
-    height: 60px;
+    height: 68px;
+    padding: 0 10px;
   }
   .logo{
     width: 40px;
-  }
-  .cart{
-    width: 40px;
-    display: flex;
-    align-items: center;
-    font-size: 1.2rem;
-    margin-left: 4px;
-    margin-right: -20px;
   }
   .user{
     font-size: 0.9rem;
@@ -86,17 +147,13 @@
   .navbar-brand{
     margin-left: -21px;
   }
+  .profile_container{
+    display: flex;
+  }
   .cart_container{
-    margin-bottom: 0;
-    margin-right: -14px;
+    margin-top: 10px;
   }
   .count{
-    margin-bottom: 10px;
-    width: 17px;
-    height: 17px;
-    padding: 0 4px;
-  }
-  .cart_icon{
-    font-size: 1.2rem;
+    margin-top: -10px;
   }
 }

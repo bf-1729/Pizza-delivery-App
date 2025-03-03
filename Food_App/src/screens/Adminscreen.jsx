@@ -28,14 +28,13 @@ function Adminscreen() {
       <div className='row justify-content-center'>
         <div className='col-md-10'>
           <div className='adminfunctions'>
-            <Link to='/admin/userslist' className='link'>Users List</Link>
             <Link to='/admin/orderslist' className='link'>Orders List</Link>
             <Link to='/admin/pizzaslist' className='link'>Pizzas List</Link>
             <Link to='/admin/addpizza' className='link'>Add New Pizza</Link>
           </div>
 
           <Routes>
-            <Route path="userslist" element={<Userslist />} />
+            
             <Route path="orderslist" element={<Orderscreen />} />
             <Route path="pizzaslist" element={<Pizzaslist />} />
             <Route path="addpizza" element={<Addpizza />} />

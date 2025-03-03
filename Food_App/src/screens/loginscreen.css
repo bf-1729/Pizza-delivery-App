@@ -1,14 +1,20 @@
+.register_main,.login_main{
+    background-color: rgb(246, 235, 235);
+}
 .login_container,.register_container{
-    margin-top: 10%;
+    padding: 140px 0;
 }
 .headers{
     color: blue;
     font-size: 1.5rem;
 }
 @media (max-width:768px){
+    .register_main,.login_main{
+        display: flex;
+        justify-content: center;
+    }
     .login_container,.register_container{
-        margin-top: 19%;
         width: 90%;
-        margin-left: 4%;
+        padding: 120px 0;
     }
 }

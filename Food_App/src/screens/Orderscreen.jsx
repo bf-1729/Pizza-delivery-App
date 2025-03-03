@@ -38,8 +38,6 @@ function Orderscreen() {
   const closeModal = () => {
     setActiveOrder(null);
   };
-
-  if (loading) return <div>Loading...</div>;
   if (error) return <div>{error}</div>;
 
   return (
@@ -71,12 +69,7 @@ function Orderscreen() {
                     style={{ backgroundColor: 'white', border: 'none' }}
                     onClick={() => openModal(item)}
                   >
-                    <img
-                      className="details_img"
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdiCPwnP4te78eCU5N84jP4N16qdqoMdtbCw&s"
-                      alt="Order Details"
-                      width="30px"
-                    />
+                    <img className='details_img' src="https://img.icons8.com/ios/50/visible--v1.png" alt="visible--v1"/>
                   </button>
                 </td>
                 <td className="order_data">

@@ -6,6 +6,7 @@ import Carousel from '../components/Carousel';
 import Loading from '../components/Loading';
 import HomeNavbar from '../components/HomeNavbar';
 import Navbar from '../components/Navbar';
+import LatestPizza from '../components/LatestPizza';
 
 function Homescreen() {
   const dispatch = useDispatch();
@@ -69,9 +70,23 @@ function Homescreen() {
 
       {/* Pizza List */}
       <div className="row m-1">
-        <h1>Pizzas</h1>
+        <h1 className='home_heading'>Latest Pizzas</h1>
         {pizzas.length > 0 ? (
-          pizzas.map((pizza) => (
+          pizzas.slice(0,8).map((pizza) => (
+            <div className="pizzascreen col-md-3 text-center" key={pizza._id}>
+              <LatestPizza pizza={pizza} />
+            </div>
+          ))
+        ) : (
+          <div className="text-center mt-5">
+            <h4>No pizzas match your search!</h4>
+          </div>
+        )}
+      </div>
+      <div className="row m-1">
+        <h1 className='home_heading'>Pizzas</h1>
+        {pizzas.length > 0 ? (
+          pizzas.slice(8).map((pizza) => (
             <div className="pizzascreen col-md-3 text-center" key={pizza._id}>
               <Pizza pizza={pizza} />
             </div>

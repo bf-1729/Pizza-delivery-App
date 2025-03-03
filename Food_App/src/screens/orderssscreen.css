@@ -1,7 +1,7 @@
 /* General Styling */
 .orderlist {
   max-width: 1200px;
-  margin: auto;
+  min-height:100vh;
 }
 
 .order_header {
@@ -18,13 +18,13 @@
 
 .order_table th,
 .order_table td {
-  border: 2px solid #e3d5d5;
+  border-bottom: 2px solid #e3d5d5;
   padding: 10px;
   text-align: center;
 }
 
 .order_table th {
-  background-color: #333;
+  background-color: black;
   color: white;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .order_button {
-  padding: 10px 15px;
+  padding: 8px 15px;
   font-size: 1rem;
   cursor: pointer;
   border: none;
@@ -49,12 +49,12 @@
 }
 
 .order_button:hover {
-  background-color: #ff4d4d;
+  background-color: rgb(117, 9, 9);
 }
 
 /* Order Details Button */
 .details_img {
-  width: 30px;
+  width: 27px;
   cursor: pointer;
   transition: transform 0.3s;
 }
@@ -79,6 +79,10 @@
     display: block;
     white-space: nowrap;
   }
+  .ordertable_header th{
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
   .order_delivered{
     font-size: 0.875rem;
   }
@@ -89,7 +93,7 @@
   }
 
   .order_button {
-    padding: 8px 12px;
-    font-size: 0.9rem;
+    padding: 6px 12px;
+    font-size: 0.875rem;
   }
 }

@@ -1,56 +1,40 @@
-import React, { useState } from 'react';
-import Loading from '../components/Loading';
-import Error from '../components/Error';
-import "./Addpizza.css";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import { addPizza } from "../actions/PizzaActions";
+import Loading from "../components/Loading";
 import Success from "../components/Success";
-import { addPizza } from '../actions/PizzaActions';
-import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import Error from "../components/Error";
+import "react-toastify/dist/ReactToastify.css";
+import "./Addpizza.css";
 
 function Addpizza() {
-    const [name, setName] = useState('');
-    const [smallprice, setSmallprice] = useState('');
-    const [mediumprice, setMediumprice] = useState('');
-    const [largeprice, setLargeprice] = useState('');
-    const [image, setImage] = useState('');
-    const [description, setDescription] = useState('');
-    const [category, setCategory] = useState('');
-    const [choice, setChoice] = useState('Homescreen');
+    const [name, setName] = useState("");
+    const [smallprice, setSmallprice] = useState("");
+    const [mediumprice, setMediumprice] = useState("");
+    const [largeprice, setLargeprice] = useState("");
+    const [image, setImage] = useState("");
+    const [description, setDescription] = useState("");
+    const [category, setCategory] = useState("");
+    const [choice, setChoice] = useState("Homescreen");
     const [errors, setErrors] = useState({});
 
-    const pizzaType = ["Nonveg", "Veg", "Fruit", "Paratha", "Paneer", "Mushroom"];
+    const pizzaTypes = ["Home","Nonveg", "Veg", "Fruit", "Paratha", "Paneer", "Mushroom"];
     const dispatch = useDispatch();
-    const addpizzasstate = useSelector(state => state.addPizzaReducer);
-    const { success, error, loading } = addpizzasstate;
+    const { success, error, loading } = useSelector(state => state.addPizzaReducer);
 
-    // ✅ Validation function
+    useEffect(() => {
+        if (success) toast.success("🍕 Pizza added successfully!");
+    }, [success]);
+
     const validate = () => {
         const newErrors = {};
-        if (!name.trim()) {
-            newErrors.name = "Pizza name is required!";
-            toast.error("🚨 Pizza name is required!");
-        }
-        if (!smallprice || smallprice <= 0) {
-            newErrors.smallprice = "Small price must be a positive number!";
-            toast.error("⚠️ Small price must be a positive number!");
-        }
-        if (!mediumprice || mediumprice <= 0) {
-            newErrors.mediumprice = "Medium price must be a positive number!";
-            toast.error("⚠️ Medium price must be a positive number!");
-        }
-        if (!largeprice || largeprice <= 0) {
-            newErrors.largeprice = "Large price must be a positive number!";
-            toast.error("⚠️ Large price must be a positive number!");
-        }
-        if (!description.trim()) {
-            newErrors.description = "Description is required!";
-            toast.error("📝 Description is required!");
-        }
-        if (!category.trim()) {
-            newErrors.category = "Category is required!";
-            toast.error("📂 Category is required!");
-        }
+        if (!name.trim()) newErrors.name = "Pizza name is required!";
+        if (!smallprice || smallprice <= 0) newErrors.smallprice = "Invalid price!";
+        if (!mediumprice || mediumprice <= 0) newErrors.mediumprice = "Invalid price!";
+        if (!largeprice || largeprice <= 0) newErrors.largeprice = "Invalid price!";
+        if (!description.trim()) newErrors.description = "Description is required!";
+        if (!category.trim()) newErrors.category = "Category is required!";
         return newErrors;
     };
 
@@ -69,117 +53,86 @@ function Addpizza() {
             choice,
             category,
             prices: {
-                small: smallprice,
-                medium: mediumprice,
-                large: largeprice
+                small: Number(smallprice),
+                medium: Number(mediumprice),
+                large: Number(largeprice)
             }
         };
 
         dispatch(addPizza(pizza));
 
         // Reset form
-        setName('');
-        setSmallprice('');
-        setMediumprice('');
-        setLargeprice('');
-        setImage('');
-        setDescription('');
-        setCategory('');
-        setChoice('Homescreen');
+        setName("");
+        setSmallprice("");
+        setMediumprice("");
+        setLargeprice("");
+        setImage("");
+        setDescription("");
+        setCategory("");
+        setChoice("Homescreen");
         setErrors({});
     }
 
     return (
-        <div>
-            <div className='addpizza text-left'>
+        <div className="addpizza-container">
+            <div className="addpizza-card">
+                <h2 className="addpizza-header">🍕 Add a New Pizza</h2>
                 {loading && <Loading />}
-                {error && <Error error="Failed to load" />}
-                {success && <Success success="New Pizza Added Successfully!" />}
+                {error && <Error message="Failed to add pizza" />}
 
-                <h2 className='addpizza_header'>Add Pizza</h2>
-                <form onSubmit={formHandler} className='ms-3'>
-                    <select className='form-control w-100'
-                        style={{ cursor: "pointer" }}
-                        value={choice}
-                        onChange={(e) => setChoice(e.target.value)}
-                    >
-                        <option value={choice}>{choice}</option>
-                        {pizzaType.map(choice => (
-                            <option value={choice} key={choice}>{choice}</option>
-                        ))}
-                    </select>
-
+                <form className="addpizza-form" onSubmit={formHandler}>
                     <div className="form-group">
-                        <input className={`form-control ${errors.name ? 'is-invalid' : ''}`} type='text' placeholder='Pizza Name' value={name} onChange={(e) => setName(e.target.value)} />
-
+                        <label className="form_header">Pizza Name</label>
+                        <input type="text" placeholder="Enter pizza name" value={name} onChange={(e) => setName(e.target.value)} className="form-control" />
                     </div>
 
                     <div className="form-group">
-                        <input className={`form-control ${errors.smallprice ? 'is-invalid' : ''}`} type='number' placeholder='Small variant price' value={smallprice} onChange={(e) => setSmallprice(e.target.value)} />
+                        <label className="form_header">Small Price</label>
+                        <input type="number" placeholder="₹ Small Price" value={smallprice} onChange={(e) => setSmallprice(e.target.value)} className="form-control" />
                     </div>
 
                     <div className="form-group">
-                        <input className={`form-control ${errors.mediumprice ? 'is-invalid' : ''}`} type='number' placeholder='Medium variant price' value={mediumprice} onChange={(e) => setMediumprice(e.target.value)} />
+                        <label className="form_header">Medium Price</label>
+                        <input type="number" placeholder="₹ Medium Price" value={mediumprice} onChange={(e) => setMediumprice(e.target.value)} className="form-control" />
                     </div>
 
                     <div className="form-group">
-                        <input className={`form-control ${errors.largeprice ? 'is-invalid' : ''}`} type='number' placeholder='Large variant price' value={largeprice} onChange={(e) => setLargeprice(e.target.value)} />
+                        <label>Large Price</label>
+                        <input type="number" placeholder="₹ Large Price" value={largeprice} onChange={(e) => setLargeprice(e.target.value)} className="form-control" />
                     </div>
 
                     <div className="form-group">
-                        <input
-                            className={`form-control ${errors.image ? 'is-invalid' : ''}`}
-                            type="file"
-                            accept="image/*"
-                            onChange={(e) => {
-                                const file = e.target.files[0];
-
-                                if (file) {
-                                    if (!file.type.startsWith("image/")) {
-                                        setErrors((prev) => ({ ...prev, image: "Only image files are allowed!" }));
-                                        toast.error("📷 Only image files (jpg, png) are allowed!");
-                                        return;
-                                    }
-
-                                    if (file.size > 2 * 1024 * 1024) { // 2MB limit
-                                        setErrors((prev) => ({ ...prev, image: "File size must be under 2MB!" }));
-                                        toast.error("🚀 File size should be under 2MB!");
-                                        return;
-                                    }
-
-                                    setErrors((prev) => ({ ...prev, image: "" })); // Clear errors
-
-                                    
-                                    const reader = new FileReader();
-                                    reader.onloadend = () => {
-                                        setImage(reader.result); // Store the image URL in state
-                                    };
-                                    reader.readAsDataURL(file);
-                                }
-                            }}
-                        />
-                        {errors.image && <div className="invalid-feedback">{errors.image}</div>}
-                    </div>
-
-                    {image && (
-                        <img
-                            src={image}
-                            alt="Preview"
-                            className="mt-3"
-                            style={{ width: "150px", height: "150px", objectFit: "cover", borderRadius: "8px" }}
-                        />
-                    )}
-
-
-                    <div className="form-group">
-                        <input className={`form-control ${errors.description ? 'is-invalid' : ''}`} type='text' placeholder='Pizza Description' value={description} onChange={(e) => setDescription(e.target.value)} />
+                        <label className="form_header">Category</label>
+                        <input type="text" placeholder="e.g., Veg, Non-Veg" value={category} onChange={(e) => setCategory(e.target.value)} className="form-control" />
                     </div>
 
                     <div className="form-group">
-                        <input className={`form-control mb-4 ${errors.category ? 'is-invalid' : 'j'}`} type='text' placeholder='Category' value={category} onChange={(e) => setCategory(e.target.value)} />
+                        <label className="form_header">Description</label>
+                        <textarea placeholder="Enter pizza description" value={description} onChange={(e) => setDescription(e.target.value)} className="form-control"></textarea>
                     </div>
 
-                    <button className='w-100 addpizza_btn'>Add New Pizza</button>
+                    <div className="form-group">
+                        <label className="form_header">Pizza Screen</label>
+                        <select value={choice} onChange={(e) => setChoice(e.target.value)} className="form-control">
+                            {pizzaTypes.map(type => (
+                                <option key={type} value={type}>{type}</option>
+                            ))}
+                        </select>
+                    </div>
+
+                    <div className="image-upload">
+                        <input type="file" accept="image/*" onChange={(e) => {
+                            const file = e.target.files[0];
+                            if (file && file.type.startsWith("image/")) {
+                                const reader = new FileReader();
+                                reader.onloadend = () => setImage(reader.result);
+                                reader.readAsDataURL(file);
+                            }
+                        }} className="form-control" />
+                        {image && <img src={image} alt="Preview" className="image-preview" />}
+                    </div>
+
+                    <button type="submit" className="addpizza-btn">{loading ? "Adding..." : "Add Pizza"}</button>
                 </form>
             </div>
         </div>

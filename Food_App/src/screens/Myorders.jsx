@@ -74,29 +74,22 @@ function MyOrders() {
                 </div>
                 {order.cartItems?.map((item, itemIndex) => (
                   <div key={item._id || itemIndex} className="order_container">
-                    {/* Item Details */}
-                    <div className="col-md-3 item">
-                      <h1 className="side">Item Name</h1>
-                      <b className='myorder_pizza'>{item.name}</b>
-                      <div><b>Variant:</b> {item.varient || 'N/A'}</div>
-                      <div><b>Quantity: </b> {item.quantity || 1}</div>
-                      <div><b>Price: </b> {item.price || 'N/A'}</div>
+                    
+                    <div className='col-md-2 item'>
+                    <img className='image' src={item.image}></img>
                     </div>
-                    {/* Address */}
-                    <div className="column_address col-md-3 mt-1">
-                      <h1>Address</h1>
-                      <div className='myorders'><b>House No: </b>{order.AddressLine1}</div>
-                      <div className='myorders'><b>Area: </b> {order.AddressLine2}</div>
-                      <div className='myorders'><b>Landmark: </b> {order.landmark}</div>
-                      <div><b>Pincode: </b> {order.pincode}</div>
+
+                    <div className="col-md-6 item">
+                      <div>{item.name} </div>
+                      <div> Variant: {item.varient || 'N/A'}</div>
+                      <div> Quantity:   {item.quantity || 1}</div>
+                      <div> Price:   {item.price || 'N/A'}</div>
                     </div>
-                    {/* Order Status */}
-                    <div className="col-md-3 mt-1">
-                      <h1>Order Status</h1>
-                      <div className="d-flex">
-                        <span><b>Status:</b> </span>
+                    
+                    <div className="col-md-4">
+                      <div className="status">
                         {order.isDelivered ? (
-                          <div style={{ color: 'green' }}>Delivered</div>
+                          <div className='delivered' style={{ color: 'green' }}>Delivered</div>
                         ) : (
                           <div style={{ color: 'red' }}>Not delivered</div>
                         )}

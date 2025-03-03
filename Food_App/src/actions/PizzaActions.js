@@ -1,8 +1,9 @@
 import axios from "axios"
 import { toast } from "react-toastify";
+const backendUrl = import.meta.env.VITE_BACKEND_URL
 export const getAllPizzas = ()=>async dispatch=>{
     dispatch({type:"GET_PIZZAS_REQUEST"})
-    try{const response = await axios.get("http://localhost:4000/api/pizzas/getallpizzas");
+    try{const response = await axios.get(backendUrl+"/api/pizzas/getallpizzas");
         dispatch({type:"GET_PIZZAS_SUCCESS",payload : response.data})
     }catch(error){
         dispatch({type:"GET_PIZZAS_FAILED",payload:error})
@@ -12,7 +13,7 @@ export const getAllPizzas = ()=>async dispatch=>{
 export const getAllNonVegPizzas = ()=>async dispatch=>{
     dispatch({type:"GET_NONVEG_PIZZAS_REQUEST"})
     try{
-        const response = await axios.get("http://localhost:4000/api/pizzas/getallnonvegpizzas");
+        const response = await axios.get(backendUrl+"/api/pizzas/getallnonvegpizzas");
         console.log("API response:", response.data);
         dispatch({type:"GET_NONVEG_PIZZAS_SUCCESS",payload : response.data})
     }catch(error){
@@ -23,7 +24,7 @@ export const getAllNonVegPizzas = ()=>async dispatch=>{
 export const getAllVegPizzas = ()=>async dispatch=>{
     dispatch({type:"GET_VEG_PIZZAS_REQUEST"})
     try{
-        const response = await axios.get("http://localhost:4000/api/pizzas/getallvegpizzas");
+        const response = await axios.get(backendUrl+"/api/pizzas/getallvegpizzas");
         console.log("API response:", response.data);
         dispatch({type:"GET_VEG_PIZZAS_SUCCESS",payload : response.data})
     }catch(error){
@@ -34,7 +35,7 @@ export const getAllVegPizzas = ()=>async dispatch=>{
 export const getAllFruitPizzas = ()=>async dispatch=>{
     dispatch({type:"GET_FRUIT_PIZZAS_REQUEST"})
     try{
-        const response = await axios.get("http://localhost:4000/api/pizzas/getallfruitpizzas");
+        const response = await axios.get(backendUrl+"/api/pizzas/getallfruitpizzas");
         console.log("API response:", response.data);
         dispatch({type:"GET_FRUIT_PIZZAS_SUCCESS",payload : response.data})
     }catch(error){
@@ -45,7 +46,7 @@ export const getAllFruitPizzas = ()=>async dispatch=>{
 export const getAllParathaPizzas = ()=>async dispatch=>{
     dispatch({type:"GET_PARATHA_PIZZAS_REQUEST"})
     try{
-        const response = await axios.get("http://localhost:4000/api/pizzas/getallparathapizzas");
+        const response = await axios.get(backendUrl+"/api/pizzas/getallparathapizzas");
         console.log("API response:", response.data);
         dispatch({type:"GET_PARATHA_PIZZAS_SUCCESS",payload : response.data})
     }catch(error){
@@ -56,7 +57,7 @@ export const getAllParathaPizzas = ()=>async dispatch=>{
 export const getAllPaneerPizzas = ()=>async dispatch=>{
     dispatch({type:"GET_PANEER_PIZZAS_REQUEST"})
     try{
-        const response = await axios.get("http://localhost:4000/api/pizzas/getallpaneerpizzas");
+        const response = await axios.get(backendUrl+"/api/pizzas/getallpaneerpizzas");
         console.log("API response:", response.data);
         dispatch({type:"GET_PANEER_PIZZAS_SUCCESS",payload : response.data})
     }catch(error){
@@ -67,7 +68,7 @@ export const getAllPaneerPizzas = ()=>async dispatch=>{
 export const getAllMushroomPizzas = ()=>async dispatch=>{
     dispatch({type:"GET_MUSHROOM_PIZZAS_REQUEST"})
     try{
-        const response = await axios.get("http://localhost:4000/api/pizzas/getallmushroompizzas");
+        const response = await axios.get(backendUrl+"/api/pizzas/getallmushroompizzas");
         console.log("API response:", response.data);
         dispatch({type:"GET_MUSHROOM_PIZZAS_SUCCESS",payload : response.data})
     }catch(error){
@@ -79,7 +80,7 @@ export const getPizzaById = (pizzaid)=> async dispatch=>{
     console.log(pizzaid)
     dispatch({type:"GET_PIZZABYID_REQUEST"})
     try{
-        const response = await axios.post("http://localhost:4000/api/pizzas/getpizzabyid",pizzaid);
+        const response = await axios.post(backendUrl+"/api/pizzas/getpizzabyid",pizzaid);
         
         
         dispatch({type:"GET_PIZZABYID_SUCCESS",payload : response.data})
@@ -91,7 +92,7 @@ export const getPizzaById = (pizzaid)=> async dispatch=>{
 export const addPizza = (pizza)=>  async dispatch =>{
     dispatch({type:"ADD_PIZZA_REQUEST"})
     try{
-        const response = await axios.post('http://localhost:4000/api/pizzas/addpizza',{pizza})
+        const response = await axios.post(backendUrl+"/api/pizzas/addpizza",{pizza})
         dispatch({type:"ADD_PIZZA_SUCCESS",payload : response.data})
         toast.success("Pizza Added Successfully")
     }
@@ -104,7 +105,7 @@ export const addPizza = (pizza)=>  async dispatch =>{
 export const editPizza = (editedpizza)=>  async dispatch =>{
     dispatch({type:"EDIT_PIZZA_REQUEST"})
     try{
-        const response = await axios.post('http://localhost:4000/api/pizzas/editpizza',{editedpizza})
+        const response = await axios.post(backendUrl+"/api/pizzas/editpizza",{editedpizza})
         console.log(response)
         dispatch({type:"EDIT_PIZZA_SUCCESS",payload : response.data})
     }
@@ -115,7 +116,7 @@ export const editPizza = (editedpizza)=>  async dispatch =>{
 
 export const deletePizza = (pizzaid)=> async dispatch =>{
     try{
-        axios.post("http://localhost:4000/api/pizzas/deletepizza",{pizzaid})
+        axios.post(backendUrl+"/api/pizzas/deletepizza",{pizzaid})
         toast.success("Pizza deleted successfully")
     }catch(error){
         toast.error("Something went wrong! Try Again")

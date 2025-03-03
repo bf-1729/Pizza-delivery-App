@@ -2,9 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch,useSelector } from 'react-redux'
 import { registerUser } from '../actions/userActions'
 import Loading from '../components/Loading'
-import Success from '../components/Success'
-import Error from '../components/Error'
 import Navbar from '../components/Navbar'
+import { toast } from 'react-toastify'
 
 function Registerscreen() {
     const [name,setName] = useState('')
@@ -12,12 +11,12 @@ function Registerscreen() {
     const [password,setPassword] = useState('')
     const [cpassword,setCpassword] = useState('')
     const registerstate = useSelector(state=>state.registerUserReducer)
-    const {error,loading,success} = registerstate
+    const {loading} = registerstate
     const dispatch = useDispatch()
 
     function register(){
         if(password != cpassword){
-            alert("Passwords are not matched")
+            toast.error("Password not matched")
         }
         else{
             const user = {
@@ -28,13 +27,10 @@ function Registerscreen() {
         }
     }
   return (
-    <div>
+    <div className='register_main'>
         <Navbar/>
         <div className='row justify-content-center register_container'>
             <div className='col-md-5 mt-3 text-left shadow-lg p-3 mb-5 bg-white rounded'>
-                {loading && (<Loading/>)}
-                {success && (<Success success = "User Registered successfully"/>)}
-                {error && (<Error error = "Email already exist"/>)}
                 <center><h2 className='headers'>Register</h2></center>
                 <div className=''>
                     <input

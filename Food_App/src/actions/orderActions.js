@@ -1,19 +1,19 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 
-// Action to submit user address and order
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
+
 export const AddressUser = (address) => async (dispatch) => {
   dispatch({ type: "USER_ADDRESS_REQUEST" });
   try {
-    const response = await axios.post("http://localhost:4000/api/orders/address", address);
+    const response = await axios.post(`${backendUrl}/api/orders/address`, address);
     dispatch({ type: "USER_ADDRESS_SUCCESS", payload: response.data });
-    toast.success("Order Placed Successfully")
-    
   } catch (error) {
     dispatch({
       type: "USER_ADDRESS_FAILED",
       payload: error.response?.data?.message || error.message,
     });
+    toast.error(error.response?.data?.message || "Failed to place order");
   }
 };
 
@@ -21,30 +21,34 @@ export const AddressUser = (address) => async (dispatch) => {
 export const UserAddress = () => async (dispatch) => {
   dispatch({ type: "GET_USER_ADDRESS_REQUEST" });
   try {
-    const response = await axios.get("http://localhost:4000/api/orders/getorders");
+    const response = await axios.get(`${backendUrl}/api/orders/getorders`);
     dispatch({ type: "GET_USER_ADDRESS_SUCCESS", payload: response.data });
-
   } catch (error) {
     dispatch({
       type: "GET_USER_ADDRESS_FAILED",
       payload: error.response?.data?.message || error.message,
     });
+    toast.error(error.response?.data?.message || "Failed to fetch orders");
   }
 };
 
-// Action to mark an order as delivered
 export const deliverOrder = (orderId) => async (dispatch) => {
   try {
     dispatch({ type: "DELIVER_ORDER_REQUEST" });
-    const { data } = await axios.put(`http://localhost:4000/api/orders/deliverOrder/${orderId}`);
+
+    const { data } = await axios.put(`${backendUrl}/api/orders/deliverOrder/${orderId}`);
+
     dispatch({ type: "DELIVER_ORDER_SUCCESS", payload: data });
-    window.href = "/admin/orderslist"
+
     dispatch(UserAddress());
+
+    window.location.href = "/admin/orderslist";
 
   } catch (error) {
     dispatch({
       type: "DELIVER_ORDER_FAIL",
       payload: error.response?.data?.message || error.message,
     });
+    toast.error(error.response?.data?.message || "Failed to update order status");
   }
 };

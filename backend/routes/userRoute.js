@@ -1,55 +1,94 @@
-const express = require("express")
-const router = express.Router()
-const User = require("../model/userModel")
+const express = require("express");
+const bcrypt = require("bcryptjs"); // Import bcrypt for password hashing
+const User = require("../model/userModel"); // Import User model
+const router = express.Router();
+const dotenv = require("dotenv")
+dotenv.config()
 
-router.post("/register",(req,res)=>{
-    const {name,email,password} = req.body
-    const newUser = new User({name,email,password})
-    try{
-        newUser.save();
-        res.send("User registered successfully")
-    }catch(error){
-        return res.status(400).json({message : error})
-    }
-});
-
-router.post("/login",async(req,res)=>{
-    const {email,password} = req.body
-    try{
-        const user = await User.find({email,password})
-
-        if(user.length > 0){
-            const currentUser = {
-                name : user[0].name,
-                email : user[0].email,
-                isAdmin : user[0].isAdmin,
-                _id : user[0]._id
-            }
-            res.send(currentUser)
-        }else{
-            return res.status(400).json({message:"User Login not obtained"})
+router.post("/register", async (req, res) => {
+    const { name, email, password } = req.body;
+    
+    try {
+        // Check if user already exists
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ message: "User already exists" });
         }
-    }catch(error){
-        return res.status(400).json({message:error})
+
+        // Hash password before saving
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(password, salt);
+
+        // Only check email for admin status (NOT password)
+        const isAdmin = email === process.env.EMAIL; 
+
+        // Create new user with hashed password and admin status
+        const newUser = new User({ name, email, password: hashedPassword, isAdmin });
+
+        await newUser.save();
+        res.status(201).json({ message: "User registered successfully", isAdmin: newUser.isAdmin });
+
+    } catch (error) {
+        console.error("Registration Error:", error);
+        res.status(500).json({ message: "Internal Server Error" });
     }
 });
 
-router.get("/getallusers",async(req,res)=>{
-    try{
+
+
+router.post("/login", async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        // Find the user by email
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(400).json({ message: "User not found" });
+        }
+
+        // Check if the password matches
+        const isMatch = bcrypt.compare(password, user.password);
+        if (!isMatch) {
+            return res.status(400).json({ message: "Invalid credentials" });
+        }
+
+        if(email === process.env.EMAIL && password === process.env.PASSWORD){
+            user.isAdmin = true;
+            await user.save();
+            }
+
+        // Send response with updated user data
+        res.json({
+            _id: user._id,
+            name: user.name,
+            email: user.email,
+            isAdmin: user.isAdmin, // Now always true after login
+            message: "Login successful",
+        });
+
+    } catch (error) {
+        console.error("Login Error:", error); // Debugging log
+        res.status(500).json({ message: "Internal Server Error", error: error.message });
+    }
+});
+
+
+router.get("/getallusers", async (req, res) => {
+    try {
         const users = await User.find({})
         res.send(users)
-    }catch(error){
-        return res.status(400).json({message:error})
+    } catch (error) {
+        return res.status(400).json({ message: error })
     }
 });
 
-router.post("/deleteuser",async(req,res)=>{
+router.post("/deleteuser", async (req, res) => {
     const userid = req.body.userid
-    try{
-        await User.findOneAndDelete({_id : userid})
+    try {
+        await User.findOneAndDelete({ _id: userid })
         res.send("User deleted successfully")
-    }catch(error){
-        return res.status(400).json({message:error})
+    } catch (error) {
+        return res.status(400).json({ message: error })
     }
 });
 module.exports = router

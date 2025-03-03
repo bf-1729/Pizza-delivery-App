@@ -33,6 +33,9 @@ const initialState = {
     cartReducer:{
     cartItems : cartItems
     },
+    registerUserReducer : {
+        currentUser : currentUser
+    },
     loginUserReducer : {
         currentUser : currentUser
     }

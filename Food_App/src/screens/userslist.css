@@ -1,35 +1,52 @@
-.userlist{
-    height: 100vh;
+.userlist {
     max-width: 1200;
-}
-.usertable td,
-.usertable th{
-    border: 2px solid #e3d5d5;
-  padding: 10px;
-  text-align: center;
-}
-.user_header{
-    text-align: center;
-  font-size: 1.5rem;
-  margin-top: 20px;
+    min-height: 100vh;
 }
 
-@media (max-width:768px){
-    .user_header{
+.usertable td {
+    padding: 10px;
+}
+
+.usertable th {
+    padding: 10px;
+    text-align: center;
+}
+
+.user_header {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+@media (max-width:768px) {
+    .userlist {
+        padding: 2px;
+    }
+
+    .user_header {
         font-size: 1.2rem;
     }
+
     .user_data {
         font-size: 0.875rem;
-        word-wrap: break-word; /* Allows breaking of long words */
-        word-break: break-word; /* Breaks words that are too long */
+        word-wrap: break-word;
+        /* Allows breaking of long words */
+        word-break: break-word;
+        /* Breaks words that are too long */
         white-space: normal;
     }
-    .user_data{
+
+    .user_data {
         width: 29%;
         font-size: 0.875rem;
     }
-    .usertable_header{
-        font-size: 1rem;
+
+    .usertable_header {
+        font-size: 0.9rem;
         text-align: center;
+    }
+
+    .usertable th {
+        padding: 8px;
     }
 }

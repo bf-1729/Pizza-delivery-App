@@ -11,4 +11,4 @@ const nonvegpizzaSchema = new mongoose.Schema({
     timestamps:true
 })
 
-module.exports = mongoose.model("nonvegpizza",nonvegpizzaSchema)
+module.exports = mongoose.model("nonveg-pizza",nonvegpizzaSchema)

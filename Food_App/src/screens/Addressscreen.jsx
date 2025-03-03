@@ -5,7 +5,6 @@ import { AddressUser } from '../actions/orderActions';
 import "./Address.css"
 import { addToCart } from '../actions/cartActions';
 import { loginUser } from '../actions/userActions';
-import { toast } from 'react-toastify';
 
 function Addressscreen() {
   useEffect(()=>{

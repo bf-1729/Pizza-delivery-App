@@ -14,7 +14,7 @@
   }
   .homepizza_name{
     font-size: 1.1rem !important;
-    color: rgb(252, 203, 203) !important;
+    color: rgb(253, 240, 240) !important;
     height: 40px;
   }
   .pizza_price{
@@ -23,6 +23,7 @@
   .pizza_image {
     height: 170px;
     width: 170px;
+    border-radius: 8px;
   }
   .pizza_footer{
     display: flex;

@@ -5,6 +5,7 @@
 }
 .main_pizza{
     background-color: #f4d7d7;
+    min-height: 100vh;
 }
 .pizza_section {
     height:90vh;

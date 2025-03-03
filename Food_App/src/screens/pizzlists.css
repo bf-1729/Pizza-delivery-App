@@ -1,6 +1,5 @@
 /* General Styles */
 .main {
-    padding: 4px;
     min-height: 100vh;
   }
   
@@ -14,7 +13,6 @@
   
   .pizzalists_name {
     font-size: 1.5rem;
-    font-weight: bold;
     color: black;
     text-align: center;
     margin: 0;
@@ -22,7 +20,7 @@
   
   .pizza_counts {
     font-size: 17px;
-    color: #b61a1a;
+    color: black;
   }
   
   .pizza_choices {
@@ -31,6 +29,7 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     cursor: pointer;
+    text-align: left;
   }
   
   /* Table Styles */
@@ -46,12 +45,13 @@
   }
   
   .table_headers th {
-    padding: 15px;
+    padding: 10px;
     text-align: center;
+    background-color: black;
   }
   
   .table_data td {
-    padding: 12px;
+    padding: 4px;
     border-bottom: 1px solid #ddd;
   }
   
@@ -90,7 +90,7 @@
     .pizza_counts{
         text-wrap: nowrap;
         text-align: end;
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     .pizza_actions i{
         font-size: 0.875rem;
@@ -102,11 +102,11 @@
       height: 40px;
     }
     .pizza_name{
-        width: 46%;
+      width: 45%;
     }
   
     .table {
-      display: block;
+      width: 100%;
     }
     .pizzalist_headers{
         margin-top: 10px;
@@ -118,6 +118,10 @@
     .table_headers th, .table_data td {
       padding: 8px;
       font-size: 14px;
+      border-bottom: 1px solid rgb(197, 178, 178);
+    }
+    .main{
+      padding: 4px;
     }
   }
   

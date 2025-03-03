@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import Error from "../components/Error";
 import Loading from "../components/Loading";
-import { getAllUsers, deleteUser } from '../actions/userActions';
+import { getAllUsers, deleteUser,logoutUser } from '../actions/userActions';
 import "./userslist.css";
 
 function Userslist() {
@@ -15,24 +15,6 @@ function Userslist() {
   useEffect(() => {
     dispatch(getAllUsers());
   }, [dispatch]);
-
-  // Show users one by one
-  useEffect(() => {
-    setVisibleUsers([]); // Reset users when new data arrives
-    let index = 0;
-
-    function showNextUser() {
-      if (index < users.length) {
-        setVisibleUsers(prevUsers => [...prevUsers, users[index]]);
-        index++;
-        setTimeout(showNextUser, 10); // 10ms delay between showing each user
-      }
-    }
-
-    if (users.length > 0) {
-      showNextUser();
-    }
-  }, [users]);
 
   const handleDelete = (userId) => {
     const isConfirmed = window.confirm("Are you sure you want to delete this user?");
@@ -57,8 +39,8 @@ function Userslist() {
           </tr>
         </thead>
         <tbody className='usertable_data'>
-  {visibleUsers && visibleUsers.length > 0 ? (
-    visibleUsers.map(user => 
+  {users && users.length > 0 ? (
+    users.map(user => 
       user ? (
         <tr key={user._id}>
           <td className='user_data'>{user._id}</td>

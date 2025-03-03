@@ -29,12 +29,10 @@ function Loginscreen() {
             dispatch(loginUser(user))
     }
   return (
-    <div>
+    <div className='login_main'>
       <Navbar/>
         <div className='row justify-content-center login_container'>
             <div className='col-md-5 mt-3 text-left shadow-lg p-3 mb-5 bg-white rounded'>
-              {loading && (<Loading/>)}
-              {error && (<Error error = "Invalid Cridentials"/>)}
               <center>
                 <h2 className='headers'>Login</h2>
                 </center>

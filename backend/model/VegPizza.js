@@ -11,4 +11,4 @@ const vegpizzaSchema = new mongoose.Schema({
     timestamps:true
 })
 
-module.exports = mongoose.model("vegpizza",vegpizzaSchema)
+module.exports = mongoose.model("veg-pizza",vegpizzaSchema)

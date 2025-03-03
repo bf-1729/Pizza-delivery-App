@@ -11,4 +11,4 @@ const parathapizzaSchema = new mongoose.Schema({
     timestamps:true
 })
 
-module.exports = mongoose.model("parathapizza",parathapizzaSchema)
+module.exports = mongoose.model("paratha-pizza",parathapizzaSchema)
