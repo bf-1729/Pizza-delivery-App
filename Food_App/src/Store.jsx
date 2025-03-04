@@ -3,7 +3,7 @@
 import { createStore,combineReducers,applyMiddleware } from 'redux'
 import {thunk} from 'redux-thunk'
 import { cartReducer } from './reducers/cartReducer'
-import {composeWithDevTools} from 'redux-devtools-extension'
+import {composeWithDevTools} from '@redux-devtools/extension'
 import {getPizzaByIdReducer, getAllPizzasReducer,addPizzaReducer, editPizzaReducer, getAllNonVegPizzasReducer, getAllVegPizzasReducer, getAllFruitPizzasReducer, getAllParathaPizzasReducer, getAllPaneerPizzasReducer, getAllMushroomPizzasReducer, getVegPizzaByIdReducer } from './reducers/pizzaReducers'
 import { getAllUsersReducer, loginUserReducer, registerUserReducer } from './reducers/userReducer'
 import { AddressUserReducer, DeliverOrderReducer, UserAddressReducer } from './reducers/orderReducer'
