@@ -69,20 +69,13 @@ function Homescreen() {
       {error && <div className="text-center mt-5 text-danger">Error: {error}</div>}
 
       {/* Pizza List */}
-      <div className="home_container row m-1">
-        <h1 className='home_heading'>Latest Pizzas</h1>
-        {pizzas.length > 0 ? (
-          pizzas.slice(0,8).map((pizza) => (
-            <div className="pizzascreen col-md-3 text-center" key={pizza._id}>
-              <LatestPizza pizza={pizza} />
-            </div>
-          ))
-        ) : (
-          <div className="text-center mt-5">
-            <h4>No pizzas match your search!</h4>
-          </div>
-        )}
-      </div>
+      <div className="pizzascreen-container">
+  {pizzas.map((pizza) => (
+    <div className="pizzascreen" key={pizza._id}>
+      <Pizza pizza={pizza} />
+    </div>
+  ))}
+</div>
       <div className="home_container row m-1">
         <h1 className='home_heading'>Pizzas</h1>
         {pizzas.length > 0 ? (

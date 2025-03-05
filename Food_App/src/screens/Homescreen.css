@@ -1,94 +1,19 @@
-/* General Layout */
-body {
-    margin: 0;
-    padding: 0;
+.pizzascreen-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* Default: 4 columns */
+  gap: 4px;
+}
+
+/* Tablets and small screens: 2 columns */
+@media (max-width: 768px) {
+  .pizzascreen-container {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .navbar {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    text-align: center;
+}
+
+/* Mobile devices: 1 column */
+@media (max-width: 480px) {
+  .pizzascreen-container {
+    grid-template-columns: repeat(1, 1fr);
   }
-  
-  .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-  }
-  .home_heading{
-    font-size: 0.8rem !important;
-  }
-  
-  .container .form-control {
-    width: 300px;
-    padding: 10px;
-    margin-right: 10px;
-  }
-  
-  .container .btn {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .container .btn:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Pizza List */
-  .pizzascreen {
-    padding: 15px;
-  }
-  
-  .pizzascreen img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-  }
-  
-  .pizzascreen h4 {
-    margin-top: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .pizzascreen p {
-    font-size: 10px;
-    color: #f41b1b;
-  }
-  
-  /* No Pizzas Found */
-  .text-center h4 {
-    font-size: 20px;
-    color: #ff6f61;
-  }
-  
-  /* Error Message */
-  .text-danger {
-    font-size: 18px;
-    color: #d9534f;
-  }
-  
-  /* Loading Spinner */
-  .loading {
-    text-align: center;
-    font-size: 20px;
-    color: #007bff;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .container .form-control {
-      width: 200px;
-    }
-  
-    .pizzascreen {
-      margin-bottom: 20px;
-    }
-  }
-  
+}
