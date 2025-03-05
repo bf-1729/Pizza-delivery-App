@@ -73,7 +73,7 @@ function Homescreen() {
         <h1 className='home_heading'>Latest Pizzas</h1>
         {pizzas.length > 0 ? (
           pizzas.slice(0,8).map((pizza) => (
-            <div className="pizzascreen text-center" key={pizza._id}>
+            <div className="pizzascreen col-md-3 text-center" key={pizza._id}>
               <LatestPizza pizza={pizza} />
             </div>
           ))
@@ -87,7 +87,7 @@ function Homescreen() {
         <h1 className='home_heading'>Pizzas</h1>
         {pizzas.length > 0 ? (
           pizzas.slice(8).map((pizza) => (
-            <div className="pizzascreen text-center" key={pizza._id}>
+            <div className="pizzascreen col-md-3 text-center" key={pizza._id}>
               <Pizza pizza={pizza} />
             </div>
           ))

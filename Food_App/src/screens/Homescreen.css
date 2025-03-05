@@ -1,4 +1,10 @@
-.navbar {
+/* General Layout */
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar {
     background-color: #333;
     color: white;
     padding: 10px;
@@ -13,7 +19,6 @@
   }
   .home_heading{
     font-size: 0.8rem !important;
-    text-align: center;
   }
   
   .container .form-control {
@@ -36,8 +41,7 @@
   
   /* Pizza List */
   .pizzascreen {
-    display: grid;
-    grid-template-columns: 100px 100px;
+    padding: 15px;
   }
   
   .pizzascreen img {
@@ -78,10 +82,13 @@
   }
   
   /* Responsive Design */
-  @media (max-width: 10px) {
+  @media (max-width: 768px) {
+    .container .form-control {
+      width: 200px;
+    }
+  
     .pizzascreen {
-      display: grid;
-      grid-template-columns: 10px;
+      margin-bottom: 20px;
     }
   }
   
