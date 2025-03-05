@@ -69,7 +69,7 @@ function Homescreen() {
       {error && <div className="text-center mt-5 text-danger">Error: {error}</div>}
 
       {/* Pizza List */}
-      <div className="row m-1">
+      <div className="home_container row m-1">
         <h1 className='home_heading'>Latest Pizzas</h1>
         {pizzas.length > 0 ? (
           pizzas.slice(0,8).map((pizza) => (
@@ -83,7 +83,7 @@ function Homescreen() {
           </div>
         )}
       </div>
-      <div className="row m-1">
+      <div className="home_container row m-1">
         <h1 className='home_heading'>Pizzas</h1>
         {pizzas.length > 0 ? (
           pizzas.slice(8).map((pizza) => (

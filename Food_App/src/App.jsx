@@ -20,7 +20,7 @@ import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   return (
-    <div style={{backgroundColor:"rgb(253, 224, 224)"}}>
+    <div className='main_container' style={{backgroundColor:"rgb(253, 224, 224)"}}>
       <ToastContainer/>
       <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
 
