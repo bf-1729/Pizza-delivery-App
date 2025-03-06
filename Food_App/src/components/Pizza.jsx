@@ -54,8 +54,8 @@ function Pizza({ pizza }) {
                 </div>
 
                 <div className='pizza_footer'>
-                    <div className='m-1'>
-                        <div className='varient_header'>Varients:</div>
+                    <div className='varients'>
+                        <p className='varient_header'>Varients:</p>
                         <select
                             className='varient_selects'
                             value={varient}
@@ -67,10 +67,9 @@ function Pizza({ pizza }) {
                                 </option>
                             ))}
                         </select>
-                    </div>
-
-                    <div className='m-1'>
-                        <div className='quantity_header'>Quantity:</div>
+                        </div>
+                        <div className='quantity'>
+                        <p className='quantity_header'>Quantity:</p>
                         <select
                             className='quantity_selects'
                             value={quantity}
@@ -82,16 +81,16 @@ function Pizza({ pizza }) {
                                 </option>
                             ))}
                         </select>
-                    </div>
+                        </div>
                 </div>
 
                 <div className="btn_footer">
-                    <div className='pizza_price m-1'>
+                    <div className='pizza_price'>
                         <h5 className='varient_price'>₹{pizza.prices[0][varient] * quantity}/-</h5>
                     </div>
                     <div>
                         <button
-                            className='home_btn'
+                            className='cart_btn'
                             onClick={addtocart}
                             aria-label={`Add ${pizza.name} to cart`}
                             disabled={loading}  // Disable the button while loading
