@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from '../actions/cartActions';
 import { getAllPizzas } from '../actions/PizzaActions'; // Assuming you have a pizza action to fetch pizza data
 import "./pizza.css";
-import "../App.css"
 
 function Pizza({ pizza }) {
     const [quantity, setQuantity] = useState(1);
@@ -45,7 +44,7 @@ function Pizza({ pizza }) {
     }
 
     return (
-        <div id="pizzascreen">
+            <div id='pizzascreen'>
             <center>
                 <div onClick={handleShow}>
                     <h1 className='homepizza_name text-left'>{pizza.name}</h1>

@@ -7,29 +7,30 @@ import Loading from '../components/Loading';
 import HomeNavbar from '../components/HomeNavbar';
 import Navbar from '../components/Navbar';
 import LatestPizza from '../components/LatestPizza';
+import "./Homescreen.css";
 
 function Homescreen() {
   const dispatch = useDispatch();
   const pizzasState = useSelector((state) => state.getAllPizzasReducer);
   const { pizzas, error, loading } = pizzasState;
 
-  const [searchTerm, setSearchTerm] = useState(''); // Hold the search term
-  const [filteredPizzas, setFilteredPizzas] = useState(pizzas); // Hold the filtered pizzas
-  console.log(pizzas)
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredPizzas, setFilteredPizzas] = useState([]);
 
-  // Fetch pizzas initially
   useEffect(() => {
     dispatch(getAllPizzas());
   }, [dispatch]);
 
-  // Update filtered pizzas when pizzas are loaded
   useEffect(() => {
     setFilteredPizzas(pizzas);
   }, [pizzas]);
 
-  // Handle filter button click
   const handleFilter = (e) => {
-    e.preventDefault(); // Prevent form submission behavior
+    e.preventDefault();
+    if (!searchTerm.trim()) {
+      setFilteredPizzas(pizzas);
+      return;
+    }
     const filtered = pizzas.filter((pizza) =>
       pizza.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -38,49 +39,44 @@ function Homescreen() {
 
   return (
     <div className="main_screen">
-      <Navbar/>
-      <HomeNavbar/>
-      <Carousel/>
-      {/* <div className="container p-4 mt-4" style={{backgroundColor:"orangered"}}>
-        <div className='form col-md-5'>
-          <form onSubmit={handleFilter}>
-            <input
-              type="text"
-              placeholder="Search Pizzas"
-              className="form-control"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)} // Update search term
-            />
-          </form>
-          </div>
-          <div className='button'>
-          <button
-              type="submit"
-              className="btn btn-primary"
-              onClick={handleFilter} // Trigger filtering
-            >
-              Filter Pizzas
-            </button>
-            </div>
-      </div> */}
+      <Navbar />
+      <HomeNavbar />
+      <Carousel />
 
-      {/* Loading and Error States */}
-      {loading && (<Loading/>)}
+      <div className="container p-4 mt-4" style={{ backgroundColor: "orangered" }}>
+        <div className='form col-md-5'>
+          <input
+            type="text"
+            placeholder="Search Pizzas"
+            className="form-control"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
+        <div className='button'>
+          <button className="btn btn-primary" onClick={handleFilter}>
+            Filter Pizzas
+          </button>
+        </div>
+      </div>
+
+      {loading && <Loading />}
       {error && <div className="text-center mt-5 text-danger">Error: {error}</div>}
 
-      {/* Pizza List */}
-      <div className="pizzascreen-container">
-  {pizzas.map((pizza) => (
-    <div className="pizzascreen" key={pizza._id}>
-      <Pizza pizza={pizza} />
-    </div>
-  ))}
-</div>
-      <div className="home_container row m-1">
-        <h1 className='home_heading'>Pizzas</h1>
-        {pizzas.length > 0 ? (
-          pizzas.slice(8).map((pizza) => (
-            <div className="pizzascreen col-md-3 text-center" key={pizza._id}>
+      <div className="pizzascreen_container">
+        {filteredPizzas.map((pizza) => (
+          <div className="pizzascreen" key={pizza._id}>
+            <LatestPizza pizza={pizza} />
+          </div>
+        ))}
+      </div>
+
+      <h1 className='home_heading'>Pizzas</h1>
+      <div className="pizzascreen_container">
+
+        {filteredPizzas.length > 0 ? (
+          filteredPizzas.map((pizza) => (
+            <div className="pizzascreen" key={pizza._id}>
               <Pizza pizza={pizza} />
             </div>
           ))

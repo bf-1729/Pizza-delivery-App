@@ -1,19 +1,89 @@
-.pizzascreen-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr); /* Default: 4 columns */
-  gap: 4px;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-/* Tablets and small screens: 2 columns */
+.form {
+  margin-right: 10px;
+}
+
+.button button {
+  padding: 10px 15px;
+  font-size: 16px;
+}
+
+/* Pizza Grid */
+.pizzascreen_container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 10px 0;
+}
+
+/* Individual Pizza Card */
+.pizzascreen {
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* 📱 Mobile View (Max width: 768px) */
 @media (max-width: 768px) {
-  .pizzascreen-container {
-    grid-template-columns: repeat(2, 1fr);
+  .main_screen {
+      padding: 0px;
+  }
+
+  /* Navbar */
+  .navbar, .home-navbar {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  /* Search Filter */
+  .container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .form {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+
+  .button {
+      width: 100%;
+      text-align: center;
+  }
+
+  .button button {
+      width: 100%;
+  }
+
+  /* Pizza Grid */
+  .pizzascreen_container {
+    display: flex; /* Change grid to flex for better wrapping */
+        flex-wrap: wrap;
+        gap: 50px;
+      
+  }
+
+  /* Individual Pizza */
+  .pizzascreen {
+    width: 45%;
+    max-width: 180px;
+  }
+
+  .home_heading {
+      font-size: 22px;
+      text-align: center;
   }
 }
 
-/* Mobile devices: 1 column */
-@media (max-width: 480px) {
+/* 💻 Laptop View (Max width: 1024px) */
+@media (max-width: 1024px) {
   .pizzascreen-container {
-    grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: repeat(3, 1fr); /* 3 columns for medium screens */
   }
 }
