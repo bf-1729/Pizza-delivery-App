@@ -9,19 +9,16 @@ function LatestPizza({ pizza }) {
     const [quantity, setQuantity] = useState(1);
     const [varient, setVarient] = useState("small");
     const [show, setShow] = useState(false);
-    const [loading, setLoading] = useState(true); // Set initial loading state to true
+    const [loading, setLoading] = useState(true);
 
     const dispatch = useDispatch();
-
-    // Fetch pizza data when the component mounts
     useEffect(() => {
-        // Simulate loading state while fetching data
         dispatch(getAllPizzas())
             .then(() => {
-                setLoading(false); // Set loading to false after the data is fetched
+                setLoading(false);
             })
             .catch(() => {
-                setLoading(false); // Set loading to false in case of error
+                setLoading(false);
             });
     }, [dispatch]);
 
@@ -29,81 +26,72 @@ function LatestPizza({ pizza }) {
     const handleShow = () => setShow(true);
 
     function addtocart() {
-        setLoading(true); // Set loading to true when adding to cart
+        setLoading(true);
         dispatch(addToCart(pizza, quantity, varient));
-        setLoading(false); // Set loading to false after the pizza is added to cart
+        setLoading(false);
     }
-
     if (loading) {
-        // Show loading spinner while data is being fetched or while adding to cart
         return (
             <div className="loading-container">
                 <Spinner animation="border" variant="primary" />
             </div>
         );
     }
-
     return (
-            <div id='pizzascreen'>
-            <center>
-                <div onClick={handleShow}>
-                    <h1 className='homepizza_name text-left'>{pizza.name}</h1>
-                    <div>
-                        <img src={pizza.image} className='pizza_image' alt={pizza.name} />
-                    </div>
+        <div id='pizzascreen'>
+            <div onClick={handleShow}>
+                <h1 className='pizza_name'>{pizza.name}</h1>
+                <div className='pizza_header'>
+                <img src={pizza.image} className='pizza_image' alt={pizza.name} />
+                </div>
+            </div>
+
+            <div className='varient_container'>
+                <div className='varients'>
+                    <span className='varient_header'>Varients:</span>
+                    <select
+                        className='varient_choice'
+                        value={varient}
+                        onChange={(e) => setVarient(e.target.value)}>
+                        {pizza.varients.map((variant) => (
+                            <option className='pizza_choices' key={variant} value={variant}>
+                                {variant}
+                            </option>
+                        ))}
+                    </select>
                 </div>
 
-                <div className='pizza_footer'>
-                    <div className=''>
-                        <p className='varient_header'>Varients:</p>
-                        <select
-                            className='varient_selects'
-                            value={varient}
-                            onChange={(e) => setVarient(e.target.value)}
-                        >
-                            {pizza.varients.map((variant) => (
-                                <option className='pizza_choices' key={variant} value={variant}>
-                                    {variant}
-                                </option>
-                            ))}
-                        </select>
-                        </div>
-                        <div>
-                        <p className='quantity_header'>Quantity:</p>
-                        <select
-                            className='quantity_selects'
-                            value={quantity}
-                            onChange={(e) => setQuantity(e.target.value)}
-                        >
-                            {[...Array(10).keys()].map((x, i) => (
-                                <option className='pizza_choices' key={i} value={i + 1}>
-                                    {i + 1}
-                                </option>
-                            ))}
-                        </select>
-                        </div>
+                <div className='quantity'>
+                    <span className='quantity_header'>Quantity:</span>
+                    <select
+                        className='quantity_choice'
+                        value={quantity}
+                        onChange={(e) => setQuantity(e.target.value)}>
+                        {[...Array(10).keys()].map((x, i) => (
+                            <option className='pizza_choices' key={i} value={i + 1}>
+                                {i + 1}
+                            </option>
+                        ))}
+                    </select>
                 </div>
+            </div>
 
-                <div className="btn_footer">
-                    <div className='pizza_price'>
-                        <h5 className='varient_price'>₹{pizza.prices[0][varient] * quantity}/-</h5>
-                    </div>
-                    <div>
-                        <button
-                            className='cart_btn'
-                            onClick={addtocart}
-                            aria-label={`Add ${pizza.name} to cart`}
-                            disabled={loading}  // Disable the button while loading
-                        >
-                            {loading ? (
-                                <Spinner animation="border" size="sm" />  // Show spinner during loading
-                            ) : (
-                                "Add to cart"
-                            )}
-                        </button>
-                    </div>
-                </div>
-            </center>
+            <div className="price_container">
+                <h5 className='price'>₹{pizza.prices[0][varient] * quantity}/-</h5>
+                
+                    <button
+                        className='cart_btn'
+                        onClick={addtocart}
+                        aria-label={`Add ${pizza.name} to cart`}
+                        disabled={loading}  // Disable the button while loading
+                    >
+                        {loading ? (
+                            <Spinner animation="border" size="sm" />  // Show spinner during loading
+                        ) : (
+                            "Add to cart"
+                        )}
+                    </button>
+            </div>
 
             <Modal className='Modal' show={show} onHide={handleClose}>
                 <Modal.Header closeButton>
