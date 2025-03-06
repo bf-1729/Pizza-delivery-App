@@ -29,10 +29,18 @@
   padding: 8px;
 }
 @media (max-width:768px){
+  .homepizza_name{
+    font-size: 1rem;
+    width: 140px;
+  }
   .varient_selects,.quantity_selects{
-    width: 6rem;
+    width: 5rem;
   }
   .cart_btn{
     padding: 0.4rem;
+  }
+  .pizza_image{
+    width: 8rem;
+    height: 8rem;
   }
 }

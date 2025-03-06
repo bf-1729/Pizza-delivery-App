@@ -17,6 +17,9 @@
   .pizzascreen_container{
     grid-template-columns: repeat(2,1fr);
     width: 100%;
-    overflow: visible;
+    gap: 0;
+  }
+  .pizzascreen{
+    width: 200px;
   }
 }
