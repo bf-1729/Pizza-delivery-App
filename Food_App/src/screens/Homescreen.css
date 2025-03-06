@@ -7,7 +7,6 @@
   width: 100%;
 }
 .pizzascreen{
-  background: rgb(175, 15, 15);
   width: auto;
   height: 340px;
   border-radius: 8px;
@@ -15,13 +14,9 @@
 @media (max-width:768px){
   .pizzascreen_container{
     grid-template-columns: repeat(2,1fr);
-    width: 100%;
-    gap: 10px;
-    margin: 0;
-    padding: 2%;
   }
   .pizzascreen{
-    width: 50%;
+    width: 20%;
     height: 100%;
   }
 }

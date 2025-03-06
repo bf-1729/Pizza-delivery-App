@@ -4,6 +4,7 @@
   align-items: center;
   color: white;
   padding: 10px;
+  background-color: aqua;
 }
 .pizza_image{
   width: 10rem;
@@ -54,6 +55,10 @@
   padding: 6px;
 }
 @media (max-width:768px){
+  #pizzascreen{
+    width: 200px;
+    overflow: hidden;
+  }
   .pizza_name{
     font-size: 0.9rem;
   }
