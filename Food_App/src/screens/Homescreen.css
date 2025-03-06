@@ -46,21 +46,6 @@
       flex-direction: column;
       align-items: center;
   }
-
-  .form {
-      width: 100%;
-      margin-bottom: 10px;
-  }
-
-  .button {
-      width: 100%;
-      text-align: center;
-  }
-
-  .button button {
-      width: 100%;
-  }
-
   /* Pizza Grid */
   .pizzascreen_container {
     display: flex; /* Change grid to flex for better wrapping */
@@ -71,8 +56,8 @@
 
   /* Individual Pizza */
   .pizzascreen {
-    width: 45%;
-    max-width: 180px;
+    width: 40%;
+    max-width: 150px;
   }
 
   .home_heading {
