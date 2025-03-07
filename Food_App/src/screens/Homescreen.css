@@ -14,7 +14,7 @@
 }
 @media (max-width:768px){
   .pizzascreen_container{
-    grid-template-columns: repeat(2,0.44fr);
+    grid-template-columns: repeat(2,0.4fr);
     gap: 10px;
   }
   .pizzascreen{
