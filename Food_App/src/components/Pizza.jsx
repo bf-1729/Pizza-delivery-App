@@ -39,12 +39,12 @@ function Pizza({ pizza }) {
             </div>
         );
     }
-
     return (
         <div id='pizzascreen'>
-            <div className='pizza_header' onClick={handleShow}>
+            <div onClick={handleShow}>
                 <h1 className='pizza_name'>{pizza.name}</h1>
-                <img src={pizza.image} className='pizza_image' alt={pizza.name} />
+                <div className='pizza_header'>
+                <img src={pizza.image} className='pizza_image' alt={pizza.name} /></div>
             </div>
 
             <div className='varient_container'>
@@ -78,7 +78,7 @@ function Pizza({ pizza }) {
             </div>
 
             <div className="price_container">
-                <h5 className='varient_price'>₹{pizza.prices[0][varient] * quantity}/-</h5>
+                <h5 className='price'>₹{pizza.prices[0][varient] * quantity}/-</h5>
                 
                     <button
                         className='cart_btn'

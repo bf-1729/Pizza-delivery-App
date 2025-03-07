@@ -4,7 +4,6 @@
   align-items: center;
   color: white;
   padding: 10px;
-  background-color: aqua;
 }
 .pizza_image{
   width: 10rem;
@@ -18,7 +17,6 @@
 }
 .pizza_name{
   font-size: 1rem;
-  text-wrap: nowrap;
 }
 .varient_container{
   display: flex;
@@ -37,7 +35,7 @@
 }
 .varient_choice,.quantity_choice{
   width: 7rem;
-  padding: 0.2rem;
+  padding: 0.1rem;
   border-radius: 4px;
 }
 .price_container{
@@ -55,19 +53,16 @@
   padding: 6px;
 }
 @media (max-width:768px){
-  #pizzascreen{
-    width: 200px;
-    overflow: hidden;
-  }
   .pizza_name{
     font-size: 0.9rem;
+    text-transform:capitalize;
+    text-wrap: wrap;
   }
   .varient_header,.quantity_header{
     font-size: 0.8rem;
   }
   .varient_choice,.quantity_choice{
     width: 5rem;
-    padding: 0.1rem;
   }
   .cart_btn{
     padding: 0.4rem;
@@ -76,17 +71,17 @@
     font-size: 1rem;
   }
   .pizza_image{
-    width: 8rem;
-    height: 8rem;
+    width: 6rem;
+    height: 6rem;
   }
   .price_container{
     align-items: end;
     justify-content: start;
     padding-top: 4%;
-    gap: 18%;
+    gap: 10%;
   }
   .cart_btn{
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     padding: 3%;
   }
 }

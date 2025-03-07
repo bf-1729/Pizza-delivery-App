@@ -10,13 +10,15 @@
   width: auto;
   height: 340px;
   border-radius: 8px;
+  background-color: rgb(175, 15, 15);
 }
 @media (max-width:768px){
   .pizzascreen_container{
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2,0.44fr);
+    gap: 10px;
   }
   .pizzascreen{
-    width: 20%;
-    height: 100%;
+    height: auto;
+    width: 190px;
   }
 }
