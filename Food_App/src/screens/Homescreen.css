@@ -2,7 +2,6 @@
 .main_screen {
   width: 100%;
   min-height: 100vh;
-  background-color: #f8f9fa;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +10,6 @@
 /* Navbar and HomeNavbar */
 .navbar, .home_navbar {
   width: 100%;
-  background-color: #fff;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -20,25 +18,18 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
-  padding: 20px;
-  width: 90%;
-  max-width: 1200px;
+  padding: 0px;
+  width: 98%;
+  max-width: 100rem;
 }
 
 /* Individual Pizza Card */
 .pizzascreen {
-  background: white;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #333;
   transition: transform 0.2s ease-in-out;
 }
-
-.pizzascreen:hover {
-  transform: scale(1.05);
-}
-
-/* Heading */
 .home_heading {
   font-size: 2rem;
   text-align: center;

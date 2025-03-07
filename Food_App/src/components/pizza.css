@@ -1,20 +1,12 @@
 /* General Styles */
 #pizzascreen {
-  background: #fff;
   border-radius: 10px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
   padding: 15px;
   transition: transform 0.3s ease-in-out;
   text-align: center;
 }
-
-#pizzascreen:hover {
-  transform: scale(1.05);
-}
-
-/* Pizza Image */
 .pizza_image {
-  width: 100%;
+  width: 80%;
   max-width: 250px;
   height: auto;
   border-radius: 10px;

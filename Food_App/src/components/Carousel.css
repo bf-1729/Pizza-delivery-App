@@ -1,6 +1,7 @@
 
 .imgs{
     padding: 7px 10px;
+    width: 84rem;
 }
 .d-block{
     height: 400px;
@@ -8,9 +9,7 @@
 @media (max-width:768px){
     .d-block{
         height: 100%;
-        width: 100% !important;
         border-radius: 8px;
-        margin-top: 10%;
     }
     .imgs{
         padding: 10px 0px;
