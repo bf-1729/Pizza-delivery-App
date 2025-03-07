@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Pizza from '../components/Pizza';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllPizzas } from '../actions/PizzaActions';
+import Pizza from '../components/Pizza';
 import Carousel from '../components/Carousel';
 import Loading from '../components/Loading';
 import HomeNavbar from '../components/HomeNavbar';
@@ -24,19 +24,27 @@ function Homescreen() {
       <HomeNavbar />
       <Carousel />
 
-      <div className="pizzascreen_container">
-        {pizzas.map((pizza) => (
-          <div className="pizzascreen" key={pizza._id}>
-            <LatestPizza pizza={pizza} />
+      {/* Loading State */}
+      {loading && <Loading />}
+
+      {/* Error Handling */}
+      {error && <div className="error-message text-center mt-3"><h4>Error: {error}</h4></div>}
+
+      {/* Display Latest Pizza (Only if there are pizzas) */}
+      {pizzas.length > 0 && (
+        <div className="pizzascreen_container">
+          <div className="pizzascreen">
+            <LatestPizza pizza={pizzas[0]} />
           </div>
-        ))}
-      </div>
+        </div>
+      )}
 
       <h1 className='home_heading'>Pizzas</h1>
+      
+      {/* Display Pizzas List */}
       <div className="pizzascreen_container">
-
-        {pizzas.length > 0 ? (
-          pizzas.map((pizza) => (
+        {pizzas.length > 1 ? (
+          pizzas.slice(1).map((pizza) => ( // Exclude the latest pizza from the list
             <div className="pizzascreen" key={pizza._id}>
               <Pizza pizza={pizza} />
             </div>
