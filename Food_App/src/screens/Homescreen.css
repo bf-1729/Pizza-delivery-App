@@ -34,6 +34,7 @@
   text-align: center;
   margin: 20px 0;
   color: #333;
+  margin-top: 1rem !important;
 }
 
 /* Loading & Error Message */

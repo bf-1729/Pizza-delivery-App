@@ -50,11 +50,11 @@
 .price {
   font-size: 1.2rem;
   font-weight: bold;
-  color: white;
+  color: rgb(253, 239, 235) !important;
 }
 
 .cart_btn {
-  background: #ef1e17;
+  background: #f8150d;
   color: #fff;
   padding: 8px 80px;
   border: none;

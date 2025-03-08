@@ -99,5 +99,8 @@
     .pizza_container{
         grid-template-columns: repeat(1,1fr);
     }
+    .paneer_pizza_container{
+        width: 90% !important;
+    }
 }
   

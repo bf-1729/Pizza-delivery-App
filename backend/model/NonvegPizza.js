@@ -2,7 +2,6 @@ const mongoose = require("mongoose")
 
 const nonvegpizzaSchema = new mongoose.Schema({
     name:String,
-    choice:String,
     varients:[],
     prices:[],
     image : String,
