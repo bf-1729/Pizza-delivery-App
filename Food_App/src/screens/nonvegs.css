@@ -7,7 +7,7 @@
     max-width: 400px;
     background: #a80808;
     border: 2px solid rgb(237, 35, 35);
-    padding: 15px;
+    padding-bottom: 10px;
     text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     overflow: hidden;
@@ -30,9 +30,11 @@
   
   /* 🍕 Pizza Name */
   .pizza_name {
+    width: 100%;
     font-size: 1.3rem;
     font-weight: bold;
     margin: 10px 0;
+    height: 2.5rem;
   }
   
   /* 🍕 Price Styling */
@@ -98,9 +100,19 @@
 @media (max-width:768px){
     .pizza_container{
         grid-template-columns: repeat(1,1fr);
+        padding: 1rem;
     }
     .paneer_pizza_container{
-        width: 90% !important;
+        width: 84% !important;
+    }
+    .cart_button{
+        width: 80% !important;
+    }
+    .pizza_name{
+        width: 100%;
+        padding-left: 10px;
+        padding-right: 10px;
+        overflow-wrap: break-word;
     }
 }
   
