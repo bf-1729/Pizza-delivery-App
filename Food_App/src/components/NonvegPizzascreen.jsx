@@ -16,7 +16,7 @@ function NonvegPizzascreen({ pizza }) {
   return (
     <div className="paneer_pizza_container">
       <h3 className="pizza_name">{pizza.name}</h3>
-      <img onClick={handleShow} src={pizza.image} className='pizza_image' alt={pizza.name} />
+      <img onClick={handleShow} src={pizza.image} className='pizza_images' alt={pizza.name} />
       <div className="details_section">
         <p className="price">₹{pizza.prices[0][varient] * quantity}/-</p>
 
