@@ -16,9 +16,8 @@
 /* Pizzas Grid */
 .pizzascreen_container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 0px;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+  gap: 10px;
   width: 98%;
   max-width: 100rem;
 }
@@ -27,7 +26,7 @@
 .pizzascreen {
   padding: 15px;
   border-radius: 8px;
-  background-color: #333;
+  background-color: rgb(175, 15, 15);
   transition: transform 0.2s ease-in-out;
 }
 .home_heading {
@@ -43,40 +42,20 @@
   font-size: 1.2rem;
   color: red;
 }
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .pizzascreen_container {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-  }
-  
-  .home_heading {
-    font-size: 1.8rem;
-  }
-}
-
 @media (max-width: 768px) {
   .pizzascreen_container {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    padding: 10px;
+    padding: 3px;
+    gap: 7px;
   }
 
   .home_heading {
     font-size: 1.5rem;
+    margin: auto;
+    text-align: left;
   }
   
   .pizzascreen {
     padding: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  .pizzascreen_container {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  }
-
-  .home_heading {
-    font-size: 1.3rem;
   }
 }

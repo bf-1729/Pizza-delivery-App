@@ -12,6 +12,7 @@ function LatestPizza({ pizza }) {
     const [loading, setLoading] = useState(true);
 
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(getAllPizzas())
             .then(() => {
@@ -30,20 +31,12 @@ function LatestPizza({ pizza }) {
         dispatch(addToCart(pizza, quantity, varient));
         setLoading(false);
     }
-    if (loading) {
-        return (
-            <div className="loading-container">
-                <Spinner animation="border" variant="primary" />
-            </div>
-        );
-    }
     return (
         <div id='pizzascreen'>
             <div onClick={handleShow}>
-                <h1 className='pizza_name'>{pizza.name}</h1>
+                <h1 className='homepizza_name'>{pizza.name}</h1>
                 <div className='pizza_header'>
-                <img src={pizza.image} className='pizza_image' alt={pizza.name} />
-                </div>
+                <img src={pizza.image} className='pizza_image' alt={pizza.name} /></div>
             </div>
 
             <div className='varient_container'>
