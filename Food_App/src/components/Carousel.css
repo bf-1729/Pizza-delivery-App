@@ -8,12 +8,12 @@
 }
 @media (max-width:768px){
     .d-block{
-        height: 100%;
         border-radius: 14px;
-        padding: 8px;
+        padding: 10px;
+        height: 300px;
     }
     .imgs{
         padding: 10px 0px;
-        width: 100%;
+        width: 480px;
     }
 }

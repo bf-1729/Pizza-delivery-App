@@ -96,12 +96,6 @@ const Cartscreen = () => {
               ))
             ) : (
               <div className="text-center mt-5">
-                <img
-                  src={img}
-                  alt="Empty Cart"
-                  className="img-fluid mb-4"
-                  style={{ width: '140px' }}
-                />
                 <h4 style={{ color: '#7f8c8d' }}>Your cart is empty!</h4>
                 <p style={{ color: '#95a5a6' }}>Looks like you haven't added any items yet.</p>
               </div>

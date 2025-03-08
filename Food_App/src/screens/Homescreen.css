@@ -45,14 +45,17 @@
 @media (max-width: 768px) {
   .pizzascreen_container {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    padding: 3px;
+    padding: 4px;
     gap: 7px;
   }
 
   .home_heading {
     font-size: 1.5rem;
     margin: auto;
-    text-align: left;
+    text-align: left !important;
+    font-weight: bold;
+    color:rgb(20, 19, 19);
+    width: 96%;
   }
   
   .pizzascreen {

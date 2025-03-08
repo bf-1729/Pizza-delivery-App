@@ -15,21 +15,13 @@ function Pizza({ pizza }) {
 
     useEffect(() => {
         dispatch(getAllPizzas())
-            .then(() => {
-                setLoading(false);
-            })
-            .catch(() => {
-                setLoading(false);
-            });
     }, [dispatch]);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     function addtocart() {
-        setLoading(true);
         dispatch(addToCart(pizza, quantity, varient));
-        setLoading(false);
     }
     return (
         <div id='pizzascreen'>
@@ -74,10 +66,7 @@ function Pizza({ pizza }) {
                 
                     <button
                         className='cart_btn'
-                        onClick={addtocart}
-                        aria-label={`Add ${pizza.name} to cart`}
-                        disabled={loading}  // Disable the button while loading
-                    >Add to cart
+                        onClick={addtocart}>Add to cart
                     </button>
             </div>
 

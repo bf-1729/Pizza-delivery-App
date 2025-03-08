@@ -78,10 +78,6 @@ function Pizzaslist() {
                     </h4>
                 </div>
             </div>
-
-            {loading && <Loading />}
-            {error && <Error message={error} />}
-            
             {!loading && !error && (
                 <table className="table">
                     <thead className="table-dark">

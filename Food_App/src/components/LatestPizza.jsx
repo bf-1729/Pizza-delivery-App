@@ -75,14 +75,7 @@ function LatestPizza({ pizza }) {
                     <button
                         className='cart_btn'
                         onClick={addtocart}
-                        aria-label={`Add ${pizza.name} to cart`}
-                        disabled={loading}  // Disable the button while loading
-                    >
-                        {loading ? (
-                            <Spinner animation="border" size="sm" />  // Show spinner during loading
-                        ) : (
-                            "Add to cart"
-                        )}
+                    >Add to cart
                     </button>
             </div>
 

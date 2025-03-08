@@ -42,7 +42,7 @@
 
 .sidebar {
     position: fixed;
-    top: 60px;
+    top: 64px;
     left: -250px;
     width: 250px;
     height: 100%;
@@ -122,8 +122,8 @@
 @media (max-width: 768px) {
     .mobile-navbar {
         display: block;
-        margin-top: 62px;
-        margin-bottom: -4px;
+        margin-top: 64px;
+        margin-bottom: -16px;
         width: 54px;
         height: 44px;
         border-radius: 8px;

@@ -228,7 +228,8 @@ router.post("/editpizza", async (req, res) => {
                 pizza.description = editedpizza.description,
                 pizza.image = editedpizza.image,
                 pizza.category = editedpizza.category,
-                pizza.prices = [editedpizza.prices]
+                pizza.prices = [editedpizza.prices],
+                pizza.choice = editedpizza.choice
 
             await pizza.save();
         }
@@ -239,7 +240,8 @@ router.post("/editpizza", async (req, res) => {
                 pizza.description = editedpizza.description,
                 pizza.image = editedpizza.image,
                 pizza.category = editedpizza.category,
-                pizza.prices = [editedpizza.prices]
+                pizza.prices = [editedpizza.prices],
+                pizza.choice = editedpizza.choice
 
             await pizza.save();
         }
@@ -251,6 +253,7 @@ router.post("/editpizza", async (req, res) => {
                 pizza.image = editedpizza.image,
                 pizza.category = editedpizza.category,
                 pizza.prices = [editedpizza.prices]
+
 
             await pizza.save();
         }

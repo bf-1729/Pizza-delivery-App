@@ -23,10 +23,6 @@ function Addpizza() {
     const dispatch = useDispatch();
     const { success, error, loading } = useSelector(state => state.addPizzaReducer);
 
-    useEffect(() => {
-        if (success) toast.success("🍕 Pizza added successfully!");
-    }, [success]);
-
     const validate = () => {
         const newErrors = {};
         if (!name.trim()) newErrors.name = "Pizza name is required!";
@@ -60,6 +56,7 @@ function Addpizza() {
         };
 
         dispatch(addPizza(pizza));
+        toast.success("🍕 Pizza added successfully!");
 
         // Reset form
         setName("");

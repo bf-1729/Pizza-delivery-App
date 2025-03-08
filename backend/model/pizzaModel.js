@@ -6,7 +6,8 @@ const pizzaSchema = new mongoose.Schema({
     prices:[],
     image : String,
     category:String,
-    description:String
+    description:String,
+    choice:String
 },{
     timestamps:true
 })

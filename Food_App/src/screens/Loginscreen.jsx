@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch,useSelector } from 'react-redux'
 import { loginUser } from '../actions/userActions'
-import Loading from '../components/Loading'
-import Error from '../components/Error'
 import Navbar from '../components/Navbar'
 import "./loginscreen.css"
+import { toast } from 'react-toastify'
 
 function Loginscreen() {
     const [email,setEmail] = useState('')
@@ -23,11 +22,19 @@ function Loginscreen() {
     },[])
 
     function login(){
+      if(email.length<1){
+        toast.error("Enter Email")
+      }
+      else if(password.length < 1){
+        toast.error("Enter Password")
+      }
+      else{
             const user = {
                 email,password
             }
             dispatch(loginUser(user))
     }
+  }
   return (
     <div className='login_main'>
       <Navbar/>

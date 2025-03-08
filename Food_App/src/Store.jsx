@@ -13,8 +13,7 @@ import {
     getAllFruitPizzasReducer, 
     getAllParathaPizzasReducer, 
     getAllPaneerPizzasReducer, 
-    getAllMushroomPizzasReducer, 
-    getVegPizzaByIdReducer 
+    getAllMushroomPizzasReducer
 } from './reducers/pizzaReducers';
 
 import { getAllUsersReducer, loginUserReducer, registerUserReducer } from './reducers/userReducer';
@@ -36,7 +35,6 @@ const finalReducer = combineReducers({
     getAllPaneerPizzasReducer,
     getAllMushroomPizzasReducer,
     AddressUserReducer,
-    getVegPizzaByIdReducer,
     UserAddressReducer,
     DeliverOrderReducer
 });

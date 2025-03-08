@@ -1,21 +1,16 @@
 const initialstate = {
-    loading:false,
-    pizzas:[],
-    error:null
+    pizzas:[]
 }
 export const getAllPizzasReducer = (state = initialstate, action)=>{
     switch(action.type){
         case "GET_PIZZAS_REQUEST" : return{
-            loading:true,
             ...state
         }
         case "GET_PIZZAS_SUCCESS" : return{
-            loading:false,
             pizzas : action.payload
         }
         case "GET_PIZZAS_FAILED" : return{
-            error : action.payload,
-            loading:false
+            error : action.payload
         }
         default : return state
     }
@@ -175,24 +170,6 @@ export const getPizzaByIdReducer = (state = {}, action)=>{
             pizza : action.payload
         }
         case "GET_PIZZABYID_FAILED" : return{
-            error : action.payload,
-            loading:false
-        }
-        default : return state
-    }
-}
-
-export const getVegPizzaByIdReducer = (state = {}, action)=>{
-    switch(action.type){
-        case "GET_VEGPIZZABYID_REQUEST" : return{
-            loading:true,
-            ...state
-        }
-        case "GET_VEGPIZZABYID_SUCCESS" : return{
-            loading:false,
-            vegpizza : action.payload
-        }
-        case "GET_VEGPIZZABYID_FAILED" : return{
             error : action.payload,
             loading:false
         }

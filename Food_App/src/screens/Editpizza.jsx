@@ -13,6 +13,7 @@ const Editpizza = () => {
     const [mediumprice, setMediumprice] = useState()
     const [largeprice, setLargeprice] = useState()
     const [image, setImage] = useState('')
+    const [choice,setChoice] = useState('')
     const [description, setDescription] = useState('')
     const [category, setCategory] = useState('')
 
@@ -28,17 +29,16 @@ const Editpizza = () => {
                 small: smallprice,
                 medium: mediumprice,
                 large: largeprice
-            }
+            },
+            choice
         }
         dispatch(editPizza(editedpizza))
     }
     const getpizzabyid = useSelector(state => state.getPizzaByIdReducer)
-    const getvegpizzaid = useSelector(state=>state.getVegPizzaByIdReducer)
     const editpizzastate = useSelector(state=>state.editPizzaReducer)
     const { pizza, loading } = getpizzabyid
-    const {vegpizza} = getvegpizzaid
     const {editloading} = editpizzastate
-    console.log(vegpizza)
+    
 
     useEffect(() => {
         if(pizza){
@@ -51,6 +51,7 @@ const Editpizza = () => {
             setMediumprice(pizza.prices[0]['medium'])
             setLargeprice(pizza.prices[0]['large'])
             setImage(pizza.image)
+            setChoice(pizza.choice)
             }else{
                 dispatch(getPizzaById({ pizzaid }))
             }
@@ -103,7 +104,7 @@ const Editpizza = () => {
                 <label>Category</label>
                 <input className='form-values' type="text" value={category} onChange={(e) => setCategory(e.target.value)} required />
             </div>
-
+            
             <button className="save-button">Save Changes</button>
         </form>
     </div>

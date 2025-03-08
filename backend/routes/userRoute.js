@@ -3,6 +3,7 @@ const bcrypt = require("bcryptjs"); // Import bcrypt for password hashing
 const User = require("../model/userModel"); // Import User model
 const router = express.Router();
 const dotenv = require("dotenv")
+const toast = require("react-toastify")
 dotenv.config()
 
 router.post("/register", async (req, res) => {
@@ -43,34 +44,36 @@ router.post("/login", async (req, res) => {
         // Find the user by email
         const user = await User.findOne({ email });
         if (!user) {
-            return res.status(400).json({ message: "User not found" });
+            return res.status(400).json({ message: "Email doesn't exist" });
         }
 
-        // Check if the password matches
-        const isMatch = bcrypt.compare(password, user.password);
+        // Await bcrypt password comparison
+        const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(400).json({ message: "Invalid credentials" });
+            return res.status(400).json({ message: "Invalid Password" });
         }
 
+        // Check if the user is an admin
         if(email === process.env.EMAIL && password === process.env.PASSWORD){
             user.isAdmin = true;
             await user.save();
-            }
+        }
 
         // Send response with updated user data
         res.json({
             _id: user._id,
             name: user.name,
             email: user.email,
-            isAdmin: user.isAdmin, // Now always true after login
+            isAdmin: user.isAdmin, 
             message: "Login successful",
         });
 
     } catch (error) {
-        console.error("Login Error:", error); // Debugging log
+        console.error("Login Error:", error);
         res.status(500).json({ message: "Internal Server Error", error: error.message });
     }
 });
+
 
 
 router.get("/getallusers", async (req, res) => {
