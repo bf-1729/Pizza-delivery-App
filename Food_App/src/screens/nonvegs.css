@@ -13,7 +13,7 @@
     overflow: hidden;
     position: relative;
     margin: auto;
-    margin-bottom: 2em;
+    margin-bottom: 2rem;
   }
   .pizza_images {
     width: 100%;
@@ -103,10 +103,11 @@
         padding: 1rem;
     }
     .paneer_pizza_container{
-        width: 84% !important;
+        width: 94% !important;
+        margin-bottom: 1rem;
     }
     .cart_button{
-        width: 80% !important;
+        width: 90% !important;
     }
     .pizza_name{
         width: 100%;
