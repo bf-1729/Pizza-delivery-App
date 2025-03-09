@@ -81,7 +81,7 @@ function MyOrders() {
                       <span className='order_item_name'>{item.name} </span>
                       <span> Variant: {item.varient || 'N/A'}</span>
                       <span> Quantity:   {item.quantity || 1}</span>
-                      <span> Price:   {item.price || 'N/A'}</span>
+                      <span> Price:₹{item.price || 'N/A'}</span>
                     </div>
                     </div>
                       <div className="order_status">
