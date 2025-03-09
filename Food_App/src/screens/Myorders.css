@@ -89,7 +89,6 @@ div[role="alert"],
   }
   .order_section{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(1,94%)) !important;
   }
   .image{
     width: 80px;
@@ -111,7 +110,7 @@ div[role="alert"],
     padding: 4px;
   }
   .order_item_name{
-    width: 13rem;
+    width: 11rem;
     font-weight: 600;
   }
   .filter_button{
