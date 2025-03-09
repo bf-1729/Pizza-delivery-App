@@ -84,11 +84,12 @@ div[role="alert"],
     justify-content: end;
   }
   .filter_button{
-    margin-top: 15%;
+    margin-top: 18%;
     padding: 0.5rem !important;
   }
   .order_section{
     display: grid;
+    padding: 1rem;
   }
   .image{
     width: 80px;
@@ -110,7 +111,7 @@ div[role="alert"],
     padding: 4px;
   }
   .order_item_name{
-    width: 11rem;
+    width: 12rem;
     font-weight: 600;
   }
   .filter_button{
