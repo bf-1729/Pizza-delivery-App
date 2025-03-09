@@ -42,7 +42,6 @@
     .login_container,.register_container{
         width: 94%;
         padding: 120px 0;
-        min-height: 100vh;
     }
     .form_controls{
         padding: 0.4rem;

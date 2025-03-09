@@ -76,7 +76,7 @@ div[role="alert"],
 }
 @media (max-width: 768px) {
   .order_container{
-    width: 137% !important;
+    width: 110%;
   }
   .filter_button{
     margin-top: 15%;
