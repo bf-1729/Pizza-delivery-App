@@ -17,23 +17,18 @@
 .filter_button{
   display: flex;
   align-items: center;
-  gap: 4px;
-  text-align: right;
   border-style: none;
   padding: 4px;
   border-radius: 4px;
   background-color: rgb(29, 187, 187);
   color: white;
+  margin-top: 5%;
 }
 .order_section{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.order_main{
-  min-height:100vh;
-  margin-top: 5%;
 }
 .order_date{
   font-size: 1.5rem;
@@ -80,16 +75,14 @@ div[role="alert"],
   height: fit-content;
 }
 @media (max-width: 768px) {
-  .order_main{
-    margin-top: 12%;
-    padding: 1rem;
-  }
   .order_container{
-    width: 24rem !important;
+    width: 100% !important;
+  }
+  .filter_button{
+    margin-top: 15%;
   }
   .order_section{
     margin: auto;
-    margin-top: 0rem;
   }
   .image{
     width: 80px;
@@ -112,7 +105,7 @@ div[role="alert"],
     padding: 4px;
   }
   .order_item_name{
-    width: 14rem !important;
+    width: 10rem !important;
     font-weight: 600;
   }
   .filter_button{
