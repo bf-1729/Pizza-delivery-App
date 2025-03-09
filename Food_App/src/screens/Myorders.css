@@ -76,28 +76,29 @@ div[role="alert"],
 }
 @media (max-width: 768px) {
   .order_container{
-    width: 115%;
+    width: 100%;
+    padding: 1rem;
+    align-items: center;
   }
   .filter_button{
     margin-top: 15%;
   }
   .order_section{
-    align-items: start;
+    align-items: flex-start;
   }
   .image{
     width: 80px;
   }
   .details_container{
     display: flex;
-    width: 1rem;
   }
   .order_date{
     font-size: 1.2rem;
   }
   .order_details{
     font-size: 0.9rem;
-    overflow-wrap: anywhere;
     text-align: left;
+    overflow-wrap: anywhere;
   }
   .order_status{
     font-size: 0.9rem;
@@ -105,7 +106,7 @@ div[role="alert"],
     padding: 4px;
   }
   .order_item_name{
-    width: 10rem !important;
+    width: 12rem;
     font-weight: 600;
   }
   .filter_button{
