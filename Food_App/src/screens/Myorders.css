@@ -43,7 +43,6 @@
 }
 .not_delivered{
   color: red;
-  text-wrap: nowrap;
 }
 .details_container{
   display: flex;
@@ -85,6 +84,7 @@ div[role="alert"],
   }
   .filter_button{
     margin-top: 18%;
+    margin-right: 0 !important;
     padding: 0.5rem !important;
   }
   .order_section{
