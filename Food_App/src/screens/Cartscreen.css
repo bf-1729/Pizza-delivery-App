@@ -103,6 +103,7 @@
     font-size: 20px;
     font-weight: bold;
     color: #333;
+    width: 10px;
   }
   .cart_button {
     background: #007bff;
@@ -126,7 +127,7 @@
   }
   @media (max-width:768px){
     .cart_data{
-        width: 100% !important;
+        min-width: 103% !important;
     }
     .cartpizza_name{
         font-size: 0.9rem;
@@ -139,10 +140,12 @@
         padding: 0;
     }
     .cart_footer{
-        padding: 6%;
-        width: 100%;
-        gap: 50%;
-        margin: 0;
+        padding: 5%;
+        width: 100% !important;
+        gap: 64%;
+    }
+    .cart_button{
+        max-width: 40% !important;
     }
   }
   
