@@ -76,7 +76,7 @@ div[role="alert"],
 }
 @media (max-width: 768px) {
   .order_container{
-    width: 110%;
+    width: 120%;
   }
   .filter_button{
     margin-top: 15%;
@@ -105,7 +105,7 @@ div[role="alert"],
     padding: 4px;
   }
   .order_item_name{
-    width: 13rem !important;
+    width: 10rem !important;
     font-weight: 600;
   }
   .filter_button{
