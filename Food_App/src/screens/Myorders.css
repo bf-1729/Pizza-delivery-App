@@ -81,7 +81,7 @@ div[role="alert"],
 }
 @media (max-width: 768px) {
   .order_main{
-    margin-top: 16%;
+    margin-top: 12%;
     padding: 1rem;
   }
   .order_container{
