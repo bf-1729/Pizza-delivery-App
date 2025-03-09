@@ -1,93 +1,148 @@
-h2{
-    font-weight: 600;
-    color: #010910;
-    font-size: 25px;
-    margin-top: 10px;
-}
-.fa-plus{
-    color: green;
-}
-.fa-minus{
-    color: red;
-}
-.delete_button{
-    font-size: 1.3rem;
-    cursor: pointer;
-    margin-left: 100px;
-}
-.font{
-    color: black;
-}
-.cart_header{
-    border-radius: 4px;
-    border: 1px solid rgb(203, 213, 191);
-    height: 10%;
-    background-color: rgb(245, 245, 221);
+.cartscreen {
+    background-color: #7f87a2;
+    min-height: 100vh;
+    padding-top: 70px;
+  }
+  .cart_containers {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+  }
+  .cart_data {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    gap: 20%;
-}
-.cart_increase{
-    margin-left: 0px;
-}
-.item_calc{
-    margin-left: 0px;
-}
-.cartpizza_name{
-    font-weight: 500;
-    font-size: 17px;
-    margin-bottom: 2px;
-}
-.cart_number{
-    font-size: 1.2rem;
-    font-weight: 500;
-    margin: 0 10px;
-}
-.cart_button{
-    height: 70%;
+    background: #fff;
+    padding: 15px;
     border-radius: 10px;
-    font-weight: 500;
+    width: 90%;
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  .cart_image {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  .cart_calc {
+    flex: 1;
+  }
+  .cartpizza_name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  .item_calc {
+    font-size: 14px;
+    color: #666;
+  }
+  .cart_increase {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  
+  .cart_number {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  .fa-minus-circle, .fa-plus-circle {
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .fa-minus-circle:hover, .fa-plus-circle:hover {
+    transform: scale(1.2);
+  }
+  .delete_button {
+    font-size: 20px;
+    cursor: pointer;
+    color: #dc3545;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .delete_button:hover {
+    color: #a71d2a;
+  }
+  .text-center h4 {
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .text-center p {
+    font-size: 14px;
+    color: #777;
+  }
+  .cart_footer {
+    width: 80%;
+    display: flex;
+    justify-content: space-around !important;
+    align-items: center;
+    gap: 30%;
+  }
+  .cart_footer_main{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    min-height: 10% !important;
+    background-color: #faf2f2;
+    border-top: 1px solid #978787;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+  }
+  .subtotal {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+  }
+  .cart_button {
+    background: #007bff;
+    border: none;
+    padding: 10px 10px;
+    font-size: 16px;
     color: white;
-    font-size: 1.1rem;
-    background-color: black !important;
-}
-.cart_button:hover{
-    background-color: #91989f !important;
-}
-.cart_data{
-    margin-top: 3%;
-}
-.subtotal{
-    width:240px;
-}
-@media (max-width:768px){
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    width: 20% !important;
+  }
+  
+  .cart_button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .cart_button:hover:not(:disabled) {
+    background: #0056b3;
+  }
+  @media (max-width:768px){
     .cart_data{
-        margin-top: 3%;
-        height: 100px;
+        width: 100% !important;
     }
     .cartpizza_name{
-        color: #010910;
         font-size: 0.9rem;
     }
-    .cart_button{
-        height: 40px !important;
-        font-size: 1rem;
-        width: 29% !important;
-        margin-right: 12px;
+    .cart_footer_main{
+        max-height: 4rem;
+        width: 100% !important;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
     }
-    .cart_number{
-        font-size: 0.9rem;
+    .cart_footer{
+        padding: 6%;
+        width: 100%;
+        gap: 50%;
+        margin: 0;
     }
-    .delete_button{
-        font-size: 1rem;
-    }
-    h2,h3{
-        font-size: 1.2rem;
-    }
-    .font{
-        font-size: 0.9rem;
-        font-weight: 500;
-    }
-
-}
+  }
+  

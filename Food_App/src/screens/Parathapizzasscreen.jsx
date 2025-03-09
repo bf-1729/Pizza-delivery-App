@@ -19,12 +19,11 @@ function Parathapizzasscreen() {
     <div className='main_pizza'>
       <Navbar/>
       <PizzaNavbar/>
-      {loading && <Loading/>}
-      <div className="row m-2">
         <h2 className='text-center m-3'>Paratha Pizzas</h2>
+        <div className='Parathapizza'>
         {parathapizzas.length > 0 ? (
           parathapizzas.map((pizza) => (
-            <div className="pizza_section col-md-4 mb-2 text-center" key={pizza._id}>
+            <div className="pizza_section" key={pizza._id}>
               <Parathapizza pizza={pizza} />
             </div>
           ))

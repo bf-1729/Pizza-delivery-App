@@ -33,7 +33,7 @@ function Homescreen() {
       <HomeNavbar />
       <Carousel />
 
-      <h1 className="home_heading">Latest Pizzass</h1>
+      <h1 className="home_heading">Latest Pizzas</h1>
 
       <div className="pizzascreen_container">
         {latestPizzas.length > 0 && (
