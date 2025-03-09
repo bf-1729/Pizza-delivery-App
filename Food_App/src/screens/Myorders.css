@@ -34,7 +34,6 @@
 .order_main{
   min-height:100vh;
   margin-top: 5%;
-  width: 100%;
 }
 .order_date{
   font-size: 1.5rem;
@@ -86,9 +85,7 @@ div[role="alert"],
     padding: 1rem;
   }
   .order_container{
-    width: 100% !important;
-    padding: 1rem;
-    width: 100%;
+    width: 24rem !important;
   }
   .order_section{
     margin: auto;
