@@ -21,7 +21,7 @@
   /* Add responsiveness for smaller screens */
   @media (max-width: 768px) {
     .navbarpizza {
-      margin-top: 14%;
+      margin-top: 15%;
       padding: 4px 0px;
       width: 100%;
     }

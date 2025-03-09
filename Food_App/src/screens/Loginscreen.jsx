@@ -39,11 +39,11 @@ function Loginscreen() {
     <div className='login_main'>
       <Navbar/>
         <div className='row justify-content-center login_container'>
-            <div className='col-md-5 mt-3 text-left shadow-lg p-3 mb-5 bg-white rounded'>
+            <div className='mt-3 text-left shadow-lg p-3 mb-5 bg-white rounded'>
               <center>
                 <h2 className='headers'>Login</h2>
                 </center>
-                <div className=''>
+                <div className='form'>
 
                     <input 
                     type='email' 
@@ -51,7 +51,7 @@ function Loginscreen() {
                     onChange={(e)=>setEmail(e.target.value)}
                     required
                     placeholder='Email' 
-                    className='form-control mt-2'></input>
+                    className='form_controls'></input>
 
                     <input 
                     type='password'
@@ -59,13 +59,13 @@ function Loginscreen() {
                     onChange={(e)=>setPassword(e.target.value)}
                     required 
                     placeholder='password' 
-                    className='form-control mt-2'></input>
-                    <button onClick={login} className='btn btn-primary btn-sm btn-red w-100 mt-2 p-2' style={{fontSize:"17px",backgroundColor:"blue"}}>Login</button>
+                    className='form_controls'></input>
+                    <button onClick={login} className='login_button' style={{fontSize:"17px",backgroundColor:"blue"}}>Login</button>
 
                 </div>
                 <div className='mt-4'>
                 <span>Don't have an account?</span>
-                <a href='/register' style={{textDecoration:"none"}}>Register Here</a></div>
+                <a className='link' href='/register'>Register Here</a></div>
             </div>
         </div>
     </div>

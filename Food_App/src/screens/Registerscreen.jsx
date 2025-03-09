@@ -47,16 +47,16 @@ function Registerscreen() {
         <div className='register_main'>
             <Navbar />
             <div className='row justify-content-center register_container'>
-                <div className='col-md-5 mt-3 text-left shadow-lg p-3 mb-5 bg-white rounded'>
+                <div className='mt-3 text-left shadow-lg p-3 mb-5 bg-white rounded'>
                     <center><h2 className='headers'>Register</h2></center>
-                    <div>
+                    <div className='form'>
                         <input
                             type='text'
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             required
                             placeholder='Name'
-                            className='form-control mt-4'
+                            className='form_controls'
                         />
                         <input
                             type='email'
@@ -65,7 +65,7 @@ function Registerscreen() {
                             required
                             autoComplete='off'
                             placeholder='Email'
-                            className='form-control mt-2'
+                            className='form_controls'
                         />
                         <input
                             type='password'
@@ -73,7 +73,7 @@ function Registerscreen() {
                             onChange={(e) => setPassword(e.target.value)}
                             required
                             placeholder='Password'
-                            className='form-control mt-2'
+                            className='form_controls'
                         />
                         <input
                             type='password'
@@ -81,11 +81,11 @@ function Registerscreen() {
                             onChange={(e) => setCpassword(e.target.value)}
                             required
                             placeholder='Confirm Password'
-                            className='form-control mt-2'
+                            className='form_controls'
                         />
                         <button
                             onClick={register}
-                            className='btn btn-primary btn-sm btn-red w-100 mt-2 p-2'
+                            className='register_button'
                             style={{ fontSize: "17px", backgroundColor: "blue" }}
                             disabled={loading}
                         >

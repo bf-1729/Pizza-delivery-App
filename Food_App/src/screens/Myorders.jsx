@@ -39,17 +39,17 @@ function MyOrders() {
       setIsFiltering(false); // Hide loading symbol
     }, 1000); // Simulate a delay for demonstration purposes
   };
-
   return (
     <div className="order_main">
       <Navbar />
-      {/* Filter Button */}
-      <button onClick={handleFilterIncomplete} className="filter-button mt-5">
-        Pending orders <i className='fa fa-filter'></i>
+
+      <div className='filter_container'>
+      <button onClick={handleFilterIncomplete} className="filter_button">
+        <i className='fa fa-filter'></i>
       </button>
+      </div>
+
       <div className="order_section">
-        {/* Loading States */}
-        {loading && <div>Loading...</div>}
         {isFiltering && <div className="loading-symbol"><div class="spinner-border text-primary" role="status">
           <span class="sr-only">Loading...</span>
         </div></div>}
@@ -64,37 +64,35 @@ function MyOrders() {
           filteredOrders.map((order, orderIndex) =>
             order?.currentUser?._id === currentUser?._id ? (
               <div key={order._id || orderIndex}>
-                <div className="order_date">
-                  <h2>
+                <div className='order_date'>
+                  <span className='order_date'>
                     Ordered on:{' '}
                     {order.createdAt
                       ? new Date(order.createdAt).toLocaleString()
                       : 'N/A'}
-                  </h2>
+                  </span>
                 </div>
                 {order.cartItems?.map((item, itemIndex) => (
                   <div key={item._id || itemIndex} className="order_container">
-                    
-                    <div className='col-md-2 item'>
+                    <div className='details_container'>
+                    <div className='order_image'>
                     <img className='image' src={item.image}></img>
                     </div>
 
-                    <div className="col-md-6 item">
-                      <div>{item.name} </div>
-                      <div> Variant: {item.varient || 'N/A'}</div>
-                      <div> Quantity:   {item.quantity || 1}</div>
-                      <div> Price:   {item.price || 'N/A'}</div>
+                    <div className="order_details">
+                      <span className='order_item_name'>{item.name} </span>
+                      <span> Variant: {item.varient || 'N/A'}</span>
+                      <span> Quantity:   {item.quantity || 1}</span>
+                      <span> Price:   {item.price || 'N/A'}</span>
                     </div>
-                    
-                    <div className="col-md-4">
-                      <div className="status">
+                    </div>
+                      <div className="order_status">
                         {order.isDelivered ? (
-                          <div className='delivered' style={{ color: 'green' }}>Delivered</div>
+                          <div className='delivered'>Delivered</div>
                         ) : (
-                          <div style={{ color: 'red' }}>Not delivered</div>
+                          <div className='not_delivered'>Not delivered</div>
                         )}
                       </div>
-                    </div>
                   </div>
                 ))}
               </div>

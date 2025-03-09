@@ -3,10 +3,36 @@
 }
 .login_container,.register_container{
     padding: 140px 0;
+    width: 40rem;
+    margin: auto;
 }
 .headers{
     color: blue;
     font-size: 1.5rem;
+}
+.form_controls{
+    padding: 0.5rem;
+    border-radius: 7px;
+    border: 1px solid rgb(7, 26, 67);
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.link{
+    text-decoration: none;
+}
+.login_button,.register_button{
+    color: white;
+    border-style: none;
+    padding: 8px;
+    margin-top: 4%;
+    border-radius: 4px;
+    background-color: rgb(24, 41, 195) !important;
+}
+.login_button:hover,.register_button:hover{
+    background-color: rgb(9, 9, 11) !important;
 }
 @media (max-width:768px){
     .register_main,.login_main{
@@ -14,7 +40,11 @@
         justify-content: center;
     }
     .login_container,.register_container{
-        width: 90%;
+        width: 94%;
         padding: 120px 0;
+        min-height: 100vh;
+    }
+    .form_controls{
+        padding: 0.4rem;
     }
 }

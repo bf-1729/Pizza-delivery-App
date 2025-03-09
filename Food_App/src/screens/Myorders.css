@@ -1,21 +1,57 @@
 .order_container{
   display: flex;
+  justify-content: space-between;
   background-color: rgb(225, 55, 55);
-  width: 1000px;
-  margin: auto;
   padding: 10px;
+  width: 50rem;
   border-radius: 10px;
   color: rgb(247, 236, 236);
 }
+.filter_container{
+  display: flex;
+  justify-content: end;
+}
+.filter_button:hover{
+  background-color: black;
+}
+.filter_button{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  text-align: right;
+  border-style: none;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: rgb(29, 187, 187);
+  color: white;
+}
+.order_section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .order_main{
   min-height:100vh;
+  margin-top: 5%;
 }
-.item{
-  text-align: left;
+.order_date{
+  font-size: 1.5rem;
+}
+.order_details{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 .delivered{
-  border-radius: 4px;
-  padding: 0 2px;
+  color: green;
+}
+.not_delivered{
+  color: red;
+}
+.details_container{
+  display: flex;
+  gap: 10px;
 }
 .image{
   width: 120px;
@@ -30,38 +66,60 @@
   color: red;
 }
 
-/* Loading and Error */
 div[role="alert"],
 .order_section > div {
   text-align: center;
   font-size: 18px;
   padding: 20px;
 }
-.status{
+.order_status{
   width: 100px;
   margin-left: 220px;
   background-color: aliceblue;
   border-radius: 4px;
   padding: 2px;
+  height: fit-content;
 }
-
-/* ===== Responsive Design (Keep Desktop Style) ===== */
 @media (max-width: 768px) {
+  .order_main{
+    margin-top: 16%;
+  }
+  .order_container{
+    width: 28rem !important;
+  }
+  .order_section{
+    margin: auto;
+    margin-top: 0rem;
+  }
   .image{
     width: 80px;
   }
-  .order_container{
+  .details_container{
+    display: flex;
+    width: 1rem;
+  }
+  .order_date{
+    font-size: 1.2rem;
+  }
+  .order_details{
     font-size: 0.9rem;
-    width: 100%;
+    overflow-wrap: anywhere;
+    text-align: left;
   }
-  .item{
-    padding: 0 8px;
-  }
-  .status{
-    margin-left: 44px;
-    background-color: aliceblue;
-    border-radius: 4px;
-    width: 80px;
+  .order_status{
+    font-size: 0.9rem;
+    width: fit-content;
     padding: 4px;
+  }
+  .order_item_name{
+    width: 14rem !important;
+    font-weight: 600;
+  }
+  .filter_button{
+    margin-right: 1rem;
+    padding: 0.4rem;
+  }
+  .order_date{
+    margin-top: -1rem;
   }
 }
