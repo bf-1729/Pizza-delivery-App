@@ -34,6 +34,7 @@
 .order_main{
   min-height:100vh;
   margin-top: 5%;
+  width: 100%;
 }
 .order_date{
   font-size: 1.5rem;
@@ -73,19 +74,21 @@ div[role="alert"],
   padding: 20px;
 }
 .order_status{
-  width: 100px;
-  margin-left: 220px;
+  width: fit-content;
   background-color: aliceblue;
   border-radius: 4px;
-  padding: 2px;
+  padding: 4px;
   height: fit-content;
 }
 @media (max-width: 768px) {
   .order_main{
     margin-top: 16%;
+    padding: 1rem;
   }
   .order_container{
-    width: 28rem !important;
+    width: 100% !important;
+    padding: 1rem;
+    width: 100%;
   }
   .order_section{
     margin: auto;

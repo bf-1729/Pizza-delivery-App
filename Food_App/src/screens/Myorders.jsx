@@ -64,14 +64,12 @@ function MyOrders() {
           filteredOrders.map((order, orderIndex) =>
             order?.currentUser?._id === currentUser?._id ? (
               <div key={order._id || orderIndex}>
-                <div className='order_date'>
                   <span className='order_date'>
                     Ordered on:{' '}
                     {order.createdAt
                       ? new Date(order.createdAt).toLocaleString()
                       : 'N/A'}
                   </span>
-                </div>
                 {order.cartItems?.map((item, itemIndex) => (
                   <div key={item._id || itemIndex} className="order_container">
                     <div className='details_container'>
