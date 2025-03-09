@@ -76,15 +76,14 @@ div[role="alert"],
 }
 @media (max-width: 768px) {
   .order_container{
-    width: 90%;
-    padding: 1rem;
+    width: 100%;
     align-items: center;
   }
   .filter_button{
     margin-top: 15%;
   }
   .order_section{
-    align-items: flex-start;
+    display: grid;
   }
   .image{
     width: 80px;
