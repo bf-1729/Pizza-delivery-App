@@ -64,16 +64,16 @@ function Pizzaslist() {
     const filteredPizzas = getFilteredPizzas();
 
     return (
-        <div className='main'>
-            <div className='pizzaslists'>
-                <select className='pizza_choices' value={choice} onChange={(e) => setChoice(e.target.value)}>
+        <div className='list_main'>
+            <div className='list_container'>
+                <select className='screen_choice' value={choice} onChange={(e) => setChoice(e.target.value)}>
                     {pizzaTypes.map((type) => (
                         <option value={type} key={type}>{type}</option>
                     ))}
                 </select>
-                <div className='pizzalist_headers'>
-                    <h2 className='pizzalists_name'>{choice}</h2>
-                    <h4 className='pizza_counts'>
+                <div className='list_header_container'>
+                    <h2 className='list_header'>{choice}</h2>
+                    <h4 className='list_count'>
                         Total Pizzas : <span>{filteredPizzas.length}</span>
                     </h4>
                 </div>
@@ -91,21 +91,19 @@ function Pizzaslist() {
                     <tbody className="table_data">
                         {filteredPizzas.map((pizza) => (
                             <tr key={pizza._id}>
-                                <td className='pizza_name'>{pizza.name}</td>
-                                <td className='pizza_varient'>
+                                <td className='table_pizza_name'>{pizza.name}</td>
+                                <td className='table_pizza_varient'>
                                     Small: {pizza.prices[0]?.small || 'N/A'}<br />
                                     Medium: {pizza.prices[0]?.medium || 'N/A'}<br />
                                     Large: {pizza.prices[0]?.large || 'N/A'}
                                 </td>
-                                <td className='pizza_category'>{pizza.category}</td>
-                                <td className='pizza_actions'>
-                                    <i
-                                        style={{ color: 'red', cursor: 'pointer' }}
-                                        className="fa fa-trash m-2"
+                                <td className='table_pizza_category'>{pizza.category}</td>
+                                <td className='table_pizza_actions'>
+                                    <i className="fa fa-trash"
                                         onClick={() => dispatch(deletePizza(pizza._id))}
                                     ></i>
                                     <Link to={`/admin/editpizza/${pizza._id}`}>
-                                        <i className="fa fa-edit m-2"></i>
+                                        <i className="fa fa-edit"></i>
                                     </Link>
                                 </td>
                             </tr>

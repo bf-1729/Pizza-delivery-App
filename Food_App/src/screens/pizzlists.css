@@ -3,7 +3,7 @@
     min-height: 100vh;
   }
   
-  .pizzaslists {
+  .list_container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -11,19 +11,20 @@
     margin-bottom: 4px;
   }
   
-  .pizzalists_name {
+  .list_header {
     font-size: 1.5rem;
     color: black;
     text-align: center;
     margin: 0;
   }
   
-  .pizza_counts {
-    font-size: 17px;
+  .list_count {
+    font-size: 1rem !important;
     color: black;
+    margin-top: 0.7rem;
   }
   
-  .pizza_choices {
+  .screen_choice {
     padding: 8px 12px;
     font-size: 16px;
     border: 1px solid #ddd;
@@ -31,12 +32,11 @@
     cursor: pointer;
     text-align: left;
   }
-  
-  /* Table Styles */
   .table {
     width: 100%;
     background: white;
     overflow: hidden;
+    font-size: 1rem;
   }
   
   .table-dark {
@@ -55,73 +55,70 @@
     border-bottom: 1px solid #ddd;
   }
   
-  .pizza_name {
+  .table_pizza_name {
+    font-size: 1rem !important;
     font-weight:600;
     color: black;
     text-align: center;
-    width: 38%;
+    width: 38% !important;
   }
-  .pizzalist_headers{
+  .list_header_container{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
   }
   
-  .pizza_category {
+  .table_pizza_category {
     color: black;
   }
   
-  .pizza_actions i {
+  .table_pizza_actions i {
     font-size: 18px;
     cursor: pointer;
     transition: transform 0.2s;
+    padding: 0.5rem;
   }
   
   .pizza_actions i:hover {
     transform: scale(1.1);
   }
   
-  /* Responsive Design */
   @media (max-width: 768px) {
-    .pizzalists_name{
-        font-size: 1.1rem;
-        text-wrap: nowrap;
-    }
-    .pizza_counts{
+    .list_container{
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+  }
+    .list_count{
         text-wrap: nowrap;
         text-align: end;
-        font-size: 0.9rem;
+        font-size: 0.9rem !important;
     }
-    .pizza_actions i{
-        font-size: 0.875rem;
+    .fa-trash{
+      color: rgb(216, 14, 14);
+    }
+    .table_pizza_actions i{
+        font-size: 0.94rem !important;
     }
   
-    .pizza_choices {
+    .screen_choice {
       width: 100%;
-      margin-left: auto;
-      height: 40px;
+      height: 2.5rem;
     }
-    .pizza_name{
+    .table_pizza_name{
+      font-size: 0.875rem !important;
       width: 45%;
     }
   
     .table {
       width: 100%;
     }
-    .pizzalist_headers{
-        margin-top: 10px;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-    }
-  
     .table_headers th, .table_data td {
       padding: 8px;
       font-size: 14px;
       border-bottom: 1px solid rgb(197, 178, 178);
-    }
-    .main{
-      padding: 4px;
     }
   }
   
