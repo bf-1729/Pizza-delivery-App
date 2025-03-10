@@ -27,6 +27,12 @@
     }
     .admin_container{
         width: 100% !important;
+        margin: auto;
+    }
+    .adminfunctions{
+        justify-content: space-between;
+        gap: 0;
+        padding: 1rem;
     }
     .link:hover{
         text-decoration-line: underline;
