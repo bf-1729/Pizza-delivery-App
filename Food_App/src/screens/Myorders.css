@@ -89,7 +89,6 @@ div[role="alert"],
   }
   .order_section{
     display: grid;
-    padding: 1rem;
   }
   .image{
     width: 80px;
