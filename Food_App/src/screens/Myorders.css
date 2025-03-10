@@ -76,7 +76,7 @@ div[role="alert"],
 }
 @media (max-width: 768px) {
   .order_container{
-    width: 98%;
+    width: 100%;
     align-items: center;
   }
   .filter_container{
@@ -88,6 +88,7 @@ div[role="alert"],
   }
   .order_section{
     display: grid;
+    grid-template-columns: repeat(1,minmax(250px,1fr));
   }
   .image{
     width: 80px;

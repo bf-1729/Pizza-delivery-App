@@ -1,10 +1,17 @@
 .register_main,.login_main{
-    background-color: rgb(246, 235, 235);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 .login_container,.register_container{
-    padding: 140px 0;
     width: 40rem;
-    margin: auto;
+    background-color: white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    height: fit-content;
+    height: fit-content !important;
+    padding: 1rem;
 }
 .headers{
     color: blue;
@@ -12,21 +19,26 @@
 }
 .form_controls{
     padding: 0.5rem;
-    border-radius: 7px;
+    border-radius: 0.3rem;
     border: 1px solid rgb(7, 26, 67);
 }
-.form{
+.login_form,.register_form{
     display: flex;
     flex-direction: column;
     gap: 4px;
+    padding: 0.5rem;
 }
-.link{
+.footers{
+    padding-left: 0.4rem;
+}
+.links{
     text-decoration: none;
 }
 .login_button,.register_button{
     color: white;
+    font-size: 1.1rem !important;
     border-style: none;
-    padding: 8px;
+    padding: 0.4rem;
     margin-top: 4%;
     border-radius: 4px;
     background-color: rgb(24, 41, 195) !important;
@@ -35,13 +47,18 @@
     background-color: rgb(9, 9, 11) !important;
 }
 @media (max-width:768px){
+    .links{
+        font-size: 1rem !important;
+    }
     .register_main,.login_main{
         display: flex;
         justify-content: center;
+        align-items: center;
+        min-height: 100vh;
     }
     .login_container,.register_container{
         width: 94%;
-        padding: 120px 0;
+        padding: 0.5rem;
     }
     .form_controls{
         padding: 0.4rem;

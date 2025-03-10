@@ -38,12 +38,12 @@ function Loginscreen() {
   return (
     <div className='login_main'>
       <Navbar/>
-        <div className='row justify-content-center login_container'>
-            <div className='mt-3 text-left shadow-lg p-3 mb-5 bg-white rounded'>
+        <div className='login_container'>
+            <div className='mt-3 text-left'>
               <center>
                 <h2 className='headers'>Login</h2>
                 </center>
-                <div className='form'>
+                <div className='login_form'>
 
                     <input 
                     type='email' 
@@ -60,12 +60,12 @@ function Loginscreen() {
                     required 
                     placeholder='password' 
                     className='form_controls'></input>
-                    <button onClick={login} className='login_button' style={{fontSize:"17px",backgroundColor:"blue"}}>Login</button>
+                    <button onClick={login} className='login_button'>Login</button>
 
                 </div>
-                <div className='mt-4'>
+                <div className='mt-2 footers'>
                 <span>Don't have an account?</span>
-                <a className='link' href='/register'>Register Here</a></div>
+                <a className='links' href='/register'> Register Here</a></div>
             </div>
         </div>
     </div>

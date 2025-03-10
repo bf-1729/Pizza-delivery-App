@@ -46,10 +46,10 @@ function Registerscreen() {
     return (
         <div className='register_main'>
             <Navbar />
-            <div className='row justify-content-center register_container'>
-                <div className='mt-3 text-left shadow-lg p-3 mb-5 bg-white rounded'>
+            <div className='register_container'>
+                <div className='mt-3 text-left'>
                     <center><h2 className='headers'>Register</h2></center>
-                    <div className='form'>
+                    <div className='register_form'>
                         <input
                             type='text'
                             value={name}
@@ -86,14 +86,13 @@ function Registerscreen() {
                         <button
                             onClick={register}
                             className='register_button'
-                            style={{ fontSize: "17px", backgroundColor: "blue" }}
                             disabled={loading}
                         >
                             Register
                         </button>
                         <div className='mt-2'>
                             <span>Already have an account?</span>
-                            <a style={{ textDecoration: "none" }} href="/login">Login Here</a>
+                            <a className='links' href="/login"> Login Here</a>
                         </div>
                     </div>
                 </div>
