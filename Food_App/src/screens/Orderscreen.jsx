@@ -43,7 +43,7 @@ function Orderscreen() {
   return (
     <div className='orderlist'>
       <h2 className="order_header">Orders</h2>
-      <table className="order_table table col-md-10">
+      <table className="order_table table">
         <thead className="table-dark">
           <tr className="ordertable_header">
             <th>Order_ID</th>
