@@ -89,14 +89,15 @@ function Addressscreen() {
   };
 
   return (
-    <div className="form mt-2 p-4 shadow-lg">
-      <div className='adds_header d-flex'>
-      <h4 className='header_text'>Address for Order</h4>
+    <div className='address_container'>
+    <div className="form">
+      <div className='address_header d-flex'>
+      <h4 className='header_text'>Address Details</h4>
       <Link to={"/cart"} className='header_link'>Cancel</Link>
       </div>
       <div className="containers">
         <select
-          className="country_selectors col-md-8"
+          className="country_selectors "
           value={country}
           onChange={(e) => setCountry(e.target.value)}
           required>
@@ -108,7 +109,7 @@ function Addressscreen() {
         </select>
         {errors.country && <div className="text-danger">{errors.country}</div>}
 
-        <div className="input_container col-md-8">
+        <div className="input_container ">
           <label>Full name</label>
           <input
             className="input_vals"
@@ -120,7 +121,7 @@ function Addressscreen() {
           {errors.name && <div className="text-danger">{errors.name}</div>}
         </div>
 
-        <div className="input_container col-md-8">
+        <div className="input_container ">
           <label>Mobile number</label>
           <input
             maxLength="10"
@@ -134,7 +135,7 @@ function Addressscreen() {
           {errors.number && <div className="text-danger">{errors.number}</div>}
         </div>
 
-        <div className="input_container col-md-8">
+        <div className="input_container ">
           <label>House no., Building, Apartment, Company</label>
           <input
             className="input_vals"
@@ -146,7 +147,7 @@ function Addressscreen() {
           {errors.AddressLine1 && <div className="text-danger">{errors.AddressLine1}</div>}
         </div>
 
-        <div className="input_container col-md-8">
+        <div className="input_container">
           <label>Area, Street, Village</label>
           <input
             className="input_vals"
@@ -158,7 +159,7 @@ function Addressscreen() {
           {errors.AddressLine2 && <div className="text-danger">{errors.AddressLine2}</div>}
         </div>
 
-        <div className="input_container col-md-8">
+        <div className="input_container ">
           <label>Landmark</label>
           <input
             className="input_vals"
@@ -171,8 +172,8 @@ function Addressscreen() {
           {errors.landmark && <div className="text-danger">{errors.landmark}</div>}
         </div>
 
-        <div className="footer_container col-md-8">
-          <div className="bottom_container col-md-4">
+        <div className="footer_container">
+          <div className="bottom_container">
             <label>Pincode</label>
             <input
               className="pincode"
@@ -208,10 +209,11 @@ function Addressscreen() {
             Submitting...
           </button>
         ) : (
-          <button className="address_button btn btn-primary col-md-8" onClick={handleSubmit}>
+          <button className="address_button btn btn-primary " onClick={handleSubmit}>
             Delivery Here ₹{Amount}/-
           </button>
         )}
+        </div>
       </div>
     </div>
   );
