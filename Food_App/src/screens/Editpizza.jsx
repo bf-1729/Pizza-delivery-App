@@ -62,15 +62,12 @@ const Editpizza = () => {
     }, [pizza,dispatch])
 
     return (
-    <div className="editpizza-container">
-    <div className="editpizza-header">
-        <h2>Edit Pizza</h2>
-        <Link className="cancel-button" to={"/admin/pizzaslist"}>Cancel</Link>
-    </div>
+    <div className="editpizza_container">
+    <h2 className='editpizza_header'>Edit Pizza</h2>
 
-    <h4 className="pizza-id">Pizza ID: {pizzaid}</h4>
+    <h4 className="pizza_id">Pizza ID: {pizzaid}</h4>
 
-    <div className="editpizza-card">
+    <div className="editpizza_card">
         {loading && <Loading />}
         {editloading && <Loading />}
 
@@ -105,7 +102,7 @@ const Editpizza = () => {
                 <input className='form-values' type="text" value={category} onChange={(e) => setCategory(e.target.value)} required />
             </div>
             
-            <button className="save-button">Save Changes</button>
+            <button className="save_button">Save Changes</button>
         </form>
     </div>
 </div>

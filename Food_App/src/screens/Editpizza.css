@@ -1,7 +1,7 @@
 
-.editpizza-container {
+.editpizza_container {
     max-width: 100%;
-    margin: 30px auto;
+    margin: 10px auto;
     padding: 20px;
     background: #fff;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
@@ -10,39 +10,23 @@
 
 }
 
-.editpizza-header {
+.editpizza_header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
     border-bottom: 2px solid #eee;
     padding-bottom: 10px;
     margin-bottom: 15px;
+    color: black;
+    width: 100%;
+    font-size: 1.8rem !important;
+    font-weight: 700;
 }
-
-.editpizza-header h2 {
-    font-size: 24px;
-    color: #333;
-}
-
-.cancel-button {
-    text-decoration: none;
-    background: #ff4d4d;
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: 0.3s;
-}
-
-.cancel-button:hover {
-    background: #cc0000;
-}
-.pizza-id {
-    font-size: 16px;
+.pizza_id {
+    font-size: 1rem !important;
     color: #777;
     text-align: center;
-    margin-bottom: 15px;
 }
-.editpizza-card {
+.editpizza_card {
     padding: 10px;
     border-radius: 8px;
 }
@@ -73,7 +57,7 @@
     border-color: #4caf50;
     outline: none;
 }
-.save-button {
+.save_button {
     width: 100%;
     background: #4caf50;
     color: #fff;
@@ -84,18 +68,21 @@
     cursor: pointer;
     transition: 0.3s;
 }
-.save-button:hover {
+.save_button:hover {
     background: #388e3c;
 }
 @media (max-width:768px){
-    .editpizza-container{
-        margin: 10px;
+    .editpizza_container{
+        width: 94%;
+    }
+    .editpizza_header{
+        font-size: 1.5rem !important;
     }
     .form-values{
         font-size: 0.9rem !important;
     }
-    .pizza-id{
-        font-size: 0.9rem;
+    .pizza_id{
+        font-size: 0.875rem !important;
     }
     .form-group{
         margin-bottom: 25px;

@@ -83,6 +83,9 @@
   .pizza_actions i:hover {
     transform: scale(1.1);
   }
+  .fa-trash{
+    color: rgb(216, 14, 14);
+  }
   
   @media (max-width: 768px) {
     .list_container{
@@ -95,9 +98,6 @@
         text-wrap: nowrap;
         text-align: end;
         font-size: 0.9rem !important;
-    }
-    .fa-trash{
-      color: rgb(216, 14, 14);
     }
     .table_pizza_actions i{
         font-size: 0.94rem !important;

@@ -23,7 +23,7 @@
 }
 @media (max-width:768px){
     .adminscreen_main{
-        margin-top: 14% !important;
+        margin-top: 15% !important;
     }
     .admin_container{
         width: 100% !important;
@@ -32,7 +32,7 @@
     .adminfunctions{
         justify-content: space-between;
         gap: 0;
-        padding: 1rem;
+        padding: 0.5rem;
     }
     .link:hover{
         text-decoration-line: underline;
