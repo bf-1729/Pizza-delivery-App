@@ -174,7 +174,7 @@ function Addressscreen() {
 
         <div className="footer_container">
           <div className="bottom_container">
-            <label>Pincode</label>
+            <label>Pincode:</label>
             <input
               className="pincode"
               type="text"
@@ -186,7 +186,7 @@ function Addressscreen() {
             {errors.pincode && <div className="text-danger">{errors.pincode}</div>}
           </div>
           <div className="bottom_container">
-            <label>State</label>
+            <label>State:</label>
             <select
               className="state_selectors"
               value={state}

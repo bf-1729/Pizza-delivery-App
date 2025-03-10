@@ -134,14 +134,15 @@ label {
     }
 
     .footer_container {
-        gap: 0.5rem;
+        gap: 0rem;
     }
     .pincode,.state_selectors{
-        width: 50%;
+        width: 60%;
     }
     .bottom_container{
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
     }
 
     .address_button {
