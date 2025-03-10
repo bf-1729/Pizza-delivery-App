@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
-import Userslist from './Userslist';
 import Pizzaslist from './Pizzaslist';
 import Addpizza from './Addpizza';
 import Editpizza from './Editpizza';
@@ -25,8 +24,7 @@ function Adminscreen() {
   return (
     <div className='adminscreen_main text-center'>
       <Navbar/>
-      <div className='row justify-content-center'>
-        <div className='col-md-10'>
+        <div className='admin_container'>
           <div className='adminfunctions'>
             <Link to='/admin/orderslist' className='link'>Orders List</Link>
             <Link to='/admin/pizzaslist' className='link'>Pizzas List</Link>
@@ -42,7 +40,6 @@ function Adminscreen() {
           </Routes>
         </div>
       </div>
-    </div>
   );
 }
 

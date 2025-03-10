@@ -1,4 +1,12 @@
+.admin_container{
+    width: 90%;
+    margin: auto;
+}
+.adminscreen_main{
+    margin-top: 4%;
+}
 .adminfunctions .link{
+    font-size: 1.1rem;
     color: white;
     text-decoration: none;
     padding: 1px;
@@ -13,23 +21,19 @@
     padding: 10px;
     background-color: black
 }
-.adminscreen_main{
-    margin-top: 60px;
-}
 @media (max-width:768px){
     .adminscreen_main{
-        margin-top: 12.4%;
+        margin-top: 14% !important;
     }
-    .adminfunctions{
-        display:flex;
-        gap: 40px;
-        width: 100%;
+    .admin_container{
+        width: 100% !important;
     }
     .link:hover{
         text-decoration-line: underline;
     }
     .link{
-        font-size: 15px;
+        text-wrap: nowrap;
+        font-size: 0.9rem !important;
         font-weight: 400;
     }
 }
