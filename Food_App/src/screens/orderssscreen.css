@@ -67,6 +67,7 @@
 @media screen and (max-width: 768px) {
   .orderlist {
     padding: 0.5rem;
+    margin: auto;
   }
 
   .order_header {

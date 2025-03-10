@@ -86,10 +86,10 @@
   
   @media (max-width: 768px) {
     .list_container{
-      margin-top: 10px;
       display: flex;
       justify-content: space-between;
       width: 100%;
+      margin: auto;
   }
     .list_count{
         text-wrap: nowrap;
@@ -126,6 +126,7 @@
     }
     .list_main{
       padding: 0.5rem;
+      width: 100%;
     }
   }
   
