@@ -71,13 +71,13 @@ function Addpizza() {
     }
 
     return (
-        <div className="addpizza-container">
-            <div className="addpizza-card">
-                <h2 className="addpizza-header">🍕 Add a New Pizza</h2>
+        <div className="addpizza_container">
+            <div className="addpizza_card">
+                <h2 className="addpizza_header">🍕 Add a New Pizza</h2>
                 {loading && <Loading />}
                 {error && <Error message="Failed to add pizza" />}
 
-                <form className="addpizza-form" onSubmit={formHandler}>
+                <form className="addpizza_form" onSubmit={formHandler}>
                     <div className="form-group">
                         <label className="form_header">Pizza Name</label>
                         <input type="text" placeholder="Enter pizza name" value={name} onChange={(e) => setName(e.target.value)} className="form-control" />
