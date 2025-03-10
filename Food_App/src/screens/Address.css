@@ -120,6 +120,7 @@ label {
     .form {
         padding: 1rem;
         border-radius: 0px;
+        margin: auto;
     }
     .input_vals{
         padding: 14px 8px;
@@ -134,6 +135,9 @@ label {
 
     .footer_container {
         gap: 0.5rem;
+    }
+    .pincode,.state_selectors{
+        width: 50%;
     }
     .bottom_container{
         display: flex;
