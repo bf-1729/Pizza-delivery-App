@@ -79,6 +79,7 @@ div[role="alert"],
   .order_container{
     width: 100%;
     align-items: center;
+    overflow-wrap: anywhere;
   }
   .filter_container{
     justify-content: end;
@@ -90,6 +91,7 @@ div[role="alert"],
   .order_section{
     display: grid;
     grid-template-columns: repeat(1,minmax(200px,1fr)) !important;
+    padding: 1rem !important;
   }
   .image{
     width: 80px;
@@ -109,6 +111,8 @@ div[role="alert"],
     font-size: 0.9rem;
     width: fit-content;
     padding: 4px;
+    width: 10rem;
+    margin-right: 1rem;
   }
   .order_item_name{
     width: 12rem;

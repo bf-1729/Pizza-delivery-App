@@ -53,12 +53,13 @@
     .register_main,.login_main{
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: start;
         min-height: 100vh;
     }
     .login_container,.register_container{
         width: 94%;
         padding: 0.5rem;
+        margin-top: 24%;
     }
     .form_controls{
         padding: 0.4rem;
