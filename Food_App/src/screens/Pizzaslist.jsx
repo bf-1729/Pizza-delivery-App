@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { 
-    getAllPizzas, deletePizza, getAllVegPizzas, 
-    getAllNonVegPizzas, getAllFruitPizzas, 
-    getAllParathaPizzas, getAllPaneerPizzas, 
-    getAllMushroomPizzas 
+import {
+    getAllPizzas, deletePizza, getAllVegPizzas,
+    getAllNonVegPizzas, getAllFruitPizzas,
+    getAllParathaPizzas, getAllPaneerPizzas,
+    getAllMushroomPizzas
 } from '../actions/PizzaActions';
 import { Link } from 'react-router-dom';
-import Loading from '../components/Loading';
-import Error from '../components/Error';
 import "./pizzlists.css";
 
 function Pizzaslist() {
     const [choice, setChoice] = useState('Homescreen');
-    
+
     const pizzaTypes = [
         "Homescreen", "Veg Pizzas", "Nonveg Pizzas",
         "Fruit Pizzas", "Paratha Pizzas", "Paneer Pizzas", "Mushroom Pizzas"

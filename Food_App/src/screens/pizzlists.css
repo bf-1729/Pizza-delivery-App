@@ -120,5 +120,8 @@
       font-size: 14px;
       border-bottom: 1px solid rgb(197, 178, 178);
     }
+    .list_main{
+      padding: 0.5rem;
+    }
   }
   
