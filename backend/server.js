@@ -1,23 +1,21 @@
-const express = require("express")
-const connectDB = require("./db")
-const pizzasRoute = require("./routes/pizzaRoute")
-const userRoute = require("./routes/userRoute")
-const orderRoute = require("./routes/ordersRoute")
-const cors = require("cors")
-connectDB()
-const app = express()
-app.use(express.json({ limit: '10mb' })); // Increase JSON size limit
-app.use(express.urlencoded({ limit: '10mb', extended: true })); // Increase URL-encoded data limit
+const express = require("express");
+const cors = require("cors");
 
-app.use(cors())
-app.use("/api/pizzas/",pizzasRoute)
-app.use("/api/users/",userRoute)
-app.use("/api/orders/",orderRoute)
+const app = express();
 
+// Enable CORS for all origins
+app.use(cors());
 
+// If you want to allow only your frontend:
+app.use(
+  cors({
+    origin: "https://pizza-delivery-app-xc8b.vercel.app", // Replace with your frontend URL
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true, // If using cookies or authentication
+  })
+);
 
-app.get("/",(req,res)=>{
-    res.send("Server Working")
+// Your API route
+app.get("/api/pizzas/getallpizzas", (req, res) => {
+  res.json({ message: "CORS is now enabled!" });
 });
-
-app.listen(4000,()=>console.log("server is running"))
