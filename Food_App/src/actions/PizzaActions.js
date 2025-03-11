@@ -1,14 +1,17 @@
 import axios from "axios"
 import { toast } from "react-toastify";
 const backendUrl = import.meta.env.VITE_BACKEND_URL
-export const getAllPizzas = ()=>async dispatch=>{
-    dispatch({type:"GET_PIZZAS_REQUEST"})
-    try{const response = await axios.get(backendUrl+"/api/pizzas/getallpizzas");
-        dispatch({type:"GET_PIZZAS_SUCCESS",payload : response.data})
-    }catch(error){
-        dispatch({type:"GET_PIZZAS_FAILED",payload:error})
+export const getAllPizzas = () => async (dispatch) => {
+    dispatch({ type: "GET_PIZZAS_REQUEST" });
+    try {
+        const response = await axios.get(`${backendUrl}/api/pizzas/getallpizzas`);
+        dispatch({ type: "GET_PIZZAS_SUCCESS", payload: response.data });
+    } catch (error) {
+        console.error("Error fetching pizzas:", error.response ? error.response.data : error.message);
+        dispatch({ type: "GET_PIZZAS_FAILED", payload: error });
     }
-}
+};
+
 
 export const getAllNonVegPizzas = ()=>async dispatch=>{
     dispatch({type:"GET_NONVEG_PIZZAS_REQUEST"})

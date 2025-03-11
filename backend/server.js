@@ -1,24 +1,23 @@
-const express = require("express");
-const cors = require("cors");
+const express = require("express")
+const connectDB = require("./db")
+const pizzasRoute = require("./routes/pizzaRoute")
+const userRoute = require("./routes/userRoute")
+const orderRoute = require("./routes/ordersRoute")
+const cors = require("cors")
+connectDB()
+const app = express()
+app.use(express.json({ limit: '10mb' })); // Increase JSON size limit
+app.use(express.urlencoded({ limit: '10mb', extended: true })); // Increase URL-encoded data limit
 
-const app = express();
+app.use(cors())
+app.use("/api/pizzas/",pizzasRoute)
+app.use("/api/users/",userRoute)
+app.use("/api/orders/",orderRoute)
 
-// Enable CORS
-app.use(
-  cors({
-    origin: "https://pizza-delivery-app-xc8b.vercel.app", // Change this to your frontend domain
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true
-  })
-);
 
-app.use(express.json());
 
-// Sample API Route
-app.get("/api/pizzas/getallpizzas", (req, res) => {
-  res.json({ message: "CORS is enabled, and the API is working!" });
+app.get("/",(req,res)=>{
+    res.send("Server Working")
 });
 
-// Start the server
-const PORT = process.env.PORT || 4000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(4000,()=>console.log("server is running"))
