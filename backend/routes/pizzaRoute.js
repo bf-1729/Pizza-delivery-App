@@ -10,18 +10,19 @@ const mushroomPizza = require("../model/mushroomPizza")
 
 router.get("/getallpizzas", async (req, res) => {
     try {
-        const pizzas = await Pizza.find({})
-        res.send(pizzas)
-    }
-    catch (error) {
-        return res.status(400).json({ message: error })
+        const pizzas = await Pizza.find({}).lean(); // Faster query
+        res.status(200).json(pizzas);
+    } catch (error) {
+        console.error("Error fetching pizzas:", error);
+        res.status(500).json({ message: "Internal Server Error" });
     }
 });
 
+
 router.get("/getallnonvegpizzas", async (req, res) => {
     try {
-        const pizza = await nonvegPizza.find({})
-        res.send(pizza)
+        const pizza = await nonvegPizza.find({}).lean()
+        res.status(200).json(pizzas);
     }
     catch (error) {
         return res.status(400).json({ message: error })
@@ -30,8 +31,8 @@ router.get("/getallnonvegpizzas", async (req, res) => {
 
 router.get("/getallvegpizzas", async (req, res) => {
     try {
-        const pizza = await vegPizza.find({})
-        res.send(pizza)
+        const pizza = await vegPizza.find({}).lean()
+        res.status(200).json(pizzas);
     }
     catch (error) {
         return res.status(400).json({ message: error })
@@ -40,8 +41,8 @@ router.get("/getallvegpizzas", async (req, res) => {
 
 router.get("/getallfruitpizzas", async (req, res) => {
     try {
-        const pizza = await fruitPizza.find({})
-        res.send(pizza)
+        const pizza = await fruitPizza.find({}).lean()
+        res.status(200).json(pizzas);
     }
     catch (error) {
         return res.status(400).json({ message: error })
@@ -50,8 +51,8 @@ router.get("/getallfruitpizzas", async (req, res) => {
 
 router.get("/getallparathapizzas", async (req, res) => {
     try {
-        const pizza = await parathaPizza.find({})
-        res.send(pizza)
+        const pizza = await parathaPizza.find({}).lean()
+        res.status(200).json(pizzas);
     }
     catch (error) {
         return res.status(400).json({ message: error })
@@ -60,8 +61,8 @@ router.get("/getallparathapizzas", async (req, res) => {
 
 router.get("/getallpaneerpizzas", async (req, res) => {
     try {
-        const pizza = await paneerPizza.find({})
-        res.send(pizza)
+        const pizza = await paneerPizza.find({}).lean()
+        res.status(200).json(pizzas);
     }
     catch (error) {
         return res.status(400).json({ message: error })
@@ -70,8 +71,8 @@ router.get("/getallpaneerpizzas", async (req, res) => {
 
 router.get("/getallmushroompizzas", async (req, res) => {
     try {
-        const pizza = await mushroomPizza.find({})
-        res.send(pizza)
+        const pizza = await mushroomPizza.find({}).lean()
+        res.status(200).json(pizzas);
     }
     catch (error) {
         return res.status(400).json({ message: error })
@@ -181,40 +182,20 @@ router.post("/getpizzabyid", async (req, res) => {
     const pizzaId = req.body.pizzaid;
 
     try {
-        var pizza = await Pizza.findOne({ _id: pizzaId });
-        if (pizza) {
-            return res.send(pizza);
-        }
+        const collections = [Pizza, vegPizza, nonvegPizza, fruitPizza, parathaPizza, paneerPizza, mushroomPizza];
 
-        var pizza = await vegPizza.findOne({ _id: pizzaId });
-        if (pizza) {
-            return res.send(pizza);
-        }
+        const results = await Promise.all(collections.map(collection => collection.findOne({ _id: pizzaId }).lean()));
 
-        var pizza = await nonvegPizza.findOne({ _id: pizzaId });
+        const pizza = results.find(p => p); // Get the first non-null result
+
         if (pizza) {
-            return res.send(pizza);
-        }
-        var pizza = await fruitPizza.findOne({ _id: pizzaId });
-        if (pizza) {
-            return res.send(pizza);
-        }
-        var pizza = await parathaPizza.findOne({ _id: pizzaId });
-        if (pizza) {
-            return res.send(pizza);
-        }
-        var pizza = await paneerPizza.findOne({ _id: pizzaId });
-        if (pizza) {
-            return res.send(pizza);
-        }
-        var pizza = await mushroomPizza.findOne({ _id: pizzaId });
-        if (pizza) {
-            return res.send(pizza);
+            return res.status(200).json(pizza);
         }
 
         return res.status(404).json({ message: "Pizza not found" });
     } catch (error) {
-        return res.status(500).json({ message: "Internal server error" });
+        console.error("Error fetching pizza:", error);
+        return res.status(500).json({ message: "Internal Server Error" });
     }
 });
 
@@ -305,54 +286,21 @@ router.post("/editpizza", async (req, res) => {
 
 router.post("/deletepizza", async (req, res) => {
     const pizzaId = req.body.pizzaid;
-  
+
     try {
-      // Try deleting from Pizza collection first
-      let pizza = await Pizza.findOneAndDelete({ _id: pizzaId });
-  
-      if (pizza) {
-        return res.send("Pizza deleted successfully");
-      }
-  
-      // If not found in Pizza, try deleting from vegPizza
-      pizza = await nonvegPizza.findOneAndDelete({ _id: pizzaId });
-  
-      if (pizza) {
-        return res.send("Pizza deleted successfully");
-      }
+        const collections = [Pizza, nonvegPizza, vegPizza, fruitPizza, parathaPizza, paneerPizza, mushroomPizza];
 
-      pizza = await vegPizza.findOneAndDelete({ _id: pizzaId });
-  
-      if (pizza) {
-        return res.send("Pizza deleted successfully");
-      }
+        const results = await Promise.all(collections.map(collection => collection.findOneAndDelete({ _id: pizzaId })));
 
-      pizza = await fruitPizza.findOneAndDelete({ _id: pizzaId });
-  
-      if (pizza) {
-        return res.send("Pizza deleted successfully");
-      }
-      pizza = await parathaPizza.findOneAndDelete({ _id: pizzaId });
-  
-      if (pizza) {
-        return res.send("Pizza deleted successfully");
-      }
-      pizza = await paneerPizza.findOneAndDelete({ _id: pizzaId });
-  
-      if (pizza) {
-        return res.send("Pizza deleted successfully");
-      }
-      pizza = await mushroomPizza.findOneAndDelete({ _id: pizzaId });
-  
-      if (pizza) {
-        return res.send("Pizza deleted successfully");
-      }
-  
-      // If not found in either collection, return 404
-      return res.status(404).json({ message: "Pizza not found" });
+        if (results.some(pizza => pizza)) {
+            return res.send("Pizza deleted successfully");
+        }
+
+        return res.status(404).json({ message: "Pizza not found" });
     } catch (error) {
-      return res.status(500).json({ message: "Internal server error" });
+        console.error("Error deleting pizza:", error);
+        return res.status(500).json({ message: "Internal Server Error" });
     }
-  });
+});
 
 module.exports = router;
