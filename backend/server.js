@@ -11,14 +11,7 @@ const app = express();
 app.use(express.json({ limit: '10mb' })); // Increase JSON size limit
 app.use(express.urlencoded({ limit: '10mb', extended: true })); // Increase URL-encoded data limit
 
-// Proper CORS Configuration
-app.use(cors({
-    origin: "https://pizza-delivery-app-nu.vercel.app", // Allow only your frontend
-    credentials: true, // Allow cookies & auth headers
-    methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
-    allowedHeaders: ["Content-Type", "Authorization"] // Allowed headers
-}));
-
+app.use(cors({ origin: "*", credentials: true }));
 app.use("/api/pizzas/", pizzasRoute);
 app.use("/api/users/", userRoute);
 app.use("/api/orders/", orderRoute);
