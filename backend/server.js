@@ -3,19 +3,22 @@ const cors = require("cors");
 
 const app = express();
 
-// Enable CORS for all origins
-app.use(cors());
-
-// If you want to allow only your frontend:
+// Enable CORS
 app.use(
   cors({
-    origin: "https://pizza-delivery-app-xc8b.vercel.app", // Replace with your frontend URL
+    origin: "https://pizza-delivery-app-xc8b.vercel.app", // Change this to your frontend domain
     methods: "GET,POST,PUT,DELETE",
-    credentials: true, // If using cookies or authentication
+    credentials: true
   })
 );
 
-// Your API route
+app.use(express.json());
+
+// Sample API Route
 app.get("/api/pizzas/getallpizzas", (req, res) => {
-  res.json({ message: "CORS is now enabled!" });
+  res.json({ message: "CORS is enabled, and the API is working!" });
 });
+
+// Start the server
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
