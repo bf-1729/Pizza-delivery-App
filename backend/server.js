@@ -9,7 +9,11 @@ const app = express()
 app.use(express.json({ limit: '10mb' })); // Increase JSON size limit
 app.use(express.urlencoded({ limit: '10mb', extended: true })); // Increase URL-encoded data limit
 
-app.use(cors({ origin: 'https://pizzahut-frontend.vercel.app' }));
+app.use(cors({
+  origin: 'https://pizza-delivery-app-8zue.vercel.app', // Allow only your frontend domain
+  methods: 'GET,POST,PUT,DELETE',
+  allowedHeaders: 'Content-Type,Authorization'
+}));
 
 app.use("/api/pizzas/",pizzasRoute)
 app.use("/api/users/",userRoute)
