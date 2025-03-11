@@ -37,7 +37,8 @@
     "react-stripe-checkout": "^2.6.3",
     "react-toastify": "^11.0.3",
     "resolve-url-loader": "^5.0.0",
-    "svgo": "^3.3.2"
+    "svgo": "^3.3.2",
+    "vercel": "^41.3.2"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
