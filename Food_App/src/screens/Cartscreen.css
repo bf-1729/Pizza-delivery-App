@@ -106,7 +106,7 @@
     width: 10px;
   }
   .cart_button {
-    background: #007bff;
+    background-color: #cf2738 !important;
     border: none;
     padding: 10px 10px;
     font-size: 16px;
