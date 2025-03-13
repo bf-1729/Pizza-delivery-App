@@ -23,10 +23,6 @@ function Homescreen() {
       </div>
     );
   }
-
-  const latestPizzas = pizzas.slice(0, 8);
-  const otherPizzas = pizzas.slice(8);
-
   return (
     <div className="main_screen">
       <Navbar />
@@ -36,8 +32,8 @@ function Homescreen() {
       <h1 className="home_heading">Latest Pizzas</h1>
 
       <div className="pizzascreen_container">
-        {latestPizzas.length > 0 && (
-          latestPizzas.map((pizza) => (
+        {pizzas.length > 0 && (
+          pizzas.reverse().slice(0,8).map((pizza) => (
             <div className="pizzascreen" key={pizza._id}>
               <LatestPizza pizza={pizza} />
             </div>
@@ -48,8 +44,8 @@ function Homescreen() {
       <h1 className="home_heading">Pizzas</h1>
       
       <div className="pizzascreen_container">
-        {otherPizzas.length > 0 && (
-          otherPizzas.map((pizza) => (
+        {pizzas.length > 0 && (
+          pizzas.reverse().slice(8).map((pizza) => (
             <div className="pizzascreen" key={pizza._id}>
               <Pizza pizza={pizza} />
             </div>

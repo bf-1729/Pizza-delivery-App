@@ -16,7 +16,7 @@ function Addpizza() {
     const [choice, setChoice] = useState("Homescreen");
     const [errors, setErrors] = useState({});
 
-    const pizzaTypes = ["Home","Nonveg", "Veg", "Fruit", "Paratha", "Paneer", "Mushroom"];
+    const pizzaTypes = ["Homescreen","Nonveg", "Veg", "Fruit", "Paratha", "Paneer", "Mushroom"];
     const dispatch = useDispatch();
     const { success, error, loading } = useSelector(state => state.addPizzaReducer);
 
@@ -28,7 +28,13 @@ function Addpizza() {
         if (!largeprice || largeprice <= 0) newErrors.largeprice = "Invalid price!";
         if (!description.trim()) newErrors.description = "Description is required!";
         if (!category.trim()) newErrors.category = "Category is required!";
+        if (!image) newErrors.image = "Pizza image is required!";
         return newErrors;
+    };
+
+    const handleInputChange = (e, setter, field) => {
+        setter(e.target.value);
+        setErrors(prevErrors => ({ ...prevErrors, [field]: "" }));
     };
 
     function formHandler(e) {
@@ -67,6 +73,9 @@ function Addpizza() {
         setErrors({});
     }
 
+    console.log(choice);
+    
+
     return (
         <div className="addpizza_container">
             <div className="addpizza_card">
@@ -75,32 +84,32 @@ function Addpizza() {
                 <form className="addpizza_form" onSubmit={formHandler}>
                     <div className="form-group">
                         <label className="form_header">Pizza Name</label>
-                        <input type="text" placeholder="Enter pizza name" value={name} onChange={(e) => setName(e.target.value)} className="form-control" />
+                        <input type="text" placeholder={errors.name || "Enter pizza name"} value={name} onChange={(e) => handleInputChange(e, setName, "name")} className={`form-control ${errors.name ? 'error' : ''}`} />
                     </div>
 
                     <div className="form-group">
                         <label className="form_header">Small Price</label>
-                        <input type="number" placeholder="₹ Small Price" value={smallprice} onChange={(e) => setSmallprice(e.target.value)} className="form-control" />
+                        <input type="number" placeholder={errors.smallprice || "₹ Small Price"} value={smallprice} onChange={(e) => handleInputChange(e, setSmallprice, "smallprice")} className={`form-control ${errors.smallprice ? 'error' : ''}`} />
                     </div>
 
                     <div className="form-group">
                         <label className="form_header">Medium Price</label>
-                        <input type="number" placeholder="₹ Medium Price" value={mediumprice} onChange={(e) => setMediumprice(e.target.value)} className="form-control" />
+                        <input type="number" placeholder={errors.mediumprice || "₹ Medium Price"} value={mediumprice} onChange={(e) => handleInputChange(e, setMediumprice, "mediumprice")} className={`form-control ${errors.mediumprice ? 'error' : ''}`} />
                     </div>
 
                     <div className="form-group">
                         <label>Large Price</label>
-                        <input type="number" placeholder="₹ Large Price" value={largeprice} onChange={(e) => setLargeprice(e.target.value)} className="form-control" />
+                        <input type="number" placeholder={errors.largeprice || "₹ Large Price"} value={largeprice} onChange={(e) => handleInputChange(e, setLargeprice, "largeprice")} className={`form-control ${errors.largeprice ? 'error' : ''}`} />
                     </div>
 
                     <div className="form-group">
                         <label className="form_header">Category</label>
-                        <input type="text" placeholder="e.g., Veg, Non-Veg" value={category} onChange={(e) => setCategory(e.target.value)} className="form-control" />
+                        <input type="text" placeholder={errors.category || "e.g., Veg, Non-Veg"} value={category} onChange={(e) => handleInputChange(e, setCategory, "category")} className={`form-control ${errors.category ? 'error' : ''}`} />
                     </div>
 
                     <div className="form-group">
                         <label className="form_header">Description</label>
-                        <textarea placeholder="Enter pizza description" value={description} onChange={(e) => setDescription(e.target.value)} className="form-control"></textarea>
+                        <textarea placeholder={errors.description || "Enter pizza description"} value={description} onChange={(e) => handleInputChange(e, setDescription, "description")} className={`form-control ${errors.description ? 'error' : ''}`}></textarea>
                     </div>
 
                     <div className="form-group">
@@ -113,15 +122,17 @@ function Addpizza() {
                     </div>
 
                     <div className="image-upload">
-                    <label className="form_header">Pizza Image</label>
+                        <label className="form_header">Pizza Image</label>
                         <input type="file" accept="image/*" onChange={(e) => {
                             const file = e.target.files[0];
                             if (file && file.type.startsWith("image/")) {
                                 const reader = new FileReader();
                                 reader.onloadend = () => setImage(reader.result);
                                 reader.readAsDataURL(file);
+                            } else {
+                                setErrors(prevErrors => ({ ...prevErrors, image: "Invalid image file!" }));
                             }
-                        }} className="form-control" />
+                        }} className={`form-control ${errors.image ? 'error' : ''}`} />
                         {image && <img src={image} alt="Preview" className="image-preview" />}
                     </div>
 

@@ -94,7 +94,6 @@ export const addPizza = (pizza)=>  async dispatch =>{
     try{
         const response = await axios.post(backendUrl+"/api/pizzas/addpizza",{pizza})
         dispatch({type:"ADD_PIZZA_SUCCESS",payload : response.data})
-        toast.success("Pizza Added Successfully")
     }
     catch(error){
         dispatch({type:"ADD_PIZZA_FAILED",payload:error})

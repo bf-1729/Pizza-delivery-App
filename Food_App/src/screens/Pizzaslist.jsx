@@ -59,7 +59,8 @@ function Pizzaslist() {
         }
     };
 
-    const filteredPizzas = getFilteredPizzas();
+    const filteredPizzas = getFilteredPizzas()
+
 
     return (
         <div className='list_main'>

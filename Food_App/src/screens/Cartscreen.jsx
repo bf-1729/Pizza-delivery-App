@@ -4,7 +4,6 @@ import { addToCart, deleteFromCart } from '../actions/cartActions';
 import Navbar from '../components/Navbar';
 import { useNavigate } from 'react-router';
 import "./Cartscreen.css";
-import "../App.css";
 import { toast } from 'react-toastify';
 
 const Cartscreen = () => {

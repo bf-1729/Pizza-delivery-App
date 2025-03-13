@@ -10,7 +10,7 @@ const mushroomPizza = require("../model/mushroomPizza")
 
 router.get("/getallpizzas", async (req, res) => {
     try {
-        const pizzas = await Pizza.find({}).limit(10).lean(); // Faster query
+        const pizzas = await Pizza.find({}).lean(); // Faster query
         res.status(200).json(pizzas);
     } catch (error) {
         console.error("Error fetching pizzas:", error);

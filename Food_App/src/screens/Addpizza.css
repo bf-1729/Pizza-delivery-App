@@ -6,6 +6,17 @@
     min-height: 100vh;
     padding: 0.5rem 0.5rem;
 }
+/* Error styling */
+.form-control.error {
+    color: red;
+}
+
+/* Placeholder turns red for errors */
+.form-control.error::placeholder {
+    color: red;
+    opacity: 1;
+}
+
 
 /* ✅ Form Card */
 .addpizza_card {
@@ -108,7 +119,7 @@
 /* ✅ Responsive Design */
 @media (max-width: 768px) {
     .addpizza_container{
-        padding: 0.4rem 0.7rem;
+        padding: 0rem 0.7rem;
     }
     .addpizza-card {
         width: 100%;

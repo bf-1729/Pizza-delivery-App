@@ -6,15 +6,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
     margin: 20px auto;
     width: 90%;
     max-width: 800px;
+    padding: 0 0 100px 0;
   }
   .cart_data {
     display: flex;
     align-items: center;
-    background: #fff;
+    background: rgb(248, 245, 245);
     padding: 15px;
     border-radius: 10px;
     width: 90%;
@@ -47,7 +48,7 @@
   }
   
   .cart_number {
-    width: 1.5rem;
+    width: 1.8rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     font-size: 16px;
@@ -140,10 +141,13 @@
         align-items: center;
         padding: 0;
     }
+    .cart_containers{
+      padding: 0 0 4rem 0;
+    }
     .cart_footer{
         padding: 5%;
         width: 100% !important;
-        gap: 60%;
+        gap: 54%;
     }
     .cart_button{
       text-wrap: nowrap;

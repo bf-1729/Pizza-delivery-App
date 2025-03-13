@@ -18,10 +18,11 @@ function HomeNavbar() {
   const menuItems = [
     { path: "/nonvegpizza", label: "NonVeg Pizzas" },
     { path: "/vegpizza", label: "Veg Pizzas" },
-    { path: "/fruitpizza", label: "Fruit Pizzas" },
+    { path: "/mushroompizza", label: "Mushroom Pizzas" },
+    
     { path: "/parathapizza", label: "Paratha Pizzas" },
     { path: "/paneerpizza", label: "Paneer Pizzas" },
-    { path: "/mushroompizza", label: "Mushroom Pizzas" },
+    { path: "/fruitpizza", label: "Fruit Pizzas" },
   ];
 
   return (
