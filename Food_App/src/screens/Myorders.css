@@ -10,6 +10,8 @@
 .filter_container{
   display: flex;
   justify-content: end;
+  margin-right: 1rem;
+  margin-top: 0.5rem;
 }
 .filter_button:hover{
   background-color: black;
@@ -41,9 +43,11 @@
 }
 .delivered{
   color: green;
+  font-size: 0.9rem;
 }
 .not_delivered{
   color: red;
+  font-size: 0.9rem !important;
 }
 .details_container{
   display: flex;
@@ -110,7 +114,7 @@ div[role="alert"],
   .order_status{
     font-size: 0.9rem;
     width: fit-content;
-    padding: 4px;
+    text-wrap: nowrap;
   }
   .order_item_name{
     width: 12rem;

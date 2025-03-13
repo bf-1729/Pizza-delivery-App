@@ -77,7 +77,7 @@ function Orderscreen() {
                     <h1 className="order_delivered">Delivered</h1>
                   ) : (
                     <button
-                      className="btn order_button btn-danger text-white"
+                      className="btn orders_button btn-danger text-white"
                       onClick={() => handleDeliver(item._id)}
                     >
                       Deliver

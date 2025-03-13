@@ -28,7 +28,7 @@ function Vegpizzascreen() {
           ))
         ) : (
           <div className="text-center">
-            <h4>No pizzas match your search!</h4>
+            <h4>No pizzas Found</h4>
           </div>
         )}</div>
     </div>

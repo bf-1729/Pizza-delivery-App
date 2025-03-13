@@ -116,6 +116,7 @@ function Addressscreen() {
             type="text"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            placeholder='Full name'
             required
           />
           {errors.name && <div className="text-danger">{errors.name}</div>}
@@ -141,6 +142,7 @@ function Addressscreen() {
             className="input_vals"
             type="text"
             value={AddressLine1}
+            placeholder='ex. 1-1234'
             onChange={(e) => setAddressLine1(e.target.value)}
             required
           />
@@ -152,6 +154,7 @@ function Addressscreen() {
           <input
             className="input_vals"
             type="text"
+            placeholder='ex. Gandhi Street'
             value={AddressLine2}
             required
             onChange={(e) => setAddressLine2(e.target.value)}
@@ -181,6 +184,7 @@ function Addressscreen() {
               maxLength="6"
               value={pincode}
               onChange={(e) => setPincode(e.target.value)}
+              placeholder='pincode'
               required
             />
             {errors.pincode && <div className="text-danger">{errors.pincode}</div>}
@@ -205,11 +209,11 @@ function Addressscreen() {
         </div>
 
         {loading ? (
-          <button className="btn btn-primary" disabled>
+          <button className="" disabled>
             Submitting...
           </button>
         ) : (
-          <button className="address_button btn btn-primary " onClick={handleSubmit}>
+          <button className="address_button" onClick={handleSubmit}>
             Delivery Here ₹{Amount}/-
           </button>
         )}

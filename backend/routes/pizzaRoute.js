@@ -22,7 +22,7 @@ router.get("/getallpizzas", async (req, res) => {
 router.get("/getallnonvegpizzas", async (req, res) => {
     try {
         const pizza = await nonvegPizza.find({}).lean()
-        res.status(200).json(pizzas);
+        res.status(200).json(pizza);
     }
     catch (error) {
         return res.status(400).json({ message: error })
@@ -32,7 +32,7 @@ router.get("/getallnonvegpizzas", async (req, res) => {
 router.get("/getallvegpizzas", async (req, res) => {
     try {
         const pizza = await vegPizza.find({}).lean()
-        res.status(200).json(pizzas);
+        res.status(200).json(pizza);
     }
     catch (error) {
         return res.status(400).json({ message: error })
@@ -42,7 +42,7 @@ router.get("/getallvegpizzas", async (req, res) => {
 router.get("/getallfruitpizzas", async (req, res) => {
     try {
         const pizza = await fruitPizza.find({}).lean()
-        res.status(200).json(pizzas);
+        res.status(200).json(pizza);
     }
     catch (error) {
         return res.status(400).json({ message: error })
@@ -52,7 +52,7 @@ router.get("/getallfruitpizzas", async (req, res) => {
 router.get("/getallparathapizzas", async (req, res) => {
     try {
         const pizza = await parathaPizza.find({}).lean()
-        res.status(200).json(pizzas);
+        res.status(200).json(pizza);
     }
     catch (error) {
         return res.status(400).json({ message: error })
@@ -62,7 +62,7 @@ router.get("/getallparathapizzas", async (req, res) => {
 router.get("/getallpaneerpizzas", async (req, res) => {
     try {
         const pizza = await paneerPizza.find({}).lean()
-        res.status(200).json(pizzas);
+        res.status(200).json(pizza);
     }
     catch (error) {
         return res.status(400).json({ message: error })
@@ -72,7 +72,7 @@ router.get("/getallpaneerpizzas", async (req, res) => {
 router.get("/getallmushroompizzas", async (req, res) => {
     try {
         const pizza = await mushroomPizza.find({}).lean()
-        res.status(200).json(pizzas);
+        res.status(200).json(pizza);
     }
     catch (error) {
         return res.status(400).json({ message: error })

@@ -39,13 +39,14 @@
   font-weight: bold;
 }
 
-.order_button {
+.orders_button {
   padding: 8px 15px;
   font-size: 1rem;
   cursor: pointer;
   border: none;
   border-radius: 5px;
   transition: 0.3s;
+  background-color: red;
 }
 
 .order_button:hover {
@@ -93,7 +94,7 @@
     padding: 8px;
   }
 
-  .order_button {
+  .orders_button {
     padding: 6px 12px;
     font-size: 0.875rem;
   }

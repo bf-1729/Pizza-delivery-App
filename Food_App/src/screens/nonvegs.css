@@ -1,8 +1,10 @@
 .pizza_container{
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
 }
-.paneer_pizza_container {
+.section_pizza_container {
     width: 100%;
     max-width: 400px;
     background: rgb(169, 9, 9);
@@ -28,8 +30,7 @@
   .pizza_image:hover {
     transform: scale(1.05);
   }
-  
-  /* 🍕 Pizza Name */
+
   .pizza_name {
     width: 100%;
     font-size: 1.3rem;
@@ -38,16 +39,14 @@
     height: 2.5rem;
     color: white;
   }
-  
-  /* 🍕 Price Styling */
+
   .price {
     font-size: 1.2rem;
     font-weight: bold;
     color: #e63946;
     margin-bottom: 10px;
   }
-  
-  /* 🍕 Dropdown Section */
+
   .dropdown_section {
     display: flex;
     justify-content: center;
@@ -68,34 +67,30 @@
   .quantities:hover {
     background: #eee;
   }
-  
-  /* 🍕 Add to Cart Button */
+
   .cart_button {
     border-radius: 2rem !important;
     background-color: #ff1818 !important;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 10px 30px;
     border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
     transition: 0.3s ease;
-    width: 80%;
-    margin: auto;
+    width: fit-content !important;
   }
   
   .cart_button:hover {
     background: #e63946;
   }
-  
-  /* 🍕 Modal Image */
+
   .modal_image {
     width: 100%;
     max-width: 350px;
     border-radius: 10px;
   }
   
-  /* 🍕 Close Button */
   .close_button {
     border-radius: 20px;
     padding: 8px 15px;

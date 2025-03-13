@@ -6,7 +6,7 @@ import Navbar from '../components/Navbar';
 import PizzaNavbar from '../components/PizzaNavbar';
 import "./nonvegs.css"
 
-function Nonvegs() {
+function Fruitpizzascreen() {
   const dispatch = useDispatch();
   const fruitpizzaState = useSelector((state) => state.getAllFruitPizzasReducer);
   const { fruitpizzas } = fruitpizzaState || {};
@@ -36,4 +36,4 @@ function Nonvegs() {
   )
 }
 
-export default Nonvegs
+export default Fruitpizzascreen

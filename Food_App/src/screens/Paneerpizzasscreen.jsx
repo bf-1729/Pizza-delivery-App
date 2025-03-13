@@ -18,7 +18,7 @@ function Paneerpizzascreen() {
     <div className='main_pizza'>
       <Navbar/>
       <PizzaNavbar/>
-        <h2 className='text-center m-3'>Veg Pizzas</h2>
+        <h2 className='text-center m-3'>Paneer Pizzas</h2>
         <div className='pizza_container'>
         {paneerpizzas.length > 0 ? (
           paneerpizzas.map((pizza) => (
@@ -28,7 +28,7 @@ function Paneerpizzascreen() {
           ))
         ) : (
           <div className="text-center">
-            <h4>No pizzas match your search!</h4>
+            <h4>No pizzas Found</h4>
           </div>
         )}</div>
     </div>

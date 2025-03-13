@@ -15,7 +15,7 @@ function Mushroompizza({ pizza }) {
   const dispatch = useDispatch();
 
   return (
-    <div className="paneer_pizza_container">
+    <div className="section_pizza_container">
       <h3 className="pizza_name">{pizza.name}</h3>
       <img onClick={handleShow} src={pizza.image} className='pizza_images' alt={pizza.name} />
       <div className="details_section">
