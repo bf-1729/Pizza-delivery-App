@@ -61,6 +61,8 @@
     color: black;
     text-align: center;
     width: 38% !important;
+    overflow-x: wrap !important;
+    text-transform: capitalize;
   }
   .list_header_container{
     display: flex;
@@ -114,6 +116,7 @@
     .table_pizza_name{
       font-size: 0.875rem !important;
       width: 47% !important;
+      overflow-wrap: anywhere;
     }
   
     .table {

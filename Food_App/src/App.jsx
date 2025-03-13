@@ -21,7 +21,7 @@ import { ToastContainer } from 'react-toastify';
 
 const App = () => {
   return (
-    <div className='main_container'>
+    <div className='App_container'>
       <ToastContainer/>
       <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
 

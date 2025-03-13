@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { editPizza, getPizzaById } from '../actions/PizzaActions';
 import Loading from '../components/Loading'
 import "./Editpizza.css"
+import { toast } from 'react-toastify';
 
 const Editpizza = () => {
     const { pizzaid } = useParams(); // Get the pizzaid from the route parameters
@@ -33,6 +34,7 @@ const Editpizza = () => {
             choice
         }
         dispatch(editPizza(editedpizza))
+        toast.success("Updated Successfully")
     }
     const getpizzabyid = useSelector(state => state.getPizzaByIdReducer)
     const editpizzastate = useSelector(state=>state.editPizzaReducer)

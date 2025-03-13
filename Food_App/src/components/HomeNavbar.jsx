@@ -16,12 +16,12 @@ function HomeNavbar() {
   };
 
   const menuItems = [
-    { path: "/nonvegpizza", label: "NonVeg Pizza" },
-    { path: "/vegpizza", label: "Veg Pizza" },
-    { path: "/fruitpizza", label: "Fruit Pizza" },
-    { path: "/parathapizza", label: "Paratha Pizza" },
-    { path: "/paneerpizza", label: "Paneer Pizza" },
-    { path: "/mushroompizza", label: "Mushroom Pizza" },
+    { path: "/nonvegpizza", label: "NonVeg Pizzas" },
+    { path: "/vegpizza", label: "Veg Pizzas" },
+    { path: "/fruitpizza", label: "Fruit Pizzas" },
+    { path: "/parathapizza", label: "Paratha Pizzas" },
+    { path: "/paneerpizza", label: "Paneer Pizzas" },
+    { path: "/mushroompizza", label: "Mushroom Pizzas" },
   ];
 
   return (

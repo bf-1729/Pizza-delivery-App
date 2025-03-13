@@ -1,5 +1,4 @@
 .cartscreen {
-    background-color: #7f87a2;
     min-height: 100vh;
     padding-top: 70px;
   }
@@ -44,17 +43,19 @@
   .cart_increase {
     display: flex;
     align-items: center;
-    gap: 10px;
     margin-top: 5px;
   }
   
   .cart_number {
+    width: 1.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     font-size: 16px;
     font-weight: bold;
     color: #333;
   }
   .fa-minus-circle, .fa-plus-circle {
-    font-size: 20px;
+    font-size: 1.2rem !important;
     cursor: pointer;
     transition: transform 0.2s ease-in-out;
   }
@@ -142,7 +143,7 @@
     .cart_footer{
         padding: 5%;
         width: 100% !important;
-        gap: 64%;
+        gap: 60%;
     }
     .cart_button{
       text-wrap: nowrap;

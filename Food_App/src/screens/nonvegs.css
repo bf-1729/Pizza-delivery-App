@@ -3,6 +3,7 @@
     grid-template-columns: repeat(3,1fr);
     padding-left: 2.5rem;
     padding-right: 2.5rem;
+    min-height: 100vh;
 }
 .section_pizza_container {
     width: 100%;

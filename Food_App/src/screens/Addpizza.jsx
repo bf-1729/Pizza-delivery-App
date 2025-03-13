@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import { addPizza } from "../actions/PizzaActions";
-import Loading from "../components/Loading";
-import Success from "../components/Success";
-import Error from "../components/Error";
 import "react-toastify/dist/ReactToastify.css";
 import "./Addpizza.css";
 
@@ -74,8 +71,6 @@ function Addpizza() {
         <div className="addpizza_container">
             <div className="addpizza_card">
                 <h2 className="addpizza_header">🍕 Add a New Pizza</h2>
-                {loading && <Loading />}
-                {error && <Error message="Failed to add pizza" />}
 
                 <form className="addpizza_form" onSubmit={formHandler}>
                     <div className="form-group">
@@ -118,6 +113,7 @@ function Addpizza() {
                     </div>
 
                     <div className="image-upload">
+                    <label className="form_header">Pizza Image</label>
                         <input type="file" accept="image/*" onChange={(e) => {
                             const file = e.target.files[0];
                             if (file && file.type.startsWith("image/")) {
