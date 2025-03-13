@@ -84,6 +84,7 @@ div[role="alert"],
     width: 100%;
     align-items: center;
     overflow-wrap: anywhere;
+    flex-wrap: wrap;
   }
   .filter_container{
     justify-content: end;
@@ -95,13 +96,14 @@ div[role="alert"],
   .order_section{
     display: grid;
     grid-template-columns: repeat(1,minmax(200px,1fr)) !important;
-    padding: 0.3rem !important;
+    padding: 0rem !important;
   }
   .image{
     width: 80px;
   }
   .details_container{
     display: flex;
+    gap: 1.5rem;
   }
   .order_date{
     font-size: 1.2rem;
@@ -111,13 +113,15 @@ div[role="alert"],
     text-align: left;
     overflow-wrap: anywhere;
   }
+  .delivered,.not_delivered{
+    font-size: 0.8rem !important;
+  }
   .order_status{
-    font-size: 0.9rem;
     width: fit-content;
     text-wrap: nowrap;
+    padding: 0.2rem;
   }
   .order_item_name{
-    width: 12rem;
     font-weight: 600;
   }
   .filter_button{
