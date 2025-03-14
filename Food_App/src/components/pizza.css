@@ -9,7 +9,7 @@
 .pizza_image {
   width: 70%;
   max-width: 250px;
-  height: auto;
+  height: 12rem;
   border-radius: 10px;
   margin: 10px 0;
 }
@@ -86,21 +86,6 @@
   font-size: 1rem;
   transition: background 0.3s;
 }
-@media (max-width: 1024px) {
-  #pizzascreen {
-    padding: 10px;
-  }
-
-  .pizza_name {
-    font-size: 1.3rem;
-  }
-
-  .varient_container {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-
 @media (max-width: 768px) {
   #pizzascreen {
     transform: none;
@@ -109,11 +94,12 @@
 
   .homepizza_name {
     font-size: 1rem;
-    height: 2rem;
+    height: auto;
   }
 
   .pizza_image {
     max-width: 200px;
+    height: 9rem;
   }
   .varient_container{
     flex-direction: row;

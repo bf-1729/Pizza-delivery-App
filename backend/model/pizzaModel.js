@@ -6,9 +6,10 @@ const pizzaSchema = new mongoose.Schema({
     prices:[],
     image : String,
     category:String,
-    description:String
+    description:String,
+    page:String
 },{
     timestamps:true
 })
 
-module.exports = mongoose.model("homescreen-pizza",pizzaSchema)
+module.exports = mongoose.model("pizza",pizzaSchema)

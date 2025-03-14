@@ -7,13 +7,7 @@ import {
     getPizzaByIdReducer, 
     getAllPizzasReducer, 
     addPizzaReducer, 
-    editPizzaReducer, 
-    getAllNonVegPizzasReducer, 
-    getAllVegPizzasReducer, 
-    getAllFruitPizzasReducer, 
-    getAllParathaPizzasReducer, 
-    getAllPaneerPizzasReducer, 
-    getAllMushroomPizzasReducer
+    editPizzaReducer
 } from './reducers/pizzaReducers';
 
 import { getAllUsersReducer, loginUserReducer, registerUserReducer } from './reducers/userReducer';
@@ -28,12 +22,6 @@ const finalReducer = combineReducers({
     getPizzaByIdReducer,
     editPizzaReducer,
     getAllUsersReducer,
-    getAllNonVegPizzasReducer,
-    getAllVegPizzasReducer,
-    getAllFruitPizzasReducer,
-    getAllParathaPizzasReducer,
-    getAllPaneerPizzasReducer,
-    getAllMushroomPizzasReducer,
     AddressUserReducer,
     UserAddressReducer,
     DeliverOrderReducer

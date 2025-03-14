@@ -13,12 +13,12 @@ function Addpizza() {
     const [image, setImage] = useState("");
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");
-    const [choice, setChoice] = useState("Homescreen");
+    const [page, setPage] = useState("Homescreen");
     const [errors, setErrors] = useState({});
 
-    const pizzaTypes = ["Homescreen","Nonveg", "Veg", "Fruit", "Paratha", "Paneer", "Mushroom"];
+    const pizzaTypes = ["Homescreen", "Nonveg", "Veg", "Fruit", "Paratha", "Paneer", "Mushroom"];
     const dispatch = useDispatch();
-    const { success, error, loading } = useSelector(state => state.addPizzaReducer);
+    const { loading, success, error } = useSelector(state => state.addPizzaReducer);
 
     const validate = () => {
         const newErrors = {};
@@ -37,6 +37,16 @@ function Addpizza() {
         setErrors(prevErrors => ({ ...prevErrors, [field]: "" }));
     };
 
+    const handlePriceChange = (e, setter, field) => {
+        const value = e.target.value;
+        if (!isNaN(value) && value >= 0) {
+            setter(value);
+            setErrors(prevErrors => ({ ...prevErrors, [field]: "" }));
+        } else {
+            setErrors(prevErrors => ({ ...prevErrors, [field]: "Invalid price!" }));
+        }
+    };
+
     function formHandler(e) {
         e.preventDefault();
         const validationErrors = validate();
@@ -49,19 +59,17 @@ function Addpizza() {
             name,
             image,
             description,
-            choice,
+            page,
             category,
             prices: {
                 small: Number(smallprice),
                 medium: Number(mediumprice),
-                large: Number(largeprice)
+                large: Number(largeprice),
             }
         };
 
         dispatch(addPizza(pizza));
-        toast.success("🍕 Pizza added successfully!");
-
-        // Reset form
+        toast.success("Pizza Added Successfully")
         setName("");
         setSmallprice("");
         setMediumprice("");
@@ -69,12 +77,9 @@ function Addpizza() {
         setImage("");
         setDescription("");
         setCategory("");
-        setChoice("Homescreen");
+        setPage("Homescreen");
         setErrors({});
     }
-
-    console.log(choice);
-    
 
     return (
         <div className="addpizza_container">
@@ -84,37 +89,55 @@ function Addpizza() {
                 <form className="addpizza_form" onSubmit={formHandler}>
                     <div className="form-group">
                         <label className="form_header">Pizza Name</label>
-                        <input type="text" placeholder={errors.name || "Enter pizza name"} value={name} onChange={(e) => handleInputChange(e, setName, "name")} className={`form-control ${errors.name ? 'error' : ''}`} />
+                        <input type="text" placeholder="Enter pizza name" value={name} 
+                            onChange={(e) => handleInputChange(e, setName, "name")} 
+                            className={`form-control ${errors.name ? 'error' : ''}`} />
+                        {errors.name && <small className="error-text">{errors.name}</small>}
                     </div>
 
                     <div className="form-group">
                         <label className="form_header">Small Price</label>
-                        <input type="number" placeholder={errors.smallprice || "₹ Small Price"} value={smallprice} onChange={(e) => handleInputChange(e, setSmallprice, "smallprice")} className={`form-control ${errors.smallprice ? 'error' : ''}`} />
+                        <input type="number" placeholder="₹ Small Price" value={smallprice} 
+                            onChange={(e) => handlePriceChange(e, setSmallprice, "smallprice")} 
+                            className={`form-control ${errors.smallprice ? 'error' : ''}`} />
+                        {errors.smallprice && <small className="error-text">{errors.smallprice}</small>}
                     </div>
 
                     <div className="form-group">
                         <label className="form_header">Medium Price</label>
-                        <input type="number" placeholder={errors.mediumprice || "₹ Medium Price"} value={mediumprice} onChange={(e) => handleInputChange(e, setMediumprice, "mediumprice")} className={`form-control ${errors.mediumprice ? 'error' : ''}`} />
+                        <input type="number" placeholder="₹ Medium Price" value={mediumprice} 
+                            onChange={(e) => handlePriceChange(e, setMediumprice, "mediumprice")} 
+                            className={`form-control ${errors.mediumprice ? 'error' : ''}`} />
+                        {errors.mediumprice && <small className="error-text">{errors.mediumprice}</small>}
                     </div>
 
                     <div className="form-group">
                         <label>Large Price</label>
-                        <input type="number" placeholder={errors.largeprice || "₹ Large Price"} value={largeprice} onChange={(e) => handleInputChange(e, setLargeprice, "largeprice")} className={`form-control ${errors.largeprice ? 'error' : ''}`} />
+                        <input type="number" placeholder="₹ Large Price" value={largeprice} 
+                            onChange={(e) => handlePriceChange(e, setLargeprice, "largeprice")} 
+                            className={`form-control ${errors.largeprice ? 'error' : ''}`} />
+                        {errors.largeprice && <small className="error-text">{errors.largeprice}</small>}
                     </div>
 
                     <div className="form-group">
                         <label className="form_header">Category</label>
-                        <input type="text" placeholder={errors.category || "e.g., Veg, Non-Veg"} value={category} onChange={(e) => handleInputChange(e, setCategory, "category")} className={`form-control ${errors.category ? 'error' : ''}`} />
+                        <input type="text" placeholder="e.g., Veg, Non-Veg" value={category} 
+                            onChange={(e) => handleInputChange(e, setCategory, "category")} 
+                            className={`form-control ${errors.category ? 'error' : ''}`} />
+                        {errors.category && <small className="error-text">{errors.category}</small>}
                     </div>
 
                     <div className="form-group">
                         <label className="form_header">Description</label>
-                        <textarea placeholder={errors.description || "Enter pizza description"} value={description} onChange={(e) => handleInputChange(e, setDescription, "description")} className={`form-control ${errors.description ? 'error' : ''}`}></textarea>
+                        <textarea placeholder="Enter pizza description" value={description} 
+                            onChange={(e) => handleInputChange(e, setDescription, "description")} 
+                            className={`form-control ${errors.description ? 'error' : ''}`}></textarea>
+                        {errors.description && <small className="error-text">{errors.description}</small>}
                     </div>
 
                     <div className="form-group">
                         <label className="form_header">Pizza Screen</label>
-                        <select value={choice} onChange={(e) => setChoice(e.target.value)} className="form-control">
+                        <select value={page} onChange={(e) => setPage(e.target.value)} className="form-control">
                             {pizzaTypes.map(type => (
                                 <option key={type} value={type}>{type}</option>
                             ))}
@@ -125,18 +148,24 @@ function Addpizza() {
                         <label className="form_header">Pizza Image</label>
                         <input type="file" accept="image/*" onChange={(e) => {
                             const file = e.target.files[0];
-                            if (file && file.type.startsWith("image/")) {
-                                const reader = new FileReader();
-                                reader.onloadend = () => setImage(reader.result);
-                                reader.readAsDataURL(file);
-                            } else {
-                                setErrors(prevErrors => ({ ...prevErrors, image: "Invalid image file!" }));
+                            if (file) {
+                                if (file.type.startsWith("image/")) {
+                                    const reader = new FileReader();
+                                    reader.onloadend = () => setImage(reader.result);
+                                    reader.readAsDataURL(file);
+                                    setErrors(prevErrors => ({ ...prevErrors, image: "" }));
+                                } else {
+                                    setErrors(prevErrors => ({ ...prevErrors, image: "Invalid image file!" }));
+                                }
                             }
                         }} className={`form-control ${errors.image ? 'error' : ''}`} />
+                        {errors.image && <small className="error-text">{errors.image}</small>}
                         {image && <img src={image} alt="Preview" className="image-preview" />}
                     </div>
 
-                    <button type="submit" className="addpizza-btn">{loading ? "Adding..." : "Add Pizza"}</button>
+                    <button type="submit" className="addpizza-btn">
+                        {loading ? "Adding..." : "Add Pizza"}
+                    </button>
                 </form>
             </div>
         </div>

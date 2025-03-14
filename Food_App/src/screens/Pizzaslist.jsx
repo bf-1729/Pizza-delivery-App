@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-    getAllPizzas, deletePizza, getAllVegPizzas,
-    getAllNonVegPizzas, getAllFruitPizzas,
-    getAllParathaPizzas, getAllPaneerPizzas,
-    getAllMushroomPizzas
+    getAllPizzas,deletePizza
 } from '../actions/PizzaActions';
 import { Link } from 'react-router-dom';
 import "./pizzlists.css";
 
 function Pizzaslist() {
-    const [choice, setChoice] = useState('Homescreen');
+    const [page, setPage] = useState('Homescreen');
 
     const pizzaTypes = [
         "Homescreen", "Veg Pizzas", "Nonveg Pizzas",
@@ -20,58 +17,57 @@ function Pizzaslist() {
     const dispatch = useDispatch();
 
     const pizasstate = useSelector((state) => state.getAllPizzasReducer);
-    const nonvegpizzastate = useSelector((state) => state.getAllNonVegPizzasReducer);
-    const vegpizzastate = useSelector((state) => state.getAllVegPizzasReducer);
-    const fruitpizzastate = useSelector((state) => state.getAllFruitPizzasReducer);
-    const parathapizzastate = useSelector((state) => state.getAllParathaPizzasReducer);
-    const paneerpizzastate = useSelector((state) => state.getAllPaneerPizzasReducer);
-    const mushroompizzastate = useSelector((state) => state.getAllMushroomPizzasReducer);
 
     const { pizzas, error, loading } = pizasstate;
-    const { nonvegpizzas } = nonvegpizzastate;
-    const { vegpizzas } = vegpizzastate;
-    const { fruitpizzas } = fruitpizzastate;
-    const { parathapizzas } = parathapizzastate;
-    const { paneerpizzas } = paneerpizzastate;
-    const { mushroompizzas } = mushroompizzastate;
 
     useEffect(() => {
-        switch (choice) {
-            case 'Nonveg Pizzas': dispatch(getAllNonVegPizzas()); break;
-            case 'Veg Pizzas': dispatch(getAllVegPizzas()); break;
-            case 'Fruit Pizzas': dispatch(getAllFruitPizzas()); break;
-            case 'Paratha Pizzas': dispatch(getAllParathaPizzas()); break;
-            case 'Paneer Pizzas': dispatch(getAllPaneerPizzas()); break;
-            case 'Mushroom Pizzas': dispatch(getAllMushroomPizzas()); break;
-            default: dispatch(getAllPizzas());
-        }
-    }, [dispatch, choice]);
+        dispatch(getAllPizzas())
+    }, [dispatch,page]);
 
     const getFilteredPizzas = () => {
-        switch (choice) {
-            case 'Nonveg Pizzas': return nonvegpizzas || [];
-            case 'Veg Pizzas': return vegpizzas || [];
-            case 'Fruit Pizzas': return fruitpizzas || [];
-            case 'Paratha Pizzas': return parathapizzas || [];
-            case 'Paneer Pizzas': return paneerpizzas || [];
-            case 'Mushroom Pizzas': return mushroompizzas || [];
-            default: return pizzas || [];
-        }
+        if (!pizzas || pizzas.length === 0) return [];  // Ensure pizzas exist
+    
+        return pizzas.filter((item) => {
+            if (!item.page) return false;  // Prevent undefined category errors
+    
+            const category = item.page.toLowerCase();
+            
+            switch (page) {
+                case "Homescreen":
+                    return item.page && item.page.includes("Homescreen");
+                case "Nonveg Pizzas":
+                    return item.page && item.page.includes("Nonveg");
+                case "Veg Pizzas":
+                    return item.page && item.page.includes("Veg");
+                case "Mushroom Pizzas":
+                    return item.page && item.page.includes("Mushroom");
+                case "Fruit Pizzas":
+                    return item.page && item.page.includes("Fruit");
+                case "Paratha Pizzas":
+                    return item.page && item.page.includes("Paratha");
+                case "Paneer Pizzas":
+                    return item.page && item.page.includes("Paneer");
+                default:
+                    return true; // Show all pizzas if no valid category is found
+            }
+        });
     };
-
+    
+    
+    
     const filteredPizzas = getFilteredPizzas()
 
 
     return (
         <div className='list_main'>
             <div className='list_container'>
-                <select className='screen_choice' value={choice} onChange={(e) => setChoice(e.target.value)}>
+                <select className='screen_choice' value={page} onChange={(e) => setPage(e.target.value)}>
                     {pizzaTypes.map((type) => (
                         <option value={type} key={type}>{type}</option>
                     ))}
                 </select>
                 <div className='list_header_container'>
-                    <h2 className='list_header'>{choice}</h2>
+                    <h2 className='list_header'>{page}</h2>
                     <h4 className='list_count'>
                         Total Pizzas : <span>{filteredPizzas.length}</span>
                     </h4>

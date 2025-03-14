@@ -11,18 +11,28 @@ import "./Homescreen.css";
 function Homescreen() {
   const dispatch = useDispatch();
   const pizzasState = useSelector((state) => state.getAllPizzasReducer);
-  const { pizzas = [], error } = pizzasState; // Default to an empty array to prevent errors
+  const { pizzas = [], error, loading } = pizzasState;
 
   useEffect(() => {
     dispatch(getAllPizzas());
   }, [dispatch]);
-  if (error) {
-    return (
-      <div className="text-center mt-5">
-        <h4>Error loading pizzas. Please try again later.</h4>
-      </div>
-    );
+
+  if (loading) {
+    return <h4 className="text-center mt-5">Loading pizzas...</h4>;
   }
+
+  if (error) {
+    return <h4 className="text-center mt-5">Error loading pizzas. Please try again later.</h4>;
+  }
+
+  // Filter pizzas for Homescreen
+  const filteredPizzas = pizzas.filter(
+    (item) => item.page?.includes("Homescreen")
+  );
+
+  console.log(pizzas);
+  
+
   return (
     <div className="main_screen">
       <Navbar />
@@ -30,26 +40,28 @@ function Homescreen() {
       <Carousel />
 
       <h1 className="home_heading">Latest Pizzas</h1>
-
       <div className="pizzascreen_container">
-        {pizzas.length > 0 && (
-          pizzas.reverse().slice(0,8).map((pizza) => (
+        {filteredPizzas.length ? (
+          [...filteredPizzas].reverse().slice(0, 8).map((pizza) => (
             <div className="pizzascreen" key={pizza._id}>
               <LatestPizza pizza={pizza} />
             </div>
           ))
+        ) : (
+          <p>No pizzas available.</p>
         )}
       </div>
 
       <h1 className="home_heading">Pizzas</h1>
-      
       <div className="pizzascreen_container">
-        {pizzas.length > 0 && (
-          pizzas.reverse().slice(8).map((pizza) => (
+        {filteredPizzas.length ? (
+          [...filteredPizzas].reverse().slice(8).map((pizza) => (
             <div className="pizzascreen" key={pizza._id}>
               <Pizza pizza={pizza} />
             </div>
           ))
+        ) : (
+          <p>No pizzas available.</p>
         )}
       </div>
     </div>

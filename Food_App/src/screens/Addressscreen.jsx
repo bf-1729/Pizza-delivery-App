@@ -209,7 +209,7 @@ function Addressscreen() {
         </div>
 
         {loading ? (
-          <button className="" disabled>
+          <button className="btn btn-primary" disabled>
             Submitting...
           </button>
         ) : (
