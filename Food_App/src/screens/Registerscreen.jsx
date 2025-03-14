@@ -18,7 +18,7 @@ function Registerscreen() {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
     // Password validation (minimum 6 characters, at least one number)
-    const passwordPattern = /^(?=.*\d)(?=.*[A-Z]).{8,}$/
+    const passwordPattern = /^(?=.*\d).{8,}$/
 
     const register = () => {
         if (name.length < 4) {
@@ -36,7 +36,7 @@ function Registerscreen() {
             toast.error("Password must contain at least one lowercase letter.");
         }
         else if (password !== cpassword) {
-            toast.error("Passwords do not match")
+            toast.error("Passwords are not match")
         } else {
             const user = { name, email, password }
             dispatch(registerUser(user))
