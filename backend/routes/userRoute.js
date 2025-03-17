@@ -84,14 +84,4 @@ router.get("/getallusers", async (req, res) => {
         return res.status(400).json({ message: error })
     }
 });
-
-router.post("/deleteuser", async (req, res) => {
-    const userid = req.body.userid
-    try {
-        await User.findOneAndDelete({ _id: userid })
-        res.send("User deleted successfully")
-    } catch (error) {
-        return res.status(400).json({ message: error })
-    }
-});
 module.exports = router
