@@ -9,7 +9,7 @@
 .pizza_image {
   width: 70%;
   max-width: 250px;
-  height: 13rem;
+  height: 12rem;
   border-radius: 10px;
   margin: 10px 0;
 }
@@ -98,7 +98,7 @@
   }
 
   .pizza_image {
-    max-width: 50%;
+    max-width: 70%;
     height: 8rem;
   }
   .varient_container{
