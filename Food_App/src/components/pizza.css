@@ -98,8 +98,8 @@
   }
 
   .pizza_image {
-    max-width: 200px;
-    height: 9rem;
+    max-width: 50%;
+    height: 8rem;
   }
   .varient_container{
     flex-direction: row;
