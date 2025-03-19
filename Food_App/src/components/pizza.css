@@ -94,12 +94,12 @@
 
   .homepizza_name {
     font-size: 1rem;
-    height: 2rem;
+    height: 1.5rem;
   }
 
   .pizza_image {
     max-width: 70%;
-    height: 8rem;
+    height: 7.8rem;
   }
   .varient_container{
     flex-direction: row;
