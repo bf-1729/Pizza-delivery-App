@@ -7,6 +7,7 @@ export const getAllPizzas = ()=>async dispatch=>{
     try{const response = await axios.get(backendUrl+"/api/pizzas/getallpizzas");
         dispatch({type:"GET_PIZZAS_SUCCESS",payload : response.data})
     }catch(error){
+        toast.error("Network Error")
         dispatch({type:"GET_PIZZAS_FAILED",payload:error})
     }
 }

@@ -92,9 +92,8 @@ div[role="alert"],
     padding: 0.5rem !important;
   }
   .order_section{
-    display: grid;
-    grid-template-columns: repeat(1,minmax(200px,1fr)) !important;
-    padding: 0.4rem !important;
+    align-items: normal;
+    padding: 0rem !important;
   }
   .image{
     width: 80px;
@@ -125,7 +124,7 @@ div[role="alert"],
     font-weight: 600;
   }
   .filter_button{
-    margin-right: 1rem;
+    margin-right: 0.9rem;
     padding: 0.4rem;
   }
 }
