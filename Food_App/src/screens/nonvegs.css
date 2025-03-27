@@ -107,7 +107,8 @@
         margin-bottom: 1rem;
     }
     .cart_button{
-        width: 70% !important;
+      text-align: center;
+      width: 100% !important;
     }
     .pizza_name{
         width: 100%;
