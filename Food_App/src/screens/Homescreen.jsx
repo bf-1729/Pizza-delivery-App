@@ -32,7 +32,7 @@ function Homescreen() {
 
       <h1 className="home_heading">Latest Pizzas</h1>
       <div className="pizzascreen_container">
-        {filteredPizzas.slice(length-5, length).reverse().map((pizza) => (
+        {filteredPizzas.reverse().slice(0,4).map((pizza) => (
               <div className="pizzascreen" key={pizza._id}>
                 <LatestPizza pizza={pizza} />
               </div>
@@ -41,7 +41,7 @@ function Homescreen() {
 
       <h1 className="home_heading">Pizzas</h1>
       <div className="pizzascreen_container">
-        {filteredPizzas.slice(0,length-5).reverse().map((pizza) => (
+        {filteredPizzas.reverse().slice(4).map((pizza) => (
               <div className="pizzascreen" key={pizza._id}>
                 <Pizza pizza={pizza} />
               </div>
