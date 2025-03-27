@@ -152,6 +152,7 @@
     .cart_button{
       text-wrap: nowrap;
         max-width: 40% !important;
+        padding-right: 40px !important;
     }
   }
   

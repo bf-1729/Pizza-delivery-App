@@ -12,6 +12,7 @@
   height: 13rem;
   border-radius: 10px;
   margin: 10px 0;
+  object-fit: cover;
 }
 
 /* Pizza Name */

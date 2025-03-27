@@ -62,7 +62,7 @@
     text-align: center;
     width: 38% !important;
     overflow-x: wrap !important;
-    text-transform: capitalize;
+    text-transform: uppercase;
   }
   .list_header_container{
     display: flex;
