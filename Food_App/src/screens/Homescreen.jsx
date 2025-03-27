@@ -22,8 +22,6 @@ function Homescreen() {
     (item) => item.page?.includes("Homescreen")
   );
 
-  const length = pizzas.length
-
   return (
     <div className="main_screen">
       <Navbar />
@@ -41,7 +39,7 @@ function Homescreen() {
 
       <h1 className="home_heading">Pizzas</h1>
       <div className="pizzascreen_container">
-        {filteredPizzas.reverse().slice(4).map((pizza) => (
+        {filteredPizzas.slice(4).map((pizza) => (
               <div className="pizzascreen" key={pizza._id}>
                 <Pizza pizza={pizza} />
               </div>
