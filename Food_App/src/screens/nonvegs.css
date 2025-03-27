@@ -27,6 +27,9 @@
     cursor: pointer;
     object-fit:cover;
   }
+  .pizza_name{
+    text-transform: uppercase;
+  }
   
   .pizza_image:hover {
     transform: scale(1.05);
@@ -111,7 +114,7 @@
       width: 100% !important;
     }
     .pizza_name{
-        width: 100%;
+        width: 80%;
         padding-left: 10px;
         padding-right: 10px;
         overflow-wrap: break-word;
