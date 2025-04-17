@@ -4,14 +4,21 @@ const Pizza = require("../model/pizzaModel");
 
 // Get all pizzas
 router.get("/getallpizzas", async (req, res) => {
+    const page = parseInt(req.query.page) || 1;
+    const limit = 20; // or 20, based on your needs
+    const skip = (page - 1) * limit;
+
     try {
-        const pizzas = await Pizza.find({}).lean();
-        res.status(200).json(pizzas);
+        const pizzas = await Pizza.find({}).skip(skip).limit(limit).lean();
+        const total = await Pizza.countDocuments();
+
+        res.json({ success: true, pizzas, totalPages: Math.ceil(total / limit), currentPage: page });
     } catch (error) {
         console.error("Error fetching pizzas:", error);
-        res.status(500).json({ message: "Internal Server Error" });
+        res.json({ success: false, message: error.message });
     }
 });
+
 
 // Add new pizza
 router.post("/addpizza", async (req, res) => {

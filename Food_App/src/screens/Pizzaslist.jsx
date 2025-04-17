@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    getAllPizzas,deletePizza
-} from '../actions/PizzaActions';
+import { getAllPizzas, deletePizza } from '../actions/PizzaActions';
 import { Link } from 'react-router-dom';
 import "./pizzlists.css";
 
@@ -15,48 +13,26 @@ function Pizzaslist() {
     ];
 
     const dispatch = useDispatch();
+    const { pizzas, error, loading } = useSelector((state) => state.getAllPizzasReducer);
 
-    const pizasstate = useSelector((state) => state.getAllPizzasReducer);
-
-    const { pizzas, error, loading } = pizasstate;
-
-    useEffect(() => {
-        dispatch(getAllPizzas())
-    }, [dispatch,page]);
-
-    const getFilteredPizzas = () => {
-        if (!pizzas || pizzas.length === 0) return [];  // Ensure pizzas exist
     
-        return pizzas.filter((item) => {
-            if (!item.page) return false;  // Prevent undefined category errors
-    
-            const category = item.page.toLowerCase();
-            
-            switch (page) {
-                case "Homescreen":
-                    return item.page && item.page.includes("Homescreen");
-                case "Nonveg Pizzas":
-                    return item.page && item.page.includes("Nonveg");
-                case "Veg Pizzas":
-                    return item.page && item.page.includes("Veg");
-                case "Mushroom Pizzas":
-                    return item.page && item.page.includes("Mushroom");
-                case "Fruit Pizzas":
-                    return item.page && item.page.includes("Fruit");
-                case "Paratha Pizzas":
-                    return item.page && item.page.includes("Paratha");
-                case "Paneer Pizzas":
-                    return item.page && item.page.includes("Paneer");
-                default:
-                    return true; // Show all pizzas if no valid category is found
-            }
-        });
+
+    const handleDelete = async (pizzaId) => {
+        await dispatch(deletePizza(pizzaId));
+        dispatch(getAllPizzas());
     };
     
-    
-    
-    const filteredPizzas = getFilteredPizzas()
 
+    const getFilteredPizzas = () => {
+        if (!pizzas || pizzas.length === 0) return [];
+        return pizzas.filter((item) => item.page?.includes(page.replace(" Pizzas", "")));
+    };
+    useEffect(() => {
+        dispatch(getAllPizzas());
+    }, [dispatch]);
+    
+
+    const filteredPizzas = getFilteredPizzas();
 
     return (
         <div className='list_main'>
@@ -69,7 +45,7 @@ function Pizzaslist() {
                 <div className='list_header_container'>
                     <h2 className='list_header'>{page}</h2>
                     <h4 className='list_count'>
-                        Total Pizzas : <span>{filteredPizzas.length}</span>
+                        Total Pizzas: <span>{filteredPizzas.length}</span>
                     </h4>
                 </div>
             </div>
@@ -94,9 +70,7 @@ function Pizzaslist() {
                                 </td>
                                 <td className='table_pizza_category'>{pizza.category}</td>
                                 <td className='table_pizza_actions'>
-                                    <i className="fa fa-trash"
-                                        onClick={() => dispatch(deletePizza(pizza._id))}
-                                    ></i>
+                                    <i className="fa fa-trash" onClick={() => handleDelete(pizza._id)}></i>
                                     <Link to={`/admin/editpizza/${pizza._id}`}>
                                         <i className="fa fa-edit"></i>
                                     </Link>

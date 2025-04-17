@@ -85,6 +85,8 @@ function Addressscreen() {
     };
     dispatch(AddressUser(address));
     localStorage.removeItem('cartItems')
+    console.log(address);
+    
     window.location.href = '/myorders'; // Redirect after successful submission
   };
 

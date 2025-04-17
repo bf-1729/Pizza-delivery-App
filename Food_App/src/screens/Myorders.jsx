@@ -13,7 +13,7 @@ function MyOrders() {
 
   const userState = useSelector((state) => state.loginUserReducer || {});
   const { currentUser } = userState;
-  console.log(currentUser);
+  console.log(UserAddress);
   
 
   // Local states

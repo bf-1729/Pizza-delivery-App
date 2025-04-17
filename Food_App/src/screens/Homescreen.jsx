@@ -18,9 +18,10 @@ function Homescreen() {
   }, [dispatch]);
 
   // Filter pizzas for Homescreen
-  const filteredPizzas = pizzas.filter(
-    (item) => item.page?.includes("Homescreen")
-  );
+  const filteredPizzas = Array.isArray(pizzas)
+  ? pizzas.filter((item) => item.page?.includes("Homescreen"))
+  : [];
+
 
   return (
     <div className="main_screen">
