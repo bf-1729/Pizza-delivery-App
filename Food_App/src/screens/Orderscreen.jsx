@@ -8,36 +8,35 @@ function Orderscreen() {
   const dispatch = useDispatch();
   const [activeOrder, setActiveOrder] = useState(null);
 
-  // Fetch User Orders on Component Mount
+  // Fetch orders when component mounts and after delivering an order
   useEffect(() => {
     dispatch(UserAddress());
   }, [dispatch]);
 
-  // Fetch Updated Orders When an Order is Delivered
   useEffect(() => {
-    dispatch(UserAddress());
-  }, [activeOrder]);
+    if (activeOrder !== null) {
+      dispatch(UserAddress());
+    }
+  }, [activeOrder, dispatch]);
 
   const addressstate = useSelector((state) => state.UserAddressReducer);
-  const { Useraddress = [], loading, error } = addressstate;
-
-  // Debugging Logs
-  console.log("User Orders Data:", Useraddress);
+  const { Useraddress = { orders: [] }, loading, error } = addressstate;
+  const orders = Useraddress.orders || [];
 
   const handleDeliver = (orderId) => {
     dispatch(deliverOrder(orderId)).then(() => {
-      dispatch(UserAddress()); // Refetch orders after marking as delivered
+      dispatch(UserAddress());
     });
   };
 
   const openModal = (order) => {
-    console.log("Opening Modal for Order:", order);
     setActiveOrder(order);
   };
 
   const closeModal = () => {
     setActiveOrder(null);
   };
+
   if (error) return <div>{error}</div>;
 
   return (
@@ -55,12 +54,12 @@ function Orderscreen() {
           </tr>
         </thead>
         <tbody className="body">
-          {Useraddress.length > 0 ? (
-            Useraddress.map((item) => (
+          {orders.length > 0 ? (
+            orders.map((item) => (
               <tr className="row_data" key={item._id}>
                 <td className="order_data">{item._id}</td>
-                <td className="order_data">{item.currentUser.email}</td>
-                <td className="order_data">{item.currentUser._id}</td>
+                <td className="order_data">{item.currentUser?.email}</td>
+                <td className="order_data">{item.currentUser?._id}</td>
                 <td className="order_datas">
                   {new Date(item.createdAt).toLocaleString()}
                 </td>
@@ -69,7 +68,7 @@ function Orderscreen() {
                     style={{ backgroundColor: 'white', border: 'none' }}
                     onClick={() => openModal(item)}
                   >
-                    <img className='details_img' src="https://img.icons8.com/ios/50/visible--v1.png" alt="visible--v1"/>
+                    <img className='details_img' src="https://img.icons8.com/ios/50/visible--v1.png" alt="visible--v1" />
                   </button>
                 </td>
                 <td className="order_data">

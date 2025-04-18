@@ -25,10 +25,13 @@ function MyOrders() {
 
   // Update filtered orders whenever Useraddress changes
   useEffect(() => {
-    if (Array.isArray(Useraddress)) {
-      setFilteredOrders([...Useraddress].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
+    if (Array.isArray(Useraddress.orders)) {
+      setFilteredOrders([...Useraddress.orders].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
     }
   }, [Useraddress]);
+  
+  console.log(Useraddress);
+  
 
   // Filter "Incomplete" orders
   const handleFilterIncomplete = () => {
