@@ -9,7 +9,7 @@ router.get("/getallpizzas", async (req, res) => {
     const skip = (page - 1) * limit;
 
     try {
-        const pizzas = await Pizza.find({}).skip(skip).limit(limit).lean();
+        const pizzas = await Pizza.find({}).skip(skip).lean();
         const total = await Pizza.countDocuments();
 
         res.json({ success: true, pizzas, totalPages: Math.ceil(total / limit), currentPage: page });
