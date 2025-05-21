@@ -1,14 +1,13 @@
 
 .desktop-navbar {
     height: 60px;
-    width:1320px;
+    width: 100vw;
     display: flex;
-    justify-content:center;
+    justify-content:start;
     align-items: flex-start;
-    margin:66px 10px 0 10px;
+    margin:66px 10px 0 0px;
     padding: 13px;
     font-weight: 500;
-    background-color: rgb(250, 201, 201);
 }
 
 .nav-links {
@@ -54,7 +53,6 @@
     z-index: 1001;
 }
 .navbar_item{
-    width: 180px;
     height: 100px;
 }
 .sidebar.open {

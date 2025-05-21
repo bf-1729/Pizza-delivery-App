@@ -7,11 +7,14 @@ import HomeNavbar from "../components/HomeNavbar";
 import Navbar from "../components/Navbar";
 import LatestPizza from "../components/LatestPizza";
 import "./Homescreen.css";
+import Zodiyum from "../components/Zodiyum";
 
 function Homescreen() {
   const dispatch = useDispatch();
   const pizzasState = useSelector((state) => state.getAllPizzasReducer);
-  const { pizzas = [], error, loading } = pizzasState;
+  const { pizzas = [] } = pizzasState;
+  console.log(pizzas);
+  
 
   useEffect(() => {
     dispatch(getAllPizzas());
@@ -21,13 +24,13 @@ function Homescreen() {
   const filteredPizzas = Array.isArray(pizzas)
   ? pizzas.filter((item) => item.page?.includes("Homescreen"))
   : [];
-
-
+  
   return (
     <div className="main_screen">
       <Navbar />
       <HomeNavbar />
       <Carousel />
+      <Zodiyum/>
 
       <h1 className="home_heading">Latest Pizzas</h1>
       <div className="pizzascreen_container">

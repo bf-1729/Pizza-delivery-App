@@ -15,14 +15,11 @@ function Pizzaslist() {
     const dispatch = useDispatch();
     const { pizzas, error, loading } = useSelector((state) => state.getAllPizzasReducer);
 
-    
-
     const handleDelete = async (pizzaId) => {
         await dispatch(deletePizza(pizzaId));
         dispatch(getAllPizzas());
     };
     
-
     const getFilteredPizzas = () => {
         if (!pizzas || pizzas.length === 0) return [];
         return pizzas.filter((item) => item.page?.includes(page.replace(" Pizzas", "")));
@@ -30,8 +27,6 @@ function Pizzaslist() {
     useEffect(() => {
         dispatch(getAllPizzas());
     }, [dispatch]);
-    
-
     const filteredPizzas = getFilteredPizzas();
 
     return (

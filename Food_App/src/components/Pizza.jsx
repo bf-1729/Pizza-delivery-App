@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Modal, Spinner } from 'react-bootstrap';
+import { Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from '../actions/cartActions';
 import { getAllPizzas } from '../actions/PizzaActions'; // Assuming you have a pizza action to fetch pizza data
