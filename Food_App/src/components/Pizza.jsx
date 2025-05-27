@@ -10,6 +10,8 @@ function Pizza({ pizza }) {
     const [varient, setVarient] = useState("small");
     const [show, setShow] = useState(false);
     const [loading, setLoading] = useState(true);
+    console.log(pizza);
+    
 
     const dispatch = useDispatch();
 

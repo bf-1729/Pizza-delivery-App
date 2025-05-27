@@ -11,19 +11,20 @@ import Zodiyum from "../components/Zodiyum";
 
 function Homescreen() {
   const dispatch = useDispatch();
-  const pizzasState = useSelector((state) => state.getAllPizzasReducer);
-  const { pizzas = [] } = pizzasState;
+const { pizzas, loading, error } = useSelector(state => state.getAllPizzasReducer);
+
+console.log("Pizzas from state:", pizzas);
+
   console.log(pizzas);
   
 
   useEffect(() => {
-    dispatch(getAllPizzas());
-  }, [dispatch]);
+  dispatch(getAllPizzas());
+}, [dispatch]);
 
-  // Filter pizzas for Homescreen
-  const filteredPizzas = Array.isArray(pizzas)
-  ? pizzas.filter((item) => item.page?.includes("Homescreen"))
-  : [];
+
+  const filteredPizzas = Array.isArray(pizzas) ? pizzas : [];
+
   
   return (
     <div className="main_screen">

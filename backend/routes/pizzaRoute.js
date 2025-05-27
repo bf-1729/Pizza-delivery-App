@@ -7,29 +7,16 @@ dotenv.config();
 
 // Get all pizzas
 router.get("/getallpizzas", async (req, res) => {
-  const page = parseInt(req.query.page) || 1;
-  const limit = 20;
-  const skip = (page - 1) * limit;
-
+  console.log("GET /getallpizzas hit"); // ✅ Log
   try {
-      const pizzas = await Pizza.find({}, { name: 1, image: 1, category: 1, prices: 1 })
-          .skip(skip)
-          .limit(limit)
-          .lean();
-
-      const total = await Pizza.countDocuments();
-
-      res.json({ 
-          success: true, 
-          pizzas, 
-          totalPages: Math.ceil(total / limit), 
-          currentPage: page 
-      });
+    const pizzas = await Pizza.find({});
+    res.send({ pizzas });
   } catch (error) {
-      console.error("Error fetching pizzas:", error);
-      res.json({ success: false, message: error.message });
+    console.error("Error in getallpizzas route:", error);
+    res.status(400).json({ message: error });
   }
 });
+
 
 
 
