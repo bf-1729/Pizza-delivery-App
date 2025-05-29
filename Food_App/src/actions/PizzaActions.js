@@ -5,7 +5,7 @@ const backendUrl = import.meta.env.VITE_BACKEND_URL
 export const getAllPizzas = ()=>async dispatch=>{
     dispatch({type:"GET_PIZZAS_REQUEST"})
     try{const response = await axios.get(backendUrl+"/api/pizzas/getallpizzas");
-        dispatch({type:"GET_PIZZAS_SUCCESS",payload : response.data.pizzas})
+        dispatch({type:"GET_PIZZAS_SUCCESS",payload : response.data.data})
     }catch(error){
         toast.error("Network Error")
         dispatch({type:"GET_PIZZAS_FAILED",payload:error})

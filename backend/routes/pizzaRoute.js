@@ -5,22 +5,27 @@ const axios = require("axios");
 const dotenv = require("dotenv");
 dotenv.config();
 
-// Get all pizzas
 router.get("/getallpizzas", async (req, res) => {
-  console.log("GET /getallpizzas hit"); // ✅ Log
+  console.log("GET /getallpizzas called");
+
   try {
-    const pizzas = await Pizza.find({});
-    res.send({ pizzas });
+    // Optionally project only needed fields
+    const pizzas = await Pizza.find({}, {
+      name: 1,
+      prices: 1,
+      image: 1,
+      varients: 1,
+      category: 1,
+      page: 1,
+    }).lean();
+
+    res.status(200).json({ success: true, count: pizzas.length, data: pizzas });
   } catch (error) {
-    console.error("Error in getallpizzas route:", error);
-    res.status(400).json({ message: error });
+    console.error("Error in /getallpizzas:", error);
+    res.status(500).json({ success: false, message: "Failed to fetch pizzas", error: error.message });
   }
 });
 
-
-
-
-// Add new pizza
 router.post("/addpizza", async (req, res) => {
     const pizza = req.body.pizza;
     try {
@@ -31,7 +36,7 @@ router.post("/addpizza", async (req, res) => {
             page: pizza.page,
             description: pizza.description,
             category: pizza.category,
-            prices: pizza.prices, // ✅ FIXED
+            prices: pizza.prices,
         });
         await newpizza.save();
         
@@ -47,7 +52,7 @@ router.post("/getpizzabyid", async (req, res) => {
     const pizzaId = req.body.pizzaid;
 
     try {
-        const pizza = await Pizza.findOne({ _id: pizzaId }); // ✅ FIXED
+        const pizza = await Pizza.findOne({ _id: pizzaId });
 
         if (pizza) {
             return res.status(200).json(pizza);
@@ -71,7 +76,7 @@ router.post("/editpizza", async (req, res) => {
             pizza.description = editedpizza.description;
             pizza.image = editedpizza.image;
             pizza.category = editedpizza.category;
-            pizza.prices = editedpizza.prices; // ✅ FIXED
+            pizza.prices = editedpizza.prices;
             pizza.page = editedpizza.page;
 
             await pizza.save();

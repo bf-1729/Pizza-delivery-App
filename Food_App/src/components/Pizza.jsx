@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from '../actions/cartActions';
-import { getAllPizzas } from '../actions/PizzaActions'; // Assuming you have a pizza action to fetch pizza data
+import { getAllPizzas } from '../actions/PizzaActions';
 import "./pizza.css";
 
 function Pizza({ pizza }) {
@@ -14,10 +14,6 @@ function Pizza({ pizza }) {
     
 
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getAllPizzas())
-    }, [dispatch]);
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);

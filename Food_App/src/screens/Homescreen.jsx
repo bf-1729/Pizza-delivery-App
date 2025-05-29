@@ -23,7 +23,12 @@ console.log("Pizzas from state:", pizzas);
 }, [dispatch]);
 
 
-  const filteredPizzas = Array.isArray(pizzas) ? pizzas : [];
+  const filteredPizzas = pizzas.filter(
+    (item) => item.page?.includes("Homescreen")
+  );
+
+  console.log(filteredPizzas);
+  
 
   
   return (
